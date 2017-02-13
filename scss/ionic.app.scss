@@ -1,0 +1,241 @@
+$balanced: #99CC33;
+$ionicons-font-path: "../lib/ionic/fonts" !default;
+@import "../www/lib/ionic/scss";
+.floatHeading {
+	z-index: 10;
+}
+
+.volunteerHeading {
+	background-color: #000000;
+}
+
+.logoutnavContainer {
+	position: absolute;
+	right: 15px;
+	width: 18%;
+	height: 30px;
+}
+
+.imageContainer {
+	position: relative;
+	left: 0px;
+}
+
+.profileImage {
+	position: relative;
+	left: 0px;
+	width: 57%;
+}
+
+.buttonContainer {
+	padding: 3px;
+}
+
+.shortProfileRight {
+	width: 45% !important;
+	position: absolute;
+	position: right;
+	margin-right: 1px;
+	margin-left: 6px;
+	height: 28px;
+}
+
+.shortProfileLeft {
+	width: 45% !important;
+	position: relative;
+	position: left;
+	margin-left: 12px;
+	margin-right: 2px;
+	height: 28px;
+}
+
+.creditsContainer {
+	background-color: #000000;
+}
+
+.profileContainer {
+	background-color: #000000;
+}
+
+.addTimeCreditsContainer {
+	background-color: #000000;
+}
+
+.containerCreditsData {
+	width: 20%;
+	position: absolute;
+	right: 5px;
+}
+
+.timeCreditHeadingLeft {
+	width: 48%;
+	position: relative;
+	position: left;
+}
+
+.timeCreditHeadingRight {
+	width: 48%;
+	position: absolute;
+	position: right;
+}
+
+.containerHeadings {
+	width: 74%;
+	background-color: #000000;
+}
+
+.creditsHeading {
+	width: 73%;
+}
+
+.containerOuterStyle {
+	background-color: #999999;
+}
+
+.containerCredits {
+	color: #99cc33;
+	width: 31%;
+	background-color: #f0f0f0;
+}
+
+.iconstyle {
+	color: #ffffff;
+}
+
+.logocontainer {
+	position: relative;
+	left: 0px;
+	width: 57%;
+	height: 30px;
+}
+
+.loginnavcontainer {
+	position: absolute;
+	right: 15px;
+	width: 18%;
+	height: 30px;
+}
+
+.short {
+	width: 50% !important;
+	position: absolute;
+	position: center;
+	left: 24%;
+	right: 24%;
+}
+
+.a#home-button24 {
+	position: absolute;
+	position: center;
+}
+
+.button#home-button22 {
+	position: absolute;
+	right: 0px;
+}
+
+.logintext {
+	position: right;
+	position: absolute;
+}
+
+.logOutText {
+	position: right;
+	position: absolute;
+}
+
+home-heading13 {
+	border: 2px;
+	border-color: #000000;
+}
+
+.heading {
+	border: 3px;
+	border-color: #000000;
+}
+
+.containerbuttons {
+	background-color: transperant;
+}
+
+.buttonstyle {
+	opacity: 0.85;
+	border: 2px;
+	border-color: #000000;
+}
+
+.center-landing {
+	width: 290px;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}
+
+.center-form {
+	width: 290px;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	label {
+		background-color: rgba(255,255,255,0.4);
+		border-color: rgba(255,255,255,0);
+		&.top-input {
+			border-radius: 9px 9px 0px 0px !important;
+		}
+		
+		&.bottom-input {
+			border-radius: 0px 0px 9px 9px !important;
+		}
+		
+	}
+	.button-positive {
+		opacity: 0.65;
+		background-color: (#99cc33, 0.4);
+	}
+	
+}
+.error-box {
+	padding: 5px;
+	border: 1px solid darken($assertive, 20%);
+	background-color: $assertive;
+	border-radius: 9px;
+	margin-bottom: 5px;
+	p {
+		color: white;
+		margin: 0px;
+	}
+	
+	.text-button {
+		font: bold;
+	}
+	
+	.buttoncolor {
+		background-color: #99cc33;
+		opacity: 0.5;
+		border: 1px solid #000000;
+	}
+	
+}
+Contact GitHub API Training Shop Blog About
+body.platform-ios {
+	font-family: Montserrat, sans-serif;
+}
+
+.ionic-body.platform-ios {
+	font-family: Montserrat, sans-serif;
+}
+
+body.platform-android {
+	font-family: Montserrat, sans-serif;
+}
+
+.ionic-body.platform-android {
+	font-family: Montserrat, sans-serif;
+}
+
+h1,h2,h3,h4,h5,h6,.h1,.h2,.h3,.h4,.h5,.h6,.tab-item,input,button,select,textarea {
+	font-family: inherit;
+}
+

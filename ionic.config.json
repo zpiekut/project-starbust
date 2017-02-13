@@ -1,0 +1,5 @@
+{
+  "name": "involveMINT-client",
+  "app_id": "",
+  "gulpStartupTasks": ["sass", "watch"]
+}

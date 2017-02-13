@@ -1,0 +1,41 @@
+<ion-view title="Sign-Up" hide-nav-bar="true" cache-view="false" nav-transition="none" id="page10">
+  <ion-content padding="true" style="background: url(img/X0iZouESUlH2VxbAi6Ww_INvolveMINTvolunteer450x800.jpg) no-repeat center;background-size:cover;" class="manual-ios-statusbar-padding" scroll="false">
+    <div id="signUp-markdown2" ng-if="" style="text-align:center;" class="show-list-numbers-and-dots error-box">
+      <p style="color:#FFFFFF;">Whoops!!!
+        <br>Something is wrong!</p>
+    </div>
+    <div class="spacer" style="width: 300px; height: 54px;"></div>
+    <form id="signUp-form5" class="list center-form">
+      <div class="spacer" style="width: 300px; height: 30px;"></div>
+      <ion-list id="signUp-list4">
+        <label class="item item-input top-input" id="signUp-input13">
+          <span class="input-label">Name</span>
+          <input type="text" placeholder="" ng-model="data.name">
+        </label>
+        <label class="item item-input mid-input" id="signUp-input15">
+          <span class="input-label">Email</span>
+          <input type="email" placeholder="" ng-model="data.email">
+        </label>
+        <label class="item item-input bottom-input" id="signUp-input14">
+          <span class="input-label">Password</span>
+          <input type="password" placeholder="" ng-model="data.password">
+        </label>
+        <label class="item item-input age-input" id="signUp-input23">
+          <span class="input-label">Age</span>
+          <input type="text" placeholder="" ng-model="data.age">
+        </label>
+        <label class="item item-input zip-input" id="signUp-input24">
+          <span class="input-label">Zip Code</span>
+          <input type="text" placeholder="" ng-model="data.zip">
+        </label>
+      </ion-list>
+      <a ui-sref="tabController.yourProfile_tab5" id="signUp-button8" ng-click="signup()" style="font-weight:500;color:#FFFFFF;font-size:20px;border-radius:9px 9px 9px 9px;" class="button button-balanced  button-block button-positive">Sign-Up</a>
+      <a ui-sref="login" id="signUp-button9" style="font-weight:500;color:#FFFFFF;font-size:20px;" class="button button-light button-large button-block button-clear text-button">Did you Sign Up ?</a>
+      <div>
+        <a style="display:block;" ui-sref="tabController.home_tab2">
+          <img src="img/WGLzrXQ2QpWa8wftong4_involveMINT_Logo_350.png" style="display: block; width: 75%; height: auto; margin-left: auto; margin-right: auto;">
+        </a>
+      </div>
+    </form>
+  </ion-content>
+</ion-view>

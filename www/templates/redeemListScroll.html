@@ -1,0 +1,44 @@
+<ion-view title="Redeem List Scroll" hide-nav-bar="true" id="page15" style="background-color:#000000;">
+  <ion-content padding="false" class=" manual-remove-top-padding">
+    <!-- <ion-list>
+      <ion-item href="#/page4">A New Hope</ion-item>
+      <ion-item href="#/page4">The Empire Strikes Back</ion-item>
+      <ion-item href="#/page4">Return of the Jedi</ion-item>
+      <ion-item ng-repeat="project in projects" ui-sref="filmTitle({id:project.id})">
+        {{project.title}}
+        <div>
+          <a style="display:block;" ui-sref="tabController.redeemJamesSt">
+            <img src="img/6R0fkZoSJKpsrqBkHucs_James.jpg" style="display: block; width: 100%; height: auto; margin-left: auto; margin-right: auto;">
+          </a>
+        </div>
+      </ion-item>
+    </ion-list> -->
+    <div id="redeemListScroll-container15">
+      <div ng-repeat="redemption in redemptions">
+        <a style="display:block;" ui-sref="tabController.redeemJamesSt({id:redemption.id})">
+          <img src="{{redemption.image}}" style="display: block; width: 100%; height: auto; margin-left: auto; margin-right: auto;">
+        </a>
+      </div>
+      <div>
+        <a style="display:block;" ui-sref="tabController.redeemJamesSt">
+          <img src="img/6R0fkZoSJKpsrqBkHucs_James.jpg" style="display: block; width: 100%; height: auto; margin-left: auto; margin-right: auto;">
+        </a>
+      </div>
+      <div>
+        <a style="display:block;" ui-sref="tabController.redeemDeco">
+          <img src="img/SrS6pN4RcWvtPEx8qL8Q_DECO.jpg" style="display: block; width: 100%; height: auto; margin-left: auto; margin-right: auto;">
+        </a>
+      </div>
+      <div>
+        <a style="display:block;" ui-sref="tabController.redeemPhoto">
+          <img src="img/bV079yK5RguqyKTuTFPG_Photo.jpg" style="display: block; width: 100%; height: auto; margin-left: auto; margin-right: auto;">
+        </a>
+      </div>
+      <div>
+        <a style="display:block;" ui-sref="tabController.redeemVenture">
+          <img src="img/ueQAotLGSR2ENcUAAcum_VO.jpg" style="display: block; width: 100%; height: auto; margin-left: auto; margin-right: auto;">
+        </a>
+      </div>
+    </div>
+  </ion-content>
+</ion-view>
