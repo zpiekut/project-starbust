@@ -1,5 +1,29 @@
 angular.module('app.controllers', [])
 
+.controller('AppCtrl', function($scope, $state, $ionicPopup, AuthService, AUTH_EVENTS) {
+  $scope.username = AuthService.username();
+
+  $scope.$on(AUTH_EVENTS.notAuthorized, function(event) {
+    var alertPopup = $ionicPopup.alert({
+      title: 'Unauthorized!',
+      template: 'You are not allowed to access this resource.'
+    });
+  });
+
+  $scope.$on(AUTH_EVENTS.notAuthenticated, function(event) {
+    AuthService.logout();
+    $state.go('login');
+    var alertPopup = $ionicPopup.alert({
+      title: 'Session Lost!',
+      template: 'Sorry, You have to login again.'
+    });
+  });
+
+  $scope.setCurrentUsername = function(name) {
+    $scope.username = name;
+  };
+})
+
 .controller('redeemListScrollCtrl', ['$scope', '$stateParams', 'RedemptionsService', // The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
 // You can include any angular dependencies as parameters for this function
 // TIP: Access Route Parameters for your page via $stateParams.parameterName
@@ -13,36 +37,37 @@ function ($scope, $stateParams, RedemptionsService) {
     });
 }])
 
-.controller('homeCtrl', ['$scope', '$stateParams', '$ionicUser', '$ionicAuth', '$state', // The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
-// You can include any angular dependencies as parameters for this function
-// TIP: Access Route Parameters for your page via $stateParams.parameterName
-function ($scope, $stateParams, $ionicUser, $ionicAuth, $state) {
+.controller('DashCtrl', function($scope, $state, $http, $ionicPopup, AuthService) {
+  $scope.logout = function() {
+    AuthService.logout();
+    $state.go('login');
+  };
 
-     $scope.data = {
-        'email': '',
-        'password': ''
-    }
+  $scope.performValidRequest = function() {
+    $http.get('http://localhost:8100/valid').then(
+      function(result) {
+        $scope.response = result;
+      });
+  };
 
-     $scope.error = '';
+  $scope.performUnauthorizedRequest = function() {
+    $http.get('http://localhost:8100/notauthorized').then(
+      function(result) {
+        // No result here..
+      }, function(err) {
+        $scope.response = err;
+      });
+  };
 
-     if ($ionicAuth.isAuthenticated()){
-         $state.go('tabController.yourProfile')
-     }
-
-
-
-     //
-     $scope.login = function(){
-        $scope.error = '';
-        $ionicAuth.login('basic', $scope.data).then(function(){
-            $state.go('tabController.home');
-        }, function(){
-            $scope.error = 'Error logging in.';
-        })
-    }
-
-}
-   ])
+  $scope.performInvalidRequest = function() {
+    $http.get('http://localhost:8100/notauthenticated').then(
+      function(result) {
+        // No result here..
+      }, function(err) {
+        $scope.response = err;
+      });
+  };
+})
 
 .controller('redeemJamesStCtrl', ['$scope', '$stateParams', 'RedemptionsService', // The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
 // You can include any angular dependencies as parameters for this function
@@ -212,40 +237,21 @@ function ($scope, $stateParams, $ionicUser, $ionicAuth, $state) {
 
 }])
 
-.controller('loginCtrl', ['$scope', '$stateParams', '$ionicUser', '$ionicAuth', '$state',
-// The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
-// You can include any angular dependencies as parameters for this function
-// TIP: Access Route Parameters for your page via $stateParams.parameterName
-function ($scope, $stateParams, $ionicUser, $ionicAuth, $state) {
+.controller('LoginCtrl', function($scope, $state, $ionicPopup, AuthService) {
+  $scope.data = {};
 
-    $scope.data = {
-        'email': '',
-        'password': ''
-    }
-   //error
-    $scope.error = '';
-
-    if ($ionicAuth.isAuthenticated()) {
-         // Make sure the user data is going to be loaded
-        console.log("isAuthenticated");
-        $state.go('yourProfile');
-    }
-
-    $scope.login = function(){
-        console.log($scope.data);
-        $scope.error = '';
-        // var loginOptions = {'inAppBrowserOptions': {'hidden': true}};
-
-        $ionicAuth.login('basic', $scope.data).then(function(){
-          console.log("login");
-          // $state.go('home');
-        }, function(err){
-          console.log("error:" + err);
-          $scope.error = 'Error logging in.';
-        })
-    }
-
-}])
+  $scope.login = function(data) {
+    AuthService.login(data.username, data.password).then(function(authenticated) {
+      $state.go('main.dash', {}, {reload: true});
+      $scope.setCurrentUsername(data.username);
+    }, function(err) {
+      var alertPopup = $ionicPopup.alert({
+        title: 'Login failed!',
+        template: 'Please check your credentials!'
+      });
+    });
+  };
+})
 
 .controller('signUpCtrl', ['$scope', '$stateParams', '$ionicAuth', '$ionicUser', '$state',
 // The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
