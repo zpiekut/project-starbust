@@ -225,7 +225,52 @@ function ($scope, $stateParams, $ionicUser, $ionicAuth, $state) {
    //error
     $scope.error = '';
 
+    if ($ionicAuth.isAuthenticated()) {
+         // Make sure the user data is going to be loaded
+        console.log("isAuthenticated");
+        $state.go('yourProfile');
+    }
+
+    $scope.login = function(){
+        console.log($scope.data);
+        $scope.error = '';
+        // var loginOptions = {'inAppBrowserOptions': {'hidden': true}};
+
+
+        $ionicAuth.login('basic', $scope.data).then(function(res){
+          console.log("login" + res.x);
+          // $state.go('home');
+        }, function(err){
+          console.log("error:" + err);
+          $scope.error = 'Error logging in.';
+        })
+    }
+
 }])
+
+.controller('AppCtrl', function($scope, $state, $ionicPopup, AuthService, AUTH_EVENTS) {
+  $scope.username = AuthService.username();
+
+  $scope.$on(AUTH_EVENTS.notAuthorized, function(event) {
+    var alertPopup = $ionicPopup.alert({
+      title: 'Unauthorized!',
+      template: 'You are not allowed to access this resource.'
+    });
+  });
+
+  $scope.$on(AUTH_EVENTS.notAuthenticated, function(event) {
+    AuthService.logout();
+    $state.go('login');
+    var alertPopup = $ionicPopup.alert({
+      title: 'Session Lost!',
+      template: 'Sorry, You have to login again.'
+    });
+  });
+
+  $scope.setCurrentUsername = function(name) {
+    $scope.username = name;
+  };
+})
 
 .controller('signUpCtrl', ['$scope', '$stateParams', '$ionicAuth', '$ionicUser', '$state',
 // The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
