@@ -225,26 +225,6 @@ function ($scope, $stateParams, $ionicUser, $ionicAuth, $state) {
    //error
     $scope.error = '';
 
-    if ($ionicAuth.isAuthenticated()) {
-         // Make sure the user data is going to be loaded
-        console.log("isAuthenticated");
-        $state.go('yourProfile');
-    }
-
-    $scope.login = function(){
-        console.log($scope.data);
-        $scope.error = '';
-        // var loginOptions = {'inAppBrowserOptions': {'hidden': true}};
-
-        $ionicAuth.login('basic', $scope.data).then(function(){
-          console.log("login");
-          // $state.go('home');
-        }, function(err){
-          console.log("error:" + err);
-          $scope.error = 'Error logging in.';
-        })
-    }
-
 }])
 
 .controller('signUpCtrl', ['$scope', '$stateParams', '$ionicAuth', '$ionicUser', '$state',
