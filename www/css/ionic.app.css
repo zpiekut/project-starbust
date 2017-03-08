@@ -9986,3 +9986,57 @@ body.platform-android {
 
 h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6, .tab-item, input, button, select, textarea {
   font-family: inherit; }
+
+/*---------------------------Custom Styles---------------------------------*/
+
+/*Home page*/
+
+.spacer {
+   width: 320px;
+   height: 10px;
+}
+
+.homeSpacer {
+   height: 208px;
+}
+
+#logo {
+   display: block;
+   width: 100%;
+   height: auto;
+   margin-left: auto;
+   margin-right: auto;
+}
+
+#home-heading11 {
+   color:#FFFFFF;
+   text-align:right;
+}
+
+#home-heading13 {
+   color:#FFFFFF;
+   text-align:right;
+}
+
+#home-container14 {
+   margin-right: 20px;
+   font-weight: bold;
+}
+
+#home-heading16 {
+   color:#FFFFFF;
+   text-align:right;
+}
+
+#home-button17 {
+   color: #8cb531;
+   background: white;
+   font-weight: bold;
+}
+
+#home-button19 {
+   font-weight:500;
+   color:#FFFFFF;
+   font-size:20px;
+   border-radius:9px 9px 9px 9px;
+}
