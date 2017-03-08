@@ -10081,8 +10081,21 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6, .tab-item, input, button, 
 
 .input-label {
    font-weight: bold;
+   height:
 }
 
 #_label-3 {
    width: 12px;
+}
+
+#alreadyMember {
+   text-align: center;
+   color: white;
+   margin-top: 1.2em;
+}
+
+a#signUp-button9 {
+   background: white;
+   color: #8cb531;
+   font-weight: 800;
 }
