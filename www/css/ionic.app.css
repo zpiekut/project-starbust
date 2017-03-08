@@ -10040,3 +10040,34 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6, .tab-item, input, button, 
    font-size:20px;
    border-radius:9px 9px 9px 9px;
 }
+
+/*Login/Sign-up Page*/
+
+#login-markdown1 {
+   text-align:center;
+}
+
+#login-markdown1 p {
+   color: white;
+}
+
+#login-button11 {
+   font-weight:600;
+   color:#FFFFFF;
+   font-size:20px;
+}
+
+#login-button10 {
+   font-weight:600;
+   color:#FFFFFF;
+   font-size:20px;
+   border-radius:9px 9px 9px 9px;
+}
+
+.center-form .button-positive {
+   opacity: 1;
+}
+
+.signUpLogoContainer img {
+   margin-top: -20px;
+}
