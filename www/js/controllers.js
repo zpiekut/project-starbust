@@ -212,39 +212,75 @@ function ($scope, $stateParams, $ionicUser, $ionicAuth, $state) {
 
 }])
 
-.controller('loginCtrl', ['$scope', '$stateParams', '$ionicUser', '$ionicAuth', '$state',
+.controller('loginCtrl', ['$scope', '$stateParams', '$ionicUser', '$ionicAuth', '$state', 'AuthenticationService',
+  'ProjectsService',
 // The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
 // You can include any angular dependencies as parameters for this function
 // TIP: Access Route Parameters for your page via $stateParams.parameterName
-function ($scope, $stateParams, $ionicUser, $ionicAuth, $state) {
+function ($scope, $stateParams, $ionicUser, $ionicAuth, $state, AuthenticationService, ProjectsService) {
 
     $scope.data = {
         'email': '',
         'password': ''
     }
-   //error
-    $scope.error = '';
 
-    if ($ionicAuth.isAuthenticated()) {
-         // Make sure the user data is going to be loaded
-        console.log("isAuthenticated");
-        $state.go('yourProfile');
-    }
+    $scope.login = function() {
 
-    $scope.login = function(){
-        console.log($scope.data);
-        $scope.error = '';
-        // var loginOptions = {'inAppBrowserOptions': {'hidden': true}};
+      AuthenticationService.login($scope.data);
+    };
+
+    $scope.$on('event:auth-loginRequired', function(e, rejection) {
+      console.log('handling login required');
+      $scope.loginModal.show();
+    });
+
+    $scope.$on('event:auth-loginConfirmed', function() {
+      $scope.username = null;
+      $scope.password = null;
+      $scope.loginModal.hide();
+    });
+
+    $scope.$on('event:auth-login-failed', function(e, status) {
+      var error = "Login failed.";
+      if (status == 401) {
+        error = "Invalid Username or Password.";
+      }
+      $scope.message = error;
+    });
+//get to logout later
+
+    // $scope.$on('event:auth-logout-complete', function() {
+    //   console.log("logout complete");
+    //   $state.go('app.home', {}, {reload: true, inherit: false});
+    // });
+    //
 
 
-        $ionicAuth.login('basic', $scope.data).then(function(res){
-          console.log("login" + res.x);
-          // $state.go('home');
-        }, function(err){
-          console.log("error:" + err);
-          $scope.error = 'Error logging in.';
-        })
-    }
+
+  //Previous controller
+   // //error
+   //  $scope.error = '';
+   //
+   //  if ($ionicAuth.isAuthenticated()) {
+   //       // Make sure the user data is going to be loaded
+   //      console.log("isAuthenticated");
+   //      $state.go('yourProfile');
+   //  }
+   //
+   //  $scope.login = function(){
+   //      console.log($scope.data);
+   //      $scope.error = '';
+   //      // var loginOptions = {'inAppBrowserOptions': {'hidden': true}};
+   //
+   //
+   //      $ionicAuth.login('basic', $scope.data).then(function(res){
+   //        console.log("login" + res.x);
+   //        // $state.go('home');
+   //      }, function(err){
+   //        console.log("error:" + err);
+   //        $scope.error = 'Error logging in.';
+   //      })
+   //  }
 
 }])
 

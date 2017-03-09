@@ -4,37 +4,44 @@ angular.module('app.services', [])
 
 }])
 
-.service('AuthenticationService', function($rootScope, $http, authService, localStorageService) {
+.service('AuthenticationService', ['$rootScope', '$http', 'MyLocalStorageService',
+  function($rootScope, $http, MyLocalStorageService
+  ) {
+  return {
+    login: function (user) {
 
-  login: function (user) {
-    $http.post('https://login', { user: user }, { ignoreAuthModule: true })
-      .success(function (data, status, headers, config) {
+      $http.post('http://localhost:3000/routes/login', { user: user }, { ignoreAuthModule: true })
+        .success(function (data, status, headers, config) {
 
-        $http.defaults.headers.common.Authorization = data.authorizationToken;
-        localStorageService.set('authorizationToken', data.authorizationToken);
+          MyLocalStorageService.storeToken(data.jwt);
 
-        authService.loginConfirmed(data, function(config) {
-          config.headers.Authorization = data.authorizationToken;
-          return config;
+        })
+        .error(function (data, status, headers, config) {
+          $rootScope.$broadcast('event:auth-login-failed', status);
         });
-      })
-      .error(function (data, status, headers, config) {
-        $rootScope.$broadcast('event:auth-login-failed', status);
-      });
-  },
-  logout: function (user) {
-    $http.post('https://logout', {}, { ignoreAuthModule: true })
-      .finally(function(data) {
-        localStorageService.remove('authorizationToken');
-        delete $http.defaults.headers.common.Authorization;
-        $rootScope.$broadcast('event:auth-logout-complete');
-      });
-  },
-  loginCancelled: function() {
-    authService.loginCancelled();
+    },
+    logout: function (user) {
+      $http.post('https://localhost:3000/routes/logout', {}, { ignoreAuthModule: true })
+        .finally(function(data) {
+          //localStorageService.remove('authorizationToken');
+          delete $http.defaults.headers.common.Authorization;
+          $rootScope.$broadcast('event:auth-logout-complete');
+        });
+    }
+    // loginCancelled: function() {
+    //   authService.loginCancelled();
+    // }
+  }
+}])
+
+.service('MyLocalStorageService', [function(){
+  return{
+    storeToken: function (token) {
+      window.localStorage.setItem('tokenKey', JSON.stringify(data.jwt));
+    }
   }
 
-})
+}])
 
 .service('ProjectsService', ['$http','$q',function($http, $q){
     var projects = [];
