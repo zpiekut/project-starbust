@@ -5,12 +5,12 @@ angular.module('app.controllers', [])
 // TIP: Access Route Parameters for your page via $stateParams.parameterName
 function ($scope, $stateParams, RedemptionsService) {
     $scope.redemptions = [];
-
-    RedemptionsService.getRedemptions().then(function(redemptions) {
-      $scope.redemptions = redemptions;
-      redemptions[0].link = "redeemJamesSt";
-      console.log(redemptions);
-    });
+    $scope.getRedemptions =
+      RedemptionsService.getRedemptions().then(function(redemptions) {
+        $scope.redemptions = redemptions;
+        redemptions[0].link = "redeemJamesSt";
+        console.log(redemptions);
+      });
 }])
 
 .controller('homeCtrl', ['$scope', '$stateParams', '$ionicUser', '$ionicAuth', '$state', // The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
@@ -196,16 +196,17 @@ function ($scope, $stateParams) {
 
 }])
 
-.controller('yourProfileCtrl', ['$scope', '$stateParams', '$ionicUser', '$ionicAuth', '$state', // The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
+.controller('yourProfileCtrl', ['$scope', '$stateParams', '$ionicUser', '$ionicAuth', '$state', 'AuthenticationService',
+// The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
 // You can include any angular dependencies as parameters for this function
 // TIP: Access Route Parameters for your page via $stateParams.parameterName
-function ($scope, $stateParams, $ionicUser, $ionicAuth, $state) {
+function ($scope, $stateParams, $ionicUser, $ionicAuth, $state, AuthenticationService) {
 
     $scope.userData = $ionicUser.details;
 
 
     $scope.logout = function(){
-        $ionicAuth.logout();
+        AuthenticationService.logout();
         $state.go('home');
     }
 
@@ -222,7 +223,7 @@ function ($scope, $stateParams, $ionicUser, $ionicAuth, $state, AuthenticationSe
     $scope.data = {
         'email': '',
         'password': ''
-    }
+    };
 
     $scope.login = function() {
 
@@ -231,13 +232,16 @@ function ($scope, $stateParams, $ionicUser, $ionicAuth, $state, AuthenticationSe
 
     $scope.$on('event:auth-loginRequired', function(e, rejection) {
       console.log('handling login required');
-      $scope.loginModal.show();
+      //$scope.loginModal.show();
     });
 
-    $scope.$on('event:auth-loginConfirmed', function() {
+    $scope.$on('event:auth-login-confirmed', function() {
       $scope.username = null;
       $scope.password = null;
-      $scope.loginModal.hide();
+      //$scope.loginModal.hide();
+      $scope.message = '';
+      //TODO: resolve state.go error
+      $state.go('home', {}, {reload: true, inherit: false});
     });
 
     $scope.$on('event:auth-login-failed', function(e, status) {
@@ -247,13 +251,12 @@ function ($scope, $stateParams, $ionicUser, $ionicAuth, $state, AuthenticationSe
       }
       $scope.message = error;
     });
-//get to logout later
 
-    // $scope.$on('event:auth-logout-complete', function() {
-    //   console.log("logout complete");
-    //   $state.go('app.home', {}, {reload: true, inherit: false});
-    // });
-    //
+    $scope.$on('event:auth-logout-complete', function() {
+      console.log("logout complete");
+      $state.go('app.login', {}, {reload: true, inherit: false});
+    });
+
 
 
 
@@ -308,41 +311,47 @@ function ($scope, $stateParams, $ionicUser, $ionicAuth, $state, AuthenticationSe
   };
 })
 
-.controller('signUpCtrl', ['$scope', '$stateParams', '$ionicAuth', '$ionicUser', '$state',
+.controller('signUpCtrl', ['$scope', '$stateParams', '$ionicAuth', '$ionicUser', '$state', 'AuthenticationService',
 // The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
 // You can include any angular dependencies as parameters for this function
 // TIP: Access Route Parameters for your page via $stateParams.parameterName
-function ($scope, $stateParams, $ionicAuth, $ionicUser, $state) {
+function ($scope, $stateParams, $ionicAuth, $ionicUser, $state, AuthenticationService) {
 
     $scope.data = {
-        'name': '',
         'email': '',
-        'password': ''
-    }
+        'password': '',
+        'firstname': '',
+        'lastname': '',
+        'neighborhood': ''
+    };
 
     $scope.error= '';
 
     $scope.signup = function(){
 
-        $scope.error = '';
+      AuthenticationService.signUp($scope.data);
 
-        $ionicAuth.signup($scope.data).then(function() {
-             // `$ionicUser` is now registered
-            $ionicAuth.login('custom', $scope.data).then(function(){
-              $state.go('tabController.yourProfile');
-            });
-        }, function(err) {
 
-            var error_lookup = {
-                'required_email': 'Missing email field',
-                'required_password': 'Missing password field',
-                'conflict_email': 'A user has already signed up with that email',
-                'conflict_username': 'A user has already signed up with that username',
-                'invalid_email': 'The email did not pass validation'
-            }
-
-            $scope.error = error_lookup[err.details[0]];
-        });
+      //previous controller
+        // $scope.error = '';
+        //
+        // $ionicAuth.signup($scope.data).then(function() {
+        //      // `$ionicUser` is now registered
+        //     $ionicAuth.login('custom', $scope.data).then(function(){
+        //       $state.go('tabController.yourProfile');
+        //     });
+        // }, function(err) {
+        //
+        //     var error_lookup = {
+        //         'required_email': 'Missing email field',
+        //         'required_password': 'Missing password field',
+        //         'conflict_email': 'A user has already signed up with that email',
+        //         'conflict_username': 'A user has already signed up with that username',
+        //         'invalid_email': 'The email did not pass validation'
+        //     }
+        //
+        //     $scope.error = error_lookup[err.details[0]];
+        // });
     }
 
 }])
