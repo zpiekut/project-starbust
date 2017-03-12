@@ -241,7 +241,7 @@ function ($scope, $stateParams, $ionicUser, $ionicAuth, $state, AuthenticationSe
       //$scope.loginModal.hide();
       $scope.message = '';
       //TODO: resolve state.go error
-      $state.go('home', {}, {reload: true, inherit: false});
+      $state.go('tabController.redeemJamesSt', {}, {reload: true, inherit: false});
     });
 
     $scope.$on('event:auth-login-failed', function(e, status) {
