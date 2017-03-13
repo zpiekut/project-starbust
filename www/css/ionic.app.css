@@ -10117,14 +10117,14 @@ a#home-button17 {
 
 #alreadyMember {
    text-align: center;
-   color: #333;
+   color: #595959;
    margin-top: 1.2em;
 }
 
-a#signUp-button9 {
+a.signUp-button9 {
    text-align: center;
    display: inherit;
-   color: black;
+   color: #595959;
    font-size: 16px;
 }
 
@@ -10137,12 +10137,36 @@ a#signUp-button9 {
    height: 55px;
    border-radius: 5px;
    font-size: 1.2em;
+
 }
 
-#signUp-list4 h2 {
+.list .register-input {
+   border: 1px solid #bebebe;
+   padding: 5px;
+   font-size: 20px;
+   font-weight: normal;
+}
+
+#signUp-list4 h2, #login-form4 h2 {
+   font-family: 'Montreal Serial ExtraBold';
    text-align: center;
+   color: #595959;
 }
 
-#signUp-form5 {
+#login-form4 .list {
+   margin-top: 8px;
+
+}
+
+#signUp-form5, #login-form4 {
    font-family: 'Droid Sans', sans-serif;
+   color: #595959;
+
+}
+a#login-button11 {
+    color: color: #595959;
+    color: #595959;
+    font-weight: normal;
+    margin-top: 40px;
+    font-size: 1.3em;
 }

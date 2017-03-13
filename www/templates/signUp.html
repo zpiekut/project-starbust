@@ -1,5 +1,5 @@
 <ion-view title="Sign-Up" hide-nav-bar="true" cache-view="false" nav-transition="none" id="page10">
-  <ion-content padding="true" style="background: url(img/sign-up.png) no-repeat center;background-size:cover;" class="manual-ios-statusbar-padding" scroll="false">
+  <ion-content padding="true" style="background: url(img/sign-up-light.png) no-repeat center;background-size:cover;" class="manual-ios-statusbar-padding" scroll="false">
     <div id="signUp-markdown2" ng-if="" style="text-align:center;" class="show-list-numbers-and-dots error-box">
       <p style="color:#FFFFFF;">Whoops!!!
         <br>Something is wrong!</p>
@@ -14,7 +14,7 @@
            </a>
          </div>
          <h2>Register</h2>
-        <label> Name</label>
+        <label>Full Name</label>
 
           <input class="register-input" type="text" placeholder="" ng-model="data.name">
 
@@ -36,7 +36,7 @@
       </ion-list>
       <a ui-sref="tabController.yourProfile_tab5" id="signUp-button8" ng-click="signup()" style="font-weight:500;color:#FFFFFF;font-size:20px;border-radius:9px 9px 9px 9px;" class="button button-balanced  button-block button-positive">Sign-Up</a>
       <h4 id="alreadyMember">Already a member?</h4>
-      <a ui-sref="login" id="signUp-button9">Sign In</a>
+      <a ui-sref="login" class="signUp-button9">Sign In</a>
     </form>
   </ion-content>
 </ion-view>
