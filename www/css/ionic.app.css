@@ -7725,7 +7725,7 @@ input[type="color"] {
   display: block;
   padding-top: 2px;
   padding-left: 0;
-  height: 34px;
+  height: 45px;
   color: #111;
   vertical-align: middle;
   font-size: 14px;
@@ -9944,7 +9944,7 @@ home-heading13 {
 .center-form {
   width: 290px;
   position: absolute;
-  top: 50%;
+  top: 40%;
   left: 50%;
 
   transform: translate(-50%, -50%); }
@@ -10067,6 +10067,12 @@ a#home-button17 {
 
 /*Login/Sign-up Page*/
 
+.login-icon {
+   width: 25%;
+   display: block;
+   margin: 0 auto 20px auto;
+}
+
 #login-markdown1 {
    text-align:center;
 }
@@ -10096,14 +10102,13 @@ a#home-button17 {
    margin-top: -20px;
 }
 
-.list label {
-   border: 0.5px solid #D3D3D3;
-   ;
+.list {
+   margin-top: 36px;
 }
 
-.input-label {
-   font-weight: bold;
-   height:
+.list label {
+   font-size: 17px;
+   /*font-weight: bold;*/
 }
 
 #_label-3 {
@@ -10117,11 +10122,27 @@ a#home-button17 {
 }
 
 a#signUp-button9 {
-   background: white;
-   color: #8cb531;
-   font-weight: 800;
+   text-align: center;
+   display: inherit;
+   color: black;
+   font-size: 16px;
 }
 
 #login-input11, #login-input12 {
    margin: 20px;
+}
+
+.register-input {
+   width: 100%;
+   height: 55px;
+   border-radius: 5px;
+   font-size: 1.2em;
+}
+
+#signUp-list4 h2 {
+   text-align: center;
+}
+
+#signUp-form5 {
+   font-family: 'Droid Sans', sans-serif;
 }
