@@ -3761,7 +3761,8 @@ a.subdued {
     box-shadow: none;
     border-color: #d1d3d6;
     color: #007aff;
-    background: #e4e5e7; }
+    background: #e4e5e7;
+}
 
 .action-sheet-has-icons .icon {
   position: absolute;
@@ -8633,9 +8634,10 @@ progress {
       background: transparent;
       color: #ddd; }
       .button.button-light.button-outline.active, .button.button-light.button-outline.activated {
-        background-color: #ddd;
+        /*background-color: #ddd;
         box-shadow: none;
-        color: #fff; }
+        color: #fff; */
+     }
   .button.button-stable {
     border-color: transparent;
     background-color: #f8f8f8;
@@ -9950,7 +9952,8 @@ home-heading13 {
     /*background-color: rgba(255, 255, 255, 0.4);*/
     border-color: rgba(255, 255, 255, 0); }
     .center-form label.top-input {
-      border-radius: 9px 9px 0px 0px !important; }
+
+    }
     .center-form label.bottom-input {
       /*border-radius: 0px 0px 9px 9px !important; */
    }
@@ -9993,6 +9996,11 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6, .tab-item, input, button, 
 
 /*Home page*/
 
+img#logo {
+   width: 50%;
+   margin-left: 9px;
+}
+
 .spacer {
    width: 320px;
    height: 10px;
@@ -10022,6 +10030,7 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6, .tab-item, input, button, 
 
 #home-container14 {
    margin-right: 20px;
+   margin-top: -45px;
    font-weight: bold;
 }
 
@@ -10030,17 +10039,30 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6, .tab-item, input, button, 
    text-align:right;
 }
 
-#home-button17 {
-   color: #8cb531;
-   background: white;
+a#home-button17 {
+   display: block;
+   border: none;
+   position: absolute;
+   bottom: 109px;
+   transform: translateX(50%);
+   right: 50%;
    font-weight: bold;
+   font-size: 1.3em;
+   width: 20%;
+   margin: 0 auto;
 }
 
 #home-button19 {
    font-weight:500;
+   margin-top: 42px;
    color:#FFFFFF;
+   opacity: 1;
    font-size:20px;
    border-radius:9px 9px 9px 9px;
+}
+
+#home-button19:active {
+   background: none;
 }
 
 /*Login/Sign-up Page*/
@@ -10090,7 +10112,7 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6, .tab-item, input, button, 
 
 #alreadyMember {
    text-align: center;
-   color: white;
+   color: #333;
    margin-top: 1.2em;
 }
 
@@ -10098,4 +10120,8 @@ a#signUp-button9 {
    background: white;
    color: #8cb531;
    font-weight: 800;
+}
+
+#login-input11, #login-input12 {
+   margin: 20px;
 }
