@@ -10158,6 +10158,13 @@ a.signUp-button9 {
 
 }
 
+a#signUp-button8 {
+   font-weight: bold;
+   color:#FFFFFF;
+   font-size:20px;
+   border-radius:9px 9px 9px 9px;
+}
+
 #signUp-form5, #login-form4 {
    font-family: 'Droid Sans', sans-serif;
    color: #595959;
@@ -10169,4 +10176,30 @@ a#login-button11 {
     font-weight: normal;
     margin-top: 40px;
     font-size: 1.3em;
+}
+
+/*Nav bar edits*/
+
+.tabs .tab-item .icon.volunteer {
+  background-repeat: no-repeat;
+  background-position: 50%;
+  height: 100%;
+  background-image: url("../img/volunteer.png");
+  background-size:contain;
+}
+
+.tabs .tab-item .icon.redeem {
+  background-repeat: no-repeat;
+  background-position: 50%;
+  height: 100%;
+  background-image: url("../img/redeem.png");
+  background-size:contain;
+}
+
+.tabs .tab-item .icon.credits {
+  background-repeat: no-repeat;
+  background-position: 50%;
+  height: 100%;
+  background-image: url("../img/credits.png");
+  background-size:contain;
 }
