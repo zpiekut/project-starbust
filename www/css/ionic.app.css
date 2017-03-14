@@ -3319,7 +3319,7 @@ body,
   overflow: hidden;
   margin: 0;
   padding: 0;
-  color: #000;
+  color: white;
   word-wrap: break-word;
   font-size: 14px;
   font-family: -apple-system;
@@ -5239,10 +5239,12 @@ ion-tabs.tabs-striped.tabs-color-active-dark .tab-item.tab-item-active, ion-tabs
   pointer-events: none; }
 
 .nav-bar-tabs-top.hide ~ .view-container .tabs-top .tabs {
-  top: 0; }
+  top: 0; 
+  display:none;
+}
 
 .pane[hide-nav-bar="true"] .has-tabs-top {
-  top: 49px; }
+  top: 0px; }
 
 /**
  * Menus
@@ -9802,8 +9804,111 @@ a.button {
 .floatHeading {
   z-index: 10; }
 
-.volunteerHeading {
-  background-color: #000000; }
+/*Volunteer opportunity page*/
+
+.volunteer-container {
+  padding:30px;
+}
+
+.volunteer-container p {
+  color:black;
+}
+
+.volunteer-container button {
+  width:100px;
+}
+
+.where, 
+.date, 
+.when, 
+.place,
+.problem,
+.solution {
+  display:inline-block;
+  padding: 0px 5px 0px 0px;
+  margin:0;
+}
+
+.where, 
+.when, 
+.problem,
+.solution,
+.address {
+  font-weight:700;
+}
+
+.event-title, 
+.organization
+{
+  background-color:transparent;
+  color:white;
+}
+
+.volunteer-title
+{
+  background-color: rgba(0, 0, 0, 0.5);
+  height:200px;
+  padding:30px;
+}
+.volunteer-title button {
+  width:100px;
+}
+
+.volunteer-address p {
+  color:black;
+  padding:0;
+  margin:0;
+  text-decoration:none;
+}
+
+.volunteer-address a, 
+.calendar-add {
+  text-decoration: none;
+}
+
+.friends-volunteering {
+  background-color:#D3D3D3;
+  padding:20px;
+  text-align: left;
+  color:black;
+}
+
+.friends-title {
+  color:black;
+  margin-left:3%;
+  padding-bottom:5px;
+}
+
+.friend {
+  padding-left:3%;
+  padding-right:3%;
+  display:inline-block;
+}
+
+.friend img {
+  height: 100px;
+  border-radius:50%;
+}
+
+.friend p {
+  text-align:center;
+  color:black;
+}
+
+.social-share {
+  padding:20px;
+  text-align:center;
+}
+
+.social-share img {
+  height:50px;
+  padding-left:1%;
+  padding-right:1%;
+}
+
+#dump-buster-heading {
+  background-image:url('/img/dumpbuster.jpg');
+}
 
 .logoutnavContainer {
   position: absolute;
