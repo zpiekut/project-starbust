@@ -10115,23 +10115,23 @@ form.list {
 .tabs .tab-item .icon.volunteer {
   background-repeat: no-repeat;
   background-position: 50%;
-  height: 100%;
+  height: 70%;
   background-image: url("../img/volunteer.png");
-  background-size:contain;
-}
-
-.tabs .tab-item .icon.redeem {
-  background-repeat: no-repeat;
-  background-position: 50%;
-  height: 100%;
-  background-image: url("../img/redeem.png");
   background-size:contain;
 }
 
 .tabs .tab-item .icon.credits {
   background-repeat: no-repeat;
   background-position: 50%;
-  height: 100%;
+  height: 70%;
   background-image: url("../img/credits.png");
+  background-size:contain;
+}
+
+.tabs .tab-item .icon.redeem {
+  background-repeat: no-repeat;
+  background-position: 50%;
+  height: 70%;
+  background-image: url("../img/rewards.png");
   background-size:contain;
 }
