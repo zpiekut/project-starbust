@@ -1,38 +1,38 @@
 <ion-view title="Your Profile" hide-nav-bar="true" id="page7" style="background-color:#000000;">
   <ion-content padding="false" class=" manual-remove-top-padding">
-    <div id="yourProfile-container5" class="profileContainer">
+    <div class="profileContainer">
       <div class="profileImage">
         <img src="img/nope" style="display:block;width:35%;height:auto;" gravatar-src="userData.email" gravatar-size="200">
       </div>
-      <div id="yourProfile-container30" class="logoutnavContainer">
-        <div id="yourProfile-container32" class="imageContainer">
-          <a ui-sref="tabController.volunteerLOLThanks" id="yourProfile-button13" ng-click="logout()" style="color:#99CC33;font-size:14px;text-align:right;border-radius:7px 7px 7px 7px;" class="button button-balanced button-small button-outline logOutText">Logout</a>
+      <div class="logoutnavContainer">
+        <div class="imageContainer">
+          <a ui-sref="tabController.volunteerLOLThanks" ng-click="logout()" style="color:#99CC33;font-size:14px;text-align:right;border-radius:7px 7px 7px 7px;" class="button button-balanced button-small button-outline logOutText">Logout</a>
         </div>
       </div>
-      <h4 id="yourProfile-heading8" style="color:#FFFFFF;">Hey there, {{userData.name}}</h4>
-      <divcontainercredit id="yourProfile-container4" class="containerHeadings">
-        <form id="yourProfile-form6" class="list addTimeCreditsContainer">
-          <div id="yourProfile-container18" class="creditHeadingContainer">
-            <h4 id="yourProfile-heading48" style="color:#FFFFFF;text-align:center;">Your Current Projects</h4>
-            <form id="yourProfile-form9" class="list">
-              <label class="item item-input" id="yourProfile-input20">
+      <h4>Hey there, {{userData.name}}</h4>
+      <divcontainercredit class="containerHeadings">
+        <form class="list">
+          <div>
+            <h4>Your Current Projects</h4>
+            <form class="list">
+              <label class="item item-input">
                 <span class="input-label">Light of Life</span>
-                <input type="text" placeholder="                 Enter Credit Code">
+                <input type="text" placeholder="Enter Credit Code">
               </label>
-              <label class="item item-input" id="yourProfile-input22">
+              <label class="item item-input">
                 <span class="input-label">Allegheny Cleanways</span>
-                <input type="text" placeholder="  Enter Credit Code">
+                <input type="text" placeholder="Enter Credit Code">
               </label>
             </form>
-            <button id="yourProfile-button18" ng-model="data.addCredit" style="font-weight:500;font-size:18px;border-radius:9px 9px 9px 9px;" class="button button-balanced  button-block addCreditButton">Add Time Credit to Total</button>
+            <button ng-model="data.addCredit" style="font-weight:500;font-size:18px;border-radius:9px 9px 9px 9px;" class="button button-balanced  button-block addCreditButton">Add Time Credit to Total</button>
           </div>
         </form>
-        <h5 id="yourProfile-heading10" style="color:#FFFFFF;text-align:right;" class="creditsHeading">Current Time Credits:</h5>
-        <h5 id="yourProfile-heading24" style="color:#FFFFFF;text-align:right;" class="creditsHeading">Credits Redeemed:</h5>
-        <h5 id="yourProfile-heading15" style="color:#FFFFFF;text-align:right;" class="creditsHeading"> Time Credits Earned:</h5>
+        <h5 class="creditsHeading">Current Time Credits:</h5>
+        <h5 class="creditsHeading">Credits Redeemed:</h5>
+        <h5 class="creditsHeading"> Time Credits Earned:</h5>
       </divcontainercredit>
     </div>
-    <div id="yourProfile-container31" class="buttonContainer">
+    <div class="buttonContainer">
       <a ui-sref="tabController.volunteerListScroll" id="yourProfile-button15" style="font-weight:500;font-size:15px;border-radius:9px 9px 9px 9px;" class="button button-balanced  buttonstyle shortProfileLeft">Volunteer</a>
       <a ui-sref="tabController.redeemListScroll" id="yourProfile-button14" style="font-weight:500;font-size:15px;border-radius:9px 9px 9px 9px;" class="button button-balanced  buttonstyle shortProfileRight">Redeem</a>
     </div>
