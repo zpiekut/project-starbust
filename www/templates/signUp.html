@@ -5,15 +5,15 @@
         <br>Something is wrong!</p>
     </div>
 
-    <form id="signUp-form5" class="list center-form">
+    <form class="list center-form">
 
-      <ion-list id="signUp-list4">
+      <ion-list class="signup-list">
          <div>
            <a style="display:block;" ui-sref="tabController.home_tab2">
              <img class="login-icon" src="img/im-icon.png" />
            </a>
          </div>
-         <h2>Register</h2>
+         <h2>REGISTER</h2>
         <label>Full Name</label>
 
           <input class="register-input" type="text" placeholder="" ng-model="data.name">
@@ -34,9 +34,9 @@
           <input class="register-input" type="text" placeholder="" ng-model="data.zip">
 
       </ion-list>
-      <a ui-sref="tabController.yourProfile_tab5" id="signUp-button8" ng-click="signup()" class="button button-balanced  button-block button-positive">Sign-Up</a>
-      <h4 id="alreadyMember">Already a member?</h4>
-      <a ui-sref="login" class="signUp-button9">Sign In</a>
+      <a ui-sref="tabController.yourProfile_tab5" ng-click="signup()" class="signup-button button button-balanced  button-block button-positive">Sign-Up</a>
+      <h4 class="alreadyMember">Already a member?</h4>
+      <a ui-sref="login" class="signup-link">Sign In</a>
     </form>
   </ion-content>
 </ion-view>

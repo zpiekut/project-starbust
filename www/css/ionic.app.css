@@ -9995,51 +9995,19 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6, .tab-item, input, button, 
 /*---------------------------Custom Styles---------------------------------*/
 
 /*Home page*/
-
 img#logo {
-   width: 50%;
-   margin-left: 9px;
-}
-
-.spacer {
-   width: 320px;
-   height: 10px;
-}
-
-.homeSpacer {
-   height: 208px;
-}
-
-#logo {
    display: block;
-   width: 100%;
-   height: auto;
-   margin-left: auto;
-   margin-right: auto;
+    width: 50%;
+    margin: 50% auto 0 auto;
 }
 
-#home-heading11 {
+.motto {
    color:#FFFFFF;
-   text-align:right;
+   text-align: center;
+   margin-top: 30px;
 }
 
-#home-heading13 {
-   color:#FFFFFF;
-   text-align:right;
-}
-
-#home-container14 {
-   margin-right: 20px;
-   margin-top: -45px;
-   font-weight: bold;
-}
-
-#home-heading16 {
-   color:#FFFFFF;
-   text-align:right;
-}
-
-a#home-button17 {
+.home-login-link {
    display: block;
    border: none;
    position: absolute;
@@ -10052,7 +10020,7 @@ a#home-button17 {
    margin: 0 auto;
 }
 
-#home-button19 {
+.home-login-button {
    font-weight:500;
    margin-top: 42px;
    color:#FFFFFF;
@@ -10060,11 +10028,6 @@ a#home-button17 {
    font-size:20px;
    border-radius:9px 9px 9px 9px;
 }
-
-#home-button19:active {
-   background: none;
-}
-
 /*Login/Sign-up Page*/
 
 .login-icon {
@@ -10073,21 +10036,7 @@ a#home-button17 {
    margin: 0 auto 20px auto;
 }
 
-#login-markdown1 {
-   text-align:center;
-}
-
-#login-markdown1 p {
-   color: white;
-}
-
-#login-button11 {
-   font-weight:600;
-   color:#FFFFFF;
-   font-size:20px;
-}
-
-#login-button10 {
+.login-button {
    font-weight:600;
    color:#FFFFFF;
    font-size:20px;
@@ -10108,28 +10057,19 @@ a#home-button17 {
 
 .list label {
    font-size: 17px;
-   /*font-weight: bold;*/
 }
 
-#_label-3 {
-   width: 12px;
-}
-
-#alreadyMember {
+.alreadyMember {
    text-align: center;
    color: #595959;
    margin-top: 1.2em;
 }
 
-a.signUp-button9 {
+.signup-link {
    text-align: center;
    display: inherit;
    color: #595959;
    font-size: 16px;
-}
-
-#login-input11, #login-input12 {
-   margin: 20px;
 }
 
 .register-input {
@@ -10147,35 +10087,27 @@ a.signUp-button9 {
    font-weight: normal;
 }
 
-#signUp-list4 h2, #login-form4 h2 {
-   font-family: 'Montreal Serial ExtraBold';
+.signup-list h2{
    text-align: center;
    color: #595959;
+   font-weight: bold;
 }
 
-#login-form4 .list {
-   margin-top: 8px;
-
+.signup-list label {
+   color: #595959;
+   font-weight: bold;
 }
 
-a#signUp-button8 {
+form.list {
+   color: #595959;
+   font-weight: bold;
+}
+
+.signup-button {
    font-weight: bold;
    color:#FFFFFF;
    font-size:20px;
    border-radius:9px 9px 9px 9px;
-}
-
-#signUp-form5, #login-form4 {
-   font-family: 'Droid Sans', sans-serif;
-   color: #595959;
-
-}
-a#login-button11 {
-    color: color: #595959;
-    color: #595959;
-    font-weight: normal;
-    margin-top: 40px;
-    font-size: 1.3em;
 }
 
 /*Nav bar edits*/

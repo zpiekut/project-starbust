@@ -1,18 +1,19 @@
 <ion-view title="Login" hide-nav-bar="true" cache-view="false" nav-transition="none" id="page9">
   <ion-content padding="true" style="background: url(img/sign-up-light.png) no-repeat center;background-size:cover;" class="manual-ios-statusbar-padding" scroll="false">
-    <div id="login-markdown1" ng-if="error" class="show-list-numbers-and-dots error-box">
+    <div ng-if="error" class="show-list-numbers-and-dots error-box">
       <p>Whoops!!!
         <br>Something is wrong!</p>
     </div>
 
-    <form id="login-form4" class="list center-form">
+    <form class="list center-form">
       <div>
         <a style="display:block;" ui-sref="tabController.home_tab2">
           <img class ="login-icon" src="img/im-icon.png">
         </a>
       </div>
-      <h2>Login</h2>
-      <ion-list id="login-list3">
+
+      <ion-list class="signup-list">
+        <h2>LOGIN</h2>
         <label>Email</label>
 
           <input class="register-input" type="email" placeholder="" ng-model="data.email">
@@ -22,8 +23,8 @@
 
       </ion-list>
       <!-- <a ui-sref="tabController.yourProfile_tab5" id="login-button10" ng-click="login()" style="font-weight:600;color:#FFFFFF;font-size:20px;border-radius:9px 9px 9px 9px;" class="button button-balanced  button-block button-positive">Log in</a> -->
-      <a id="login-button10" ng-click="login()" class="button button-balanced  button-block button-positive">Log in</a>
-      <a ui-sref="signUp" class="signUp-button9" id="login-button11">Sign up here</a>
+      <a ng-click="login()" class="login-button button button-balanced  button-block button-positive">Log in</a>
+      <a ui-sref="signUp" class="signup-link">Sign up here</a>
 
     </form>
   </ion-content>
