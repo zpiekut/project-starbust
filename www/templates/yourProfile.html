@@ -1,40 +1,56 @@
-<ion-view title="Your Profile" hide-nav-bar="true" id="page7" style="background-color:#000000;">
+<ion-view title="Your Profile" hide-nav-bar="true" id="page7">
   <ion-content padding="false" class=" manual-remove-top-padding">
-    <div class="profileContainer">
-      <div class="profileImage">
-        <img src="img/nope" style="display:block;width:35%;height:auto;" gravatar-src="userData.email" gravatar-size="200">
+    <div class="profile-container">
+      <div class="logout-nav">
+        <a ui-sref="tabController.volunteerLOLThanks" ng-click="logout()" class="">Logout</a>
+
       </div>
-      <div class="logoutnavContainer">
-        <div class="imageContainer">
-          <a ui-sref="tabController.volunteerLOLThanks" ng-click="logout()" style="color:#99CC33;font-size:14px;text-align:right;border-radius:7px 7px 7px 7px;" class="button button-balanced button-small button-outline logOutText">Logout</a>
+      <div class="user-image-container">
+        <img class="user-image" src="img/stock-profile-avie.png" gravatar-src="userData.email" gravatar-size="200">
+      </div>
+      <div class="center">
+        <h4 class="bold">Marissa Torre {{userData.name}}</h4>
+        <h5>Pitsburgh, PA</h5>
+      </div>
+      <div class="bold italic profile-blocks">
+        <div class="block-item">
+          <p>33</p>
+          <p>CREDITS</p>
+        </div>
+        <div class="block-item">
+          <p>86</p>
+          <p>HOURS</p>
+        </div>
+        <div class="block-item">
+          <p>5</p>
+          <p>PAST PROJECTS</p>
         </div>
       </div>
-      <h4>Hey there, {{userData.name}}</h4>
-      <divcontainercredit class="containerHeadings">
+      <divcontainercredit>
         <form class="list">
           <div>
             <h4>Your Current Projects</h4>
             <form class="list">
               <label class="item item-input">
-                <span class="input-label">Light of Life</span>
+                <span class="input-label">Light of Life:</span>
                 <input type="text" placeholder="Enter Credit Code">
               </label>
               <label class="item item-input">
-                <span class="input-label">Allegheny Cleanways</span>
+                <span class="input-label">Allegheny Cleanways:</span>
                 <input type="text" placeholder="Enter Credit Code">
               </label>
             </form>
-            <button ng-model="data.addCredit" style="font-weight:500;font-size:18px;border-radius:9px 9px 9px 9px;" class="button button-balanced  button-block addCreditButton">Add Time Credit to Total</button>
+            <button ng-model="data.addCredit" class="button button-balanced  button-block addCreditButton">Add Time Credit to Total</button>
           </div>
         </form>
-        <h5 class="creditsHeading">Current Time Credits:</h5>
-        <h5 class="creditsHeading">Credits Redeemed:</h5>
-        <h5 class="creditsHeading"> Time Credits Earned:</h5>
+        <h5 class="creditsHeading">Current Time Credits: </h5>
+        <h5 class="creditsHeading">Credits Redeemed: </h5>
+        <h5 class="creditsHeading"> Time Credits Earned: </h5>
       </divcontainercredit>
-    </div>
-    <div class="buttonContainer">
-      <a ui-sref="tabController.volunteerListScroll" id="yourProfile-button15" style="font-weight:500;font-size:15px;border-radius:9px 9px 9px 9px;" class="button button-balanced  buttonstyle shortProfileLeft">Volunteer</a>
-      <a ui-sref="tabController.redeemListScroll" id="yourProfile-button14" style="font-weight:500;font-size:15px;border-radius:9px 9px 9px 9px;" class="button button-balanced  buttonstyle shortProfileRight">Redeem</a>
+      <div class="buttonContainer">
+        <a ui-sref="tabController.volunteerListScroll" id="yourProfile-button15" class="button button-balanced  buttonstyle shortProfileLeft">Volunteer</a>
+        <a ui-sref="tabController.redeemListScroll" id="yourProfile-button14" class="button button-balanced  buttonstyle shortProfileRight">Redeem</a>
+      </div>
     </div>
   </ion-content>
 </ion-view>
