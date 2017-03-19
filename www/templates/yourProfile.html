@@ -26,31 +26,34 @@
           <p>PAST PROJECTS</p>
         </div>
       </div>
-      <divcontainercredit>
-        <form class="list">
-          <div>
-            <h4>Your Current Projects</h4>
-            <form class="list">
-              <label class="item item-input">
-                <span class="input-label">Light of Life:</span>
-                <input type="text" placeholder="Enter Credit Code">
-              </label>
-              <label class="item item-input">
-                <span class="input-label">Allegheny Cleanways:</span>
-                <input type="text" placeholder="Enter Credit Code">
-              </label>
-            </form>
-            <button ng-model="data.addCredit" class="button button-balanced  button-block addCreditButton">Add Time Credit to Total</button>
+      <div class="current-projects">
+        <h4 class="bold">Your Current Projects:</h4>
+        <div class="project-box bold">
+          <h5 class="bold">Community Garden Sage</h5>
+          <p class="upcase bold">Grow Pittsburgh</p>
+          <h5 class="bold">Bike Light Giveaway</h5>
+          <p class="upcase bold">Bike PGH</p>
+        </div>
+      </div>
+
+      <div class="redeem-box">
+        <form>
+          <label>Enter time credits to redeem code:</label>
+          <div class="item item-input">
+            <input class="credit-input" type="text" placeholder="e.g. 7">
           </div>
+          <button ng-model="data.addCredit" class="bold button button-balanced  button-block addCreditButton">Add Time Credit to Total</button>
         </form>
-        <h5 class="creditsHeading">Current Time Credits: </h5>
-        <h5 class="creditsHeading">Credits Redeemed: </h5>
-        <h5 class="creditsHeading"> Time Credits Earned: </h5>
-      </divcontainercredit>
-      <div class="buttonContainer">
+      </div>
+
+      <!-- <h5 class="creditsHeading">Current Time Credits: </h5>
+      <h5 class="creditsHeading">Credits Redeemed: </h5>
+      <h5 class="creditsHeading"> Time Credits Earned: </h5> -->
+
+      <!-- <div class="buttonContainer">
         <a ui-sref="tabController.volunteerListScroll" id="yourProfile-button15" class="button button-balanced  buttonstyle shortProfileLeft">Volunteer</a>
         <a ui-sref="tabController.redeemListScroll" id="yourProfile-button14" class="button button-balanced  buttonstyle shortProfileRight">Redeem</a>
-      </div>
+      </div> -->
     </div>
   </ion-content>
 </ion-view>
