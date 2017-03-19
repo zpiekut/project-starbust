@@ -8537,6 +8537,7 @@ input, button, select, textarea {
   overflow: hidden;
   padding: 6px 0 5px 16px;
   margin-top: 5px;
+  margin-bottom: 15px;
 }
 
 .item-input input {
@@ -11743,13 +11744,13 @@ form.list {
 .logout-nav a {
    text-decoration: none;
    font-weight: bold;
+   margin-right: 5px;
+   color: #2c2c2c;
 }
 
 .profile-container {
   padding: 10px;
-  border: 2px solid green;
   background: #efefef;
-
   font-family: 'Droid Sans', sans-serif;
 }
 
@@ -11760,13 +11761,12 @@ form.list {
 
 .user-image-container {
   text-align: center;
-  margin-top: 30px;
 }
 
 .user-image {
   width: 40%;
   border-radius: 50%;
-  border: 2px solid red;
+
 }
 
 .profile-blocks {
@@ -11844,6 +11844,12 @@ form.list {
    margin-right: 15px;
 }
 
-/*.credit-input {
+.redeem-box label {
+   font-size: 1.3em;
+   font-weight: bold;
+   color: #2c2c2c;
+}
 
-}*/
+input.credit-input {
+   font-size: 1em;
+}
