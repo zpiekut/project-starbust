@@ -10,7 +10,7 @@ angular.module('app.services', [])
   return {
     login: function (user) {
 
-      $http.post('http://localhost:3000/api/auth/login', { user: user }, { ignoreAuthModule: true })
+      $http.post('http://localhost:8081/api/auth/login', { user: user }, { ignoreAuthModule: true })
         .success(function (data, status, headers, config) {
           if(data.jwt) {
             $rootScope.$broadcast('event:auth-login-confirmed', status);
@@ -24,14 +24,14 @@ angular.module('app.services', [])
         });
     },
     logout: function () {
-      $http.post('https://localhost:3000/api/auth/logout', {}, { ignoreAuthModule: true })
+      $http.post('https://localhost:8081/api/auth/logout', {}, { ignoreAuthModule: true })
         .finally(function() {
           MyLocalStorageService.destroyToken();
           $rootScope.$broadcast('event:auth-logout-complete');
         });
     },
     signUp: function(user) {
-      $http.post('http://localhost:3000/api/auth/signup', { user: user }, { ignoreAuthModule: true })
+      $http.post('http://localhost:8081/api/users', user, { ignoreAuthModule: true })
         .success(function (data, status, headers, config) {
           login(data.user)
         })
@@ -112,7 +112,7 @@ angular.module('app.services', [])
     return {
       getRedemptions: function() {
         MyLocalStorageService.loadToken();
-        return $http.get("http://localhost:3000/api/redemptions")
+        return $http.get("http://localhost:8081/api/redemptions")
         .success(function(data, status, headers, config) {
           redemptions = data;
           console.log(data);

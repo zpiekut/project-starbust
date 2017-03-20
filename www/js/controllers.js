@@ -21,7 +21,7 @@ function ($scope, $stateParams, $ionicUser, $ionicAuth, $state) {
      $scope.data = {
         'email': '',
         'password': ''
-    }
+    };
 
      $scope.error = '';
 
@@ -241,7 +241,7 @@ function ($scope, $stateParams, $ionicUser, $ionicAuth, $state, AuthenticationSe
       //$scope.loginModal.hide();
       $scope.message = '';
       //TODO: resolve state.go error
-      $state.go('tabController.redeemJamesSt', {}, {reload: true, inherit: false});
+      $state.go('tabController.home', {}, {reload: true, inherit: false});
     });
 
     $scope.$on('event:auth-login-failed', function(e, status) {
@@ -256,35 +256,6 @@ function ($scope, $stateParams, $ionicUser, $ionicAuth, $state, AuthenticationSe
       console.log("logout complete");
       $state.go('app.login', {}, {reload: true, inherit: false});
     });
-
-
-
-
-  //Previous controller
-   // //error
-   //  $scope.error = '';
-   //
-   //  if ($ionicAuth.isAuthenticated()) {
-   //       // Make sure the user data is going to be loaded
-   //      console.log("isAuthenticated");
-   //      $state.go('yourProfile');
-   //  }
-   //
-   //  $scope.login = function(){
-   //      console.log($scope.data);
-   //      $scope.error = '';
-   //      // var loginOptions = {'inAppBrowserOptions': {'hidden': true}};
-   //
-   //
-   //      $ionicAuth.login('basic', $scope.data).then(function(res){
-   //        console.log("login" + res.x);
-   //        // $state.go('home');
-   //      }, function(err){
-   //        console.log("error:" + err);
-   //        $scope.error = 'Error logging in.';
-   //      })
-   //  }
-
 }])
 
 .controller('AppCtrl', function($scope, $state, $ionicPopup, AuthService, AUTH_EVENTS) {
@@ -326,32 +297,8 @@ function ($scope, $stateParams, $ionicAuth, $ionicUser, $state, AuthenticationSe
     };
 
     $scope.error= '';
-
     $scope.signup = function(){
-
       AuthenticationService.signUp($scope.data);
-
-
-      //previous controller
-        // $scope.error = '';
-        //
-        // $ionicAuth.signup($scope.data).then(function() {
-        //      // `$ionicUser` is now registered
-        //     $ionicAuth.login('custom', $scope.data).then(function(){
-        //       $state.go('tabController.yourProfile');
-        //     });
-        // }, function(err) {
-        //
-        //     var error_lookup = {
-        //         'required_email': 'Missing email field',
-        //         'required_password': 'Missing password field',
-        //         'conflict_email': 'A user has already signed up with that email',
-        //         'conflict_username': 'A user has already signed up with that username',
-        //         'invalid_email': 'The email did not pass validation'
-        //     }
-        //
-        //     $scope.error = error_lookup[err.details[0]];
-        // });
     }
 
-}])
+}]);
