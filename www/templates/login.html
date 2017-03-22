@@ -1,31 +1,31 @@
 <ion-view title="Login" hide-nav-bar="true" cache-view="false" nav-transition="none" id="page9">
-  <ion-content padding="true" style="background: url(img/pHdvfgTamuPqQWD05BJg_INvolveMINTvolunteer450x800.jpg) no-repeat center;background-size:cover;" class="manual-ios-statusbar-padding" scroll="false">
-    <div id="login-markdown1" ng-if="error" style="text-align:center;" class="show-list-numbers-and-dots error-box">
-      <p style="color:#FFFFFF;">Whoops!!!
+  <ion-content padding="true" style="background: url(img/sign-up-light.png) no-repeat center;background-size:cover;" class="manual-ios-statusbar-padding" scroll="false">
+    <div ng-if="error" class="show-list-numbers-and-dots error-box">
+      <p>Whoops!!!
         <br>Something is wrong!</p>
     </div>
-    <div class="spacer" style="width: 300px; height: 377px;"></div>
-    <form id="login-form4" class="list center-form">
-      <div class="spacer" style="width: 300px; height: 61px;"></div>
-      <ion-list id="login-list3">
-        <label class="item item-input top-input" id="login-input11">
-          <span class="input-label">Email</span>
-          <input type="email" placeholder="" ng-model="data.email">
-        </label>
-        <label class="item item-input bottom-input" id="login-input12">
-          <span class="input-label">Password</span>
-          <input type="password" placeholder="" ng-model="data.password">
-        </label>
-      </ion-list>
-      <div class="spacer" style="width: 290px; height: 7px;"></div>
-      <!-- <a ui-sref="tabController.yourProfile_tab5" id="login-button10" ng-click="login()" style="font-weight:600;color:#FFFFFF;font-size:20px;border-radius:9px 9px 9px 9px;" class="button button-balanced  button-block button-positive">Log in</a> -->
-      <a id="login-button10" ng-click="login()" style="font-weight:600;color:#FFFFFF;font-size:20px;border-radius:9px 9px 9px 9px;" class="button button-balanced  button-block button-positive">Log in</a>
-      <a ui-sref="signUp" id="login-button11" style="font-weight:600;color:#FFFFFF;font-size:20px;" class="button button-light button-large button-block button-clear text-button">Or first time Sign Up!</a>
+
+    <form class="list center-form">
       <div>
         <a style="display:block;" ui-sref="tabController.home_tab2">
-          <img src="img/WGLzrXQ2QpWa8wftong4_involveMINT_Logo_350.png" style="display: block; width: 75%; height: auto; margin-left: auto; margin-right: auto;">
+          <img class ="login-icon" src="img/im-icon.png">
         </a>
       </div>
+
+      <ion-list class="signup-list">
+        <h2>LOGIN</h2>
+        <label>Email</label>
+
+          <input class="register-input" type="email" placeholder="" ng-model="data.email">
+
+        <label>Password</label>
+          <input class="register-input" type="password" placeholder="" ng-model="data.password">
+
+      </ion-list>
+      <!-- <a ui-sref="tabController.yourProfile_tab5" id="login-button10" ng-click="login()" style="font-weight:600;color:#FFFFFF;font-size:20px;border-radius:9px 9px 9px 9px;" class="button button-balanced  button-block button-positive">Log in</a> -->
+      <a ng-click="login()" class="login-button button button-balanced  button-block button-positive">Log in</a>
+      <a ui-sref="signUp" class="signup-link">Sign up here</a>
+
     </form>
   </ion-content>
 </ion-view>
