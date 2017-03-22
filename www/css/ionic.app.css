@@ -9850,6 +9850,11 @@ a.button {
   height:200px;
   padding:30px;
 }
+.volunteer-title h2, h3 {
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+}
 .volunteer-title button {
   width:100px;
 }
@@ -9908,6 +9913,20 @@ a.button {
 
 #dump-buster-heading {
   background-image:url('/img/dumpbuster.jpg');
+}
+
+/*Partner List Page */
+
+#partnerlist img {
+  display: block; 
+  width: 100%; 
+  height: auto; 
+  margin-left: auto; 
+  margin-right: auto;
+}
+
+#partnerlist a {
+  display:block;
 }
 
 .logoutnavContainer {
@@ -10073,7 +10092,7 @@ home-heading13 {
   .error-box .text-button {
     font: bold; }
   .error-box .buttoncolor {
-    background-color: #99cc33;
+    background-color: #i99cc33;
     opacity: 0.5;
     border: 1px solid #000000; }
 
