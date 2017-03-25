@@ -33,7 +33,7 @@ angular.module('app.services', [])
     signUp: function(user) {
       $http.post('http://localhost:8081/api/users', user, { ignoreAuthModule: true })
         .success(function (data, status, headers, config) {
-          login(data.user)
+          login(data)
         })
         .error(function (data, status, headers, config) {
           $rootScope.$broadcast('event:auth-login-failed', status);
@@ -61,6 +61,7 @@ angular.module('app.services', [])
         $http.defaults.headers.common.Authorization = authToken;
         isAuthenticated = true;
       }
+      return token
     },
     destroyToken: function () {
       authToken = undefined;
@@ -111,16 +112,23 @@ angular.module('app.services', [])
 
     return {
       getRedemptions: function() {
-        MyLocalStorageService.loadToken();
-        return $http.get("http://localhost:8081/api/redemptions")
+        console.log(MyLocalStorageService.loadToken());
+        var req = {
+          method: 'GET',
+          url: 'http://localhost:8081/api/redemptions',
+          headers: {
+            Authorization:  MyLocalStorageService.loadToken() //"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6MSwibmFtZSI6IkFudGhvbnkgVmFsaWQgVXNlciIsImlhdCI6MTQyNTQ3MzUzNX0.KA68l60mjiC8EXaC2odnjFwdIDxE__iDu5RwLdN1F2A"
+          }
+        };
+
+        return $http(req)
         .success(function(data, status, headers, config) {
           redemptions = data;
           console.log(data);
           return redemptions;
         })
-        .error(function (data, status, headers, config) {
-          //just for the sake of debugging
-          $rootScope.$broadcast('event:auth-login-failed', status);
+        .error(function (r) {
+          console.log("error data: " + r);
         });
       },
       getRedemption: function(id){
