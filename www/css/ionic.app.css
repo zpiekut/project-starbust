@@ -11474,6 +11474,8 @@ a.button .icon:before, a.button.icon:before, a.button.icon-left:before, a.button
   background-image:url('/img/dumpbuster.jpg');
 }
 
+/*end click to volunteer page */
+
 /*Partner List Page */
 
   #partnerlist {
@@ -11494,7 +11496,7 @@ a.button .icon:before, a.button.icon:before, a.button.icon-left:before, a.button
   }
 
   .partner, .darkener {
-    height:400px;
+    height:300px;
     width:100%;
     overflow: hidden;
   }
@@ -11528,38 +11530,53 @@ a.button .icon:before, a.button.icon:before, a.button.icon-left:before, a.button
     background-image: url("../img/photoantiquities.png");
   }
 
+  #popcraft {
+    background-image: url("../img/popcraft.png");
+    background-position: center;
+  }
+
   #ventureoutdoors {
     background-image: url("../img/ventureoutdoors.jpg");
+    background-position: center;
   }
 
   .green-container
   {
-    background-color: rgba(153,204,51, 0.75);
-    width:400px;
-    padding:.25em 1em .25em 1em;
+    background-color: rgba(153,204,51, 0.8);
+    width:300px;
+    padding: 10px 10px 10px 10px;
     box-sizing:border-box;
-    border-top-left-radius: 5px;
-    border-top-right-radius: 5px;
+/*  border-top-left-radius: 5px;
+*/  border-top-right-radius: 5px;
     border-bottom-right-radius: 5px;
     position:relative;
-    top:82%;
-    text-align:center;
+    top:237px;
+    text-align:left;
   }
   .green-container .partner-title {
     color:white;
     text-transform: uppercase;
     font-weight: lighter;
+    font-size:1.5em;
+    padding:0px;
+    margin:0px;
   }
+  .green-container .partner-subtitle {
+    font-size: 1.1em;
+    text-transform: uppercase;
+    font-weight: lighter;
+    color: #596049;
+    padding:0px;
+    margin: 0px;
+  }
+
+/*end partner list page  */
 
 .logoutnavContainer {
   position: absolute;
   right: 15px;
   width: 18%;
   height: 30px; }
-
-.volunteerHeading {
-  background-color: #000000;
-}
 
 .imageContainer {
   position: relative;
@@ -12038,8 +12055,6 @@ form.list {
 .project-box p {
    font-size: 0.8em;
    color: #99CC33;
-
-
 }
 
 .project-box p:last-child {
