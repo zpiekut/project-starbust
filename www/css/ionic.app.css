@@ -11853,3 +11853,72 @@ form.list {
 input.credit-input {
    font-size: 1em;
 }
+
+/*Voucher*/
+
+.voucher-container {
+   font-family:  'Droid Sans', sans-serif;
+}
+
+.prize-details {
+   font-family: 'Droid Sans', sans-serif;
+   background-image: url('../img/coffee.jpg');
+   background-size: contain;
+   color: white;
+}
+
+.prize-details a {
+   color: #fd9614;
+   text-decoration: none;
+}
+
+.voucher-banner {
+   background: rgba(42, 36, 36, 0.75);
+
+}
+
+.voucher-banner h4 {
+   margin: 0;
+   padding: 20px;
+   color: white;
+   font-size: 1em;
+
+}
+
+.prize-details h2 {
+
+   color: white;
+
+}
+
+.image-text {
+   margin: 20px 20px 0px 20px;
+   padding-bottom: 20px;
+}
+
+.image-text p {
+   margin: 0;
+}
+
+.voucher-box {
+   background: #efefef;
+}
+
+.voucher-box h1 {
+   text-align: center;
+   color: #bc2b97;
+   padding: 35px;
+   margin: 0;
+}
+
+.voucher-box p {
+   padding-top: 30px;
+   margin: 0px 0px 0px 20px;
+   font-size: 1.1em;
+}
+
+.voucher-thanks {
+   margin-top: 125px;
+   font-size: 1.1em;
+   text-align: center;
+}

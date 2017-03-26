@@ -212,6 +212,7 @@ function ($scope, $stateParams, $ionicUser, $ionicAuth, $state) {
 
 }])
 
+
 .controller('loginCtrl', ['$scope', '$stateParams', '$ionicUser', '$ionicAuth', '$state',
 // The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
 // You can include any angular dependencies as parameters for this function
@@ -246,6 +247,8 @@ function ($scope, $stateParams, $ionicUser, $ionicAuth, $state) {
     }
 
 }])
+
+//-------
 
 .controller('signUpCtrl', ['$scope', '$stateParams', '$ionicAuth', '$ionicUser', '$state',
 // The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
@@ -283,5 +286,13 @@ function ($scope, $stateParams, $ionicAuth, $ionicUser, $state) {
             $scope.error = error_lookup[err.details[0]];
         });
     }
+
+}])
+
+.controller('voucherCtrl', ['$scope', '$stateParams', // The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
+// You can include any angular dependencies as parameters for this function
+// TIP: Access Route Parameters for your page via $stateParams.parameterName
+function ($scope, $stateParams) {
+
 
 }])
