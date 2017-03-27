@@ -4805,7 +4805,7 @@ a.subdued:last-child {
 }
 
 .nav-bar-tabs-top.hide ~ .view-container .tabs-top .tabs {
-  top: 0; 
+  top: 0;
   display:none;
 }
 
@@ -11377,9 +11377,9 @@ a.button .icon:before, a.button.icon:before, a.button.icon-left:before, a.button
   width:100px;
 }
 
-.where, 
-.date, 
-.when, 
+.where,
+.date,
+.when,
 .place,
 .problem,
 .solution {
@@ -11388,15 +11388,15 @@ a.button .icon:before, a.button.icon:before, a.button.icon-left:before, a.button
   margin:0;
 }
 
-.where, 
-.when, 
+.where,
+.when,
 .problem,
 .solution,
 .address {
   font-weight:700;
 }
 
-.event-title, 
+.event-title,
 .organization
 {
   background-color:transparent;
@@ -11425,9 +11425,10 @@ a.button .icon:before, a.button.icon:before, a.button.icon-left:before, a.button
   text-decoration:none;
 }
 
-.volunteer-address a, 
+.volunteer-address a,
 .calendar-add {
   text-decoration: none;
+
 }
 
 .friends-volunteering {
@@ -11483,10 +11484,10 @@ a.button .icon:before, a.button.icon:before, a.button.icon-left:before, a.button
   }
 
   #partnerlist img {
-    display: block; 
-    width: 100%; 
-    height: auto; 
-    margin-left: auto; 
+    display: block;
+    width: 100%;
+    height: auto;
+    margin-left: auto;
     margin-right: auto;
   }
 
