@@ -217,13 +217,9 @@ function ($scope, $stateParams, $ionicUser, $ionicAuth, $state, AuthenticationSe
 
 }])
 
-<<<<<<< HEAD
 
-.controller('loginCtrl', ['$scope', '$stateParams', '$ionicUser', '$ionicAuth', '$state',
-=======
 .controller('loginCtrl', ['$scope', '$stateParams', '$ionicUser', '$ionicAuth', '$state', 'AuthenticationService',
   'ProjectsService',
->>>>>>> upstream/master
 // The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
 // You can include any angular dependencies as parameters for this function
 // TIP: Access Route Parameters for your page via $stateParams.parameterName
@@ -267,11 +263,7 @@ function ($scope, $stateParams, $ionicUser, $ionicAuth, $state, AuthenticationSe
     });
 }])
 
-<<<<<<< HEAD
-//-------
 
-.controller('signUpCtrl', ['$scope', '$stateParams', '$ionicAuth', '$ionicUser', '$state',
-=======
 .controller('AppCtrl', function($scope, $state, $ionicPopup, AuthService, AUTH_EVENTS) {
   $scope.username = AuthService.username();
 
@@ -297,7 +289,6 @@ function ($scope, $stateParams, $ionicUser, $ionicAuth, $state, AuthenticationSe
 })
 
 .controller('signUpCtrl', ['$scope', '$stateParams', '$ionicAuth', '$ionicUser', '$state', 'AuthenticationService',
->>>>>>> upstream/master
 // The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
 // You can include any angular dependencies as parameters for this function
 // TIP: Access Route Parameters for your page via $stateParams.parameterName
