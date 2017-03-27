@@ -580,6 +580,26 @@ angular.module('app.routes', ['ionicUIRouter'])
     controller: 'loginCtrl'
   })
 
+//VOUCHER ROUTE
+  .state('voucher', {
+    url: '/voucher',
+    templateUrl: 'templates/voucher.html',
+    controller: 'voucherCtrl'
+  })
+//
+
+.state('jamesvoucher', {
+  url: '/jamesvoucher',
+  templateUrl: 'templates/jamesvoucher.html',
+  controller: 'jamesVoucherCtrl'
+})
+
+.state('volunteerOps', {
+  url: '/volunteerops',
+  templateUrl: 'templates/volunteerOps.html',
+  controller: 'volunteerOpsCtrl'
+})
+
   .state('signUp', {
     url: '/signup',
     templateUrl: 'templates/signUp.html',
