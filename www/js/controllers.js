@@ -256,6 +256,8 @@ function ($scope, $stateParams, $ionicUser, $ionicAuth, $state, AuthenticationSe
       console.log("logout complete");
       $state.go('app.login', {}, {reload: true, inherit: false});
     });
+
+
 }])
 
 .controller('AppCtrl', function($scope, $state, $ionicPopup, AuthService, AUTH_EVENTS) {
@@ -282,11 +284,11 @@ function ($scope, $stateParams, $ionicUser, $ionicAuth, $state, AuthenticationSe
   };
 })
 
-.controller('signUpCtrl', ['$scope', '$stateParams', '$ionicAuth', '$ionicUser', '$state', 'AuthenticationService',
+.controller('signUpCtrl', ['$scope', '$rootScope', '$stateParams', '$ionicAuth', '$ionicUser', '$state', 'AuthenticationService',
 // The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
 // You can include any angular dependencies as parameters for this function
 // TIP: Access Route Parameters for your page via $stateParams.parameterName
-function ($scope, $stateParams, $ionicAuth, $ionicUser, $state, AuthenticationService) {
+function ($scope, $rootScope, $stateParams, $ionicAuth, $ionicUser, $state, AuthenticationService) {
 
     $scope.data = {
         'email': '',
@@ -299,6 +301,11 @@ function ($scope, $stateParams, $ionicAuth, $ionicUser, $state, AuthenticationSe
     $scope.error= '';
     $scope.signup = function(){
       AuthenticationService.signUp($scope.data);
-    }
+    };
+
+    $rootScope.$on('event:auth-signup-complete', function(status) {
+      console.log("Status: " + status);
+      AuthenticationService.login($scope.data);
+    });
 
 }]);

@@ -33,7 +33,7 @@ angular.module('app.services', [])
     signUp: function(user) {
       $http.post('http://localhost:8081/api/users', user, { ignoreAuthModule: true })
         .success(function (data, status, headers, config) {
-          login(data)
+          $rootScope.$broadcast('event:auth-signup-complete', status);
         })
         .error(function (data, status, headers, config) {
           $rootScope.$broadcast('event:auth-login-failed', status);
