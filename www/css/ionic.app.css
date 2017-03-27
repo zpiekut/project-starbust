@@ -11477,11 +11477,174 @@ a.button .icon:before, a.button.icon:before, a.button.icon-left:before, a.button
 
 /*end click to volunteer page */
 
+
+  #vollist {
+    font-family: Montserrat, sans-serif;
+  }
+
+  #vollist img {
+    display: block;
+    width: 100%;
+    height: auto;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  #vollist a {
+    display:block;
+    text-decoration: none;
+  }
+
+  #ecostewards {
+   background-image: url(../img/ecosteward.jpeg)
+ }
+
+ #dumpbusters {
+ background-image: url(../img/trash.jpeg)
+}
+
+#foodprep {
+background-image: url(../img/soup-kitchen.jpeg)
+}
+
+  .vol, .darkener {
+    height:300px;
+    width:100%;
+    overflow: hidden;
+  }
+
+  .vol {
+    background-size:cover;
+    background-repeat: no-repeat;
+  }
+
+  .darkener {
+    background-color: rgba(0, 0, 0, 0.5);
+  }
+
+
+
+
+  .green-container
+  {
+    background-color: rgba(153,204,51, 0.8);
+    width:300px;
+    padding: 10px 10px 10px 10px;
+    box-sizing:border-box;
+/*  border-top-left-radius: 5px;
+*/  border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    position:relative;
+    top:237px;
+    text-align:left;
+  }
+  .green-container .vol-title {
+    color:white;
+    text-transform: uppercase;
+    font-weight: lighter;
+    font-size:1.5em;
+    padding:0px;
+    margin:0px;
+  }
+  .green-container .vol-subtitle {
+    font-size: 1.1em;
+    text-transform: uppercase;
+    font-weight: lighter;
+    color: #596049;
+    padding:0px;
+    margin: 0px;
+  }
+
+
+
+
+
+/*end of volunteer page*/
+
+/*Wallet*/
+
+#walletlist {
+  font-family: Montserrat, sans-serif;
+}
+
+#walletlist img {
+  display: block;
+  width: 100%;
+  height: auto;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+
+#walletlist a {
+  display:block;
+  text-decoration: none;
+}
+
+#bigdogvoucher {
+   background-image: url(../img/cute-coffee.jpg)
+}
+
+#concert {
+   background-image: url(../img/concert.jpg)
+}
+
+.wallet, .darkener {
+  height:300px;
+  width:100%;
+  overflow: hidden;
+}
+
+.wallet {
+  background-size:cover;
+  background-repeat: no-repeat;
+}
+
+.darkener {
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+
+
+.green-container
+{
+  background-color: rgba(153,204,51, 0.8);
+  width:300px;
+  padding: 10px 10px 10px 10px;
+  box-sizing:border-box;
+/*  border-top-left-radius: 5px;
+*/  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+  position:relative;
+  top:237px;
+  text-align:left;
+}
+.green-container .wallet-title {
+  color:white;
+  text-transform: uppercase;
+  font-weight: lighter;
+  font-size:1.5em;
+  padding:0px;
+  margin:0px;
+}
+.green-container .wallet-subtitle {
+  font-size: 1.1em;
+  text-transform: uppercase;
+  font-weight: lighter;
+  color: #596049;
+  padding:0px;
+  margin: 0px;
+}
+
+/*end of wallet*/
+
 /*Partner List Page */
 
   #partnerlist {
     font-family: Montserrat, sans-serif;
   }
+
+
 
   #partnerlist img {
     display: block;
@@ -11570,6 +11733,12 @@ a.button .icon:before, a.button.icon:before, a.button.icon-left:before, a.button
     padding:0px;
     margin: 0px;
   }
+
+
+
+
+
+
 
 /*end partner list page  */
 
@@ -11834,7 +12003,7 @@ img#logo {
   display: block;
   border: none;
   position: absolute;
-  bottom: 109px;
+  bottom: 131px;
   transform: translateX(50%);
   right: 50%;
   font-weight: bold;
@@ -12047,10 +12216,11 @@ form.list {
 
 }
 
-.project-box h5{
+.project-box h5 a {
    font-size: 1em;
    margin: none;
    color: #2c2c2c;
+   text-decoration: none;
 }
 
 .project-box p {
@@ -12089,12 +12259,21 @@ input.credit-input {
 
 .prize-details {
    font-family: 'Droid Sans', sans-serif;
-   background-image: url('../img/coffee.jpg');
-   background-size: contain;
+   height: 270px;
+   background-image: url('../img/cute-coffee.jpg');
+   background-size: cover;
    color: white;
 }
 
-.prize-details a {
+.james-prize-details {
+   font-family: 'Droid Sans', sans-serif;
+   height: 270px;
+   background-image: url('../img/concert.jpg');
+   background-size: cover;
+   color: white;
+}
+
+.prize-details a, .james-prize-details a {
    color: #fd9614;
    text-decoration: none;
 }
@@ -12112,15 +12291,16 @@ input.credit-input {
 
 }
 
-.prize-details h2 {
+.prize-details h2, .james-prize-details h2 {
 
    color: white;
 
 }
 
 .image-text {
-   margin: 20px 20px 0px 20px;
+   margin: 47px 20px 0px 20px;
    padding-bottom: 20px;
+
 }
 
 .image-text p {
@@ -12129,6 +12309,7 @@ input.credit-input {
 
 .voucher-box {
    background: #efefef;
+   color: #2c2c2c;
 }
 
 .voucher-box h1 {
@@ -12139,13 +12320,15 @@ input.credit-input {
 }
 
 .voucher-box p {
+   color: #2c2c2c;
    padding-top: 30px;
    margin: 0px 0px 0px 20px;
    font-size: 1.1em;
 }
 
 .voucher-thanks {
-   margin-top: 125px;
+   margin-top: 96.8px;
    font-size: 1.1em;
    text-align: center;
+   color: #2c2c2c;
 }
