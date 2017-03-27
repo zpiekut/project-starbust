@@ -466,7 +466,7 @@
   content: "";
 }
 
-.ion-android-share:before {
+.ion-android-share:before
   content: "";
 }
 
@@ -11570,7 +11570,115 @@ a.button .icon:before, a.button.icon:before, a.button.icon-left:before, a.button
     margin: 0px;
   }
 
-/*end partner list page  */
+/* End Partner List Page  */
+
+/* Individual Redeem Page */
+
+.redeem-container, .redeem-about {
+  padding: 30px;
+  font-family: 'Montserrat', sans-serif;
+  font-weight:100;
+  font-size:.95em;
+}
+
+.redeem-container a {
+  text-decoration: none;
+}
+
+.redeem-container h1, h2, h3, p, a {
+  color:black;
+  margin:0px 0px 0px 0px;
+  padding:0px 0px 0px 0px;
+}
+
+.redeem-content-container {
+  padding-bottom: 15px;
+}
+
+.redeem-about {
+  padding-bottom:10px;
+}
+
+.bold {
+  font-weight:700;
+}
+
+.redeem-title
+{
+  background-color: rgba(0, 0, 0, 0.5);
+  height:200px;
+  padding:30px;
+}
+.redeem-title h2, h3 {
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.redeem-address {
+  color:black;
+  padding:0;
+  margin:0;
+  text-decoration:none;
+}
+
+.small-orange-link {
+  color:orange;
+  font-size:.8em;
+  text-transform: uppercase;
+  padding:0px 0px 20px 0px;
+}
+
+.redeem-phone {
+  margin:0px;
+  padding:0px;
+}
+
+.redeem-tables-container { 
+  display:flex;
+  justify-content:space-between;
+  padding-bottom:20px;
+}
+
+.hours, .rewards {
+  color:black;
+  border:black;
+  display:inline;
+}
+
+.hours td, .rewards td {
+  padding-right:6px;
+}
+
+.hours th, .rewards th {
+  text-align: center;
+}
+
+.redeem-button-container {
+  text-align:center;
+}
+
+.redeem-button {
+  width:350px;
+  height:40px;
+  background-color: #BF2997;
+  color:white;
+  text-transform: uppercase;
+  margin:auto;
+  border:none;
+}
+
+.redeem-about {
+  background-color: #cecece;
+}
+
+#familyfarms-heading {
+  background-image:url('../img/familyfarms.png');
+  background-size:cover;
+  background-position: center;
+}
+
+/* End Individual Redeem Page */
 
 .logoutnavContainer {
   position: absolute;
@@ -11682,7 +11790,7 @@ a.button .icon:before, a.button.icon:before, a.button.icon-left:before, a.button
   right: 0px;
 }
 
-home-heading13 {
+.home-heading13 {
   border: 2px;
   border-color: #000000;
 }
