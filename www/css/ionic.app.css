@@ -3384,7 +3384,7 @@ body, .ionic-body {
   overflow: hidden;
   margin: 0;
   padding: 0;
-  color: #000;
+  color: white;
   word-wrap: break-word;
   font-size: 14px;
   font-family: -apple-system;
@@ -4804,6 +4804,13 @@ a.subdued:last-child {
   color: #11c1f3;
 }
 
+.nav-bar-tabs-top.hide ~ .view-container .tabs-top .tabs {
+  top: 0; 
+  display:none;
+}
+
+.pane[hide-nav-bar="true"] .has-tabs-top {
+  top: 0px; }
 .tabs-assertive>.tabs, .tabs.tabs-assertive {
   border-color: #e42112;
   background-color: #ef473a;
@@ -11356,9 +11363,220 @@ a.button .icon:before, a.button.icon:before, a.button.icon-left:before, a.button
   z-index: 10;
 }
 
-.volunteerHeading {
-  background-color: #000000;
+/*Volunteer opportunity page*/
+
+.volunteer-container {
+  padding:30px;
 }
+
+.volunteer-container p {
+  color:black;
+}
+
+.volunteer-container button {
+  width:100px;
+}
+
+.where, 
+.date, 
+.when, 
+.place,
+.problem,
+.solution {
+  display:inline-block;
+  padding: 0px 5px 0px 0px;
+  margin:0;
+}
+
+.where, 
+.when, 
+.problem,
+.solution,
+.address {
+  font-weight:700;
+}
+
+.event-title, 
+.organization
+{
+  background-color:transparent;
+  color:white;
+}
+
+.volunteer-title
+{
+  background-color: rgba(0, 0, 0, 0.5);
+  height:200px;
+  padding:30px;
+}
+.volunteer-title h2, h3 {
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.volunteer-title button {
+  width:100px;
+}
+
+.volunteer-address p {
+  color:black;
+  padding:0;
+  margin:0;
+  text-decoration:none;
+}
+
+.volunteer-address a, 
+.calendar-add {
+  text-decoration: none;
+}
+
+.friends-volunteering {
+  background-color:#D3D3D3;
+  padding:20px;
+  text-align: left;
+  color:black;
+}
+
+.friends-title {
+  color:black;
+  margin-left:3%;
+  padding-bottom:5px;
+}
+
+.friend {
+  padding-left:3%;
+  padding-right:3%;
+  display:inline-block;
+}
+
+.friend img {
+  height: 100px;
+  border-radius:50%;
+}
+
+.friend p {
+  text-align:center;
+  color:black;
+}
+
+.social-share {
+  padding:20px;
+  text-align:center;
+}
+
+.social-share img {
+  height:50px;
+  padding-left:1%;
+  padding-right:1%;
+}
+
+#dump-buster-heading {
+  background-image:url('/img/dumpbuster.jpg');
+}
+
+/*end click to volunteer page */
+
+/*Partner List Page */
+
+  #partnerlist {
+    font-family: Montserrat, sans-serif;
+  }
+
+  #partnerlist img {
+    display: block; 
+    width: 100%; 
+    height: auto; 
+    margin-left: auto; 
+    margin-right: auto;
+  }
+
+  #partnerlist a {
+    display:block;
+    text-decoration: none;
+  }
+
+  .partner, .darkener {
+    height:300px;
+    width:100%;
+    overflow: hidden;
+  }
+
+  .partner {
+    background-size:cover;
+    background-repeat: no-repeat;
+  }
+
+  .darkener {
+    background-color: rgba(0, 0, 0, 0.5);
+  }
+
+  #lightoflife {
+    background-image: url("../img/lightoflife.jpeg");
+  }
+
+  #decoresources {
+    background-image: url("../img/decoresources.jpg");
+  }
+
+  #familyfarms {
+    background-image: url("../img/familyfarms.png");
+  }
+
+  #jamesstreet {
+    background-image: url("../img/jamesstreet.png");
+  }
+
+  #photoantiquities {
+    background-image: url("../img/photoantiquities.png");
+  }
+
+  #popcraft {
+    background-image: url("../img/popcraft.png");
+    background-position: center;
+  }
+
+  #ventureoutdoors {
+    background-image: url("../img/ventureoutdoors.jpg");
+    background-position: center;
+  }
+
+  .green-container
+  {
+    background-color: rgba(153,204,51, 0.8);
+    width:300px;
+    padding: 10px 10px 10px 10px;
+    box-sizing:border-box;
+/*  border-top-left-radius: 5px;
+*/  border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    position:relative;
+    top:237px;
+    text-align:left;
+  }
+  .green-container .partner-title {
+    color:white;
+    text-transform: uppercase;
+    font-weight: lighter;
+    font-size:1.5em;
+    padding:0px;
+    margin:0px;
+  }
+  .green-container .partner-subtitle {
+    font-size: 1.1em;
+    text-transform: uppercase;
+    font-weight: lighter;
+    color: #596049;
+    padding:0px;
+    margin: 0px;
+  }
+
+/*end partner list page  */
+
+.logoutnavContainer {
+  position: absolute;
+  right: 15px;
+  width: 18%;
+  height: 30px; }
 
 .imageContainer {
   position: relative;
@@ -11521,7 +11739,17 @@ home-heading13 {
   border: 1px solid #b41b0f;
   background-color: #ef473a;
   border-radius: 9px;
-  margin-bottom: 5px;
+  margin-bottom: 5px; }
+  .error-box p {
+    color: white;
+    margin: 0px; }
+  .error-box .text-button {
+    font: bold; }
+  .error-box .buttoncolor {
+    background-color: #i99cc33;
+    opacity: 0.5;
+    border: 1px solid #000000; }
+    margin-bottom: 5px;
 }
 
 .error-box p {
@@ -11827,8 +12055,6 @@ form.list {
 .project-box p {
    font-size: 0.8em;
    color: #99CC33;
-
-
 }
 
 .project-box p:last-child {
