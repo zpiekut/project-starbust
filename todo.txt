@@ -12,6 +12,6 @@ COMPLETE -- 5) Rootscope
 
 COMPLETE -- 6) fix signup form
 
-7) correct state.go after logout
+COMPLETE -- 7) correct state.go after logout
 
-8) talk to UX about error handling and field reqs not met
+8) talk to UX about error handling and field reqs not met in signup, mention discrepancy with login error handling

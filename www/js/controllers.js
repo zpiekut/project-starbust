@@ -211,7 +211,7 @@ function ($scope, $stateParams, $ionicUser, $ionicAuth, $state, AuthenticationSe
 
     $scope.logout = function(){
         AuthenticationService.logout();
-        $state.go('home');
+        $state.go('tabController.home_tab5');
     }
 
 
