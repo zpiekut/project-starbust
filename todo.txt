@@ -6,8 +6,12 @@ http://stackoverflow.com/questions/33660712/angularjs-post-fails-response-for-pr
 COMPLETE -- 3) www/templates/signUp.html: In line 9 div, fix order/labels of fields to match db
 
 
-4) Add signup error handling
+COMPLETE -- 4) Add signup error handling
 
 COMPLETE -- 5) Rootscope
 
-6) fix signup form
+COMPLETE -- 6) fix signup form
+
+7) correct state.go after logout
+
+8) talk to UX about error handling and field reqs not met

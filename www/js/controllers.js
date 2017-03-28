@@ -242,7 +242,6 @@ function ($scope, $stateParams, $ionicUser, $ionicAuth, $state, AuthenticationSe
     $scope.$on('event:auth-login-confirmed', function() {
       $scope.username = null;
       $scope.password = null;
-      //$scope.loginModal.hide();
       $scope.message = '';
       //TODO: resolve state.go error
       $state.go('tabController.yourProfile_tab2', {}, {reload: true, inherit: false});
@@ -310,6 +309,24 @@ function ($scope, $rootScope, $stateParams, $ionicAuth, $ionicUser, $state, Auth
     $rootScope.$on('event:auth-signup-complete', function(status) {
       console.log("Status: " + status);
       AuthenticationService.login($scope.data);
+    });
+    $rootScope.$on('event:auth-signup-failed-email-already-exists', function(status) {
+      console.log("Status: " + status);
+      window.alert("This email address already exists");
+    });
+
+    $rootScope.$on('event:auth-signup-failed-field-reqs-not-met', function(status) {
+      console.log("Status: " + status);
+      window.alert("Field requirements not met");
+    });
+
+    $scope.$on('event:auth-login-confirmed', function() {
+      $scope.username = null;
+      $scope.password = null;
+      //$scope.loginModal.hide();
+      $scope.message = '';
+      //TODO: resolve state.go error
+      $state.go('tabController.yourProfile_tab5', {}, {reload: true, inherit: false});
     });
 
 }]);

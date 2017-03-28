@@ -13,10 +13,6 @@
            </a>
          </div>
          <h2>REGISTER</h2>
-        <label>Full Name</label>
-
-          <input class="register-input" type="text" placeholder="" ng-model="data.firstname">
-          <input class="register-input" type="text" placeholder="" ng-model="data.lastname">
 
         <label> Email</label>
 
@@ -26,15 +22,20 @@
 
           <input class="register-input" type="password" placeholder="" ng-model="data.password">
 
-        <label>Age</label>
+        <label>First Name</label>
 
-          <input class="register-input" type="text" placeholder="" ng-model="data.age">
+          <input class="register-input" type="text" placeholder="" ng-model="data.firstname">
 
-        <label>Zip Code</label>
-          <input class="register-input" type="text" placeholder="" ng-model="data.zip">
+        <label>Last Name</label>
+
+          <input class="register-input" type="text" placeholder="" ng-model="data.lastname">
+
+        <label>Neighborhood</label>
+
+          <input class="register-input" type="text" placeholder="" ng-model="data.neighborhood">
 
       </ion-list>
-      <a ui-sref="tabController.yourProfile_tab5" ng-click="signup()" class="signup-button button button-balanced  button-block button-positive">Sign-Up</a>
+      <a ng-click="signup()" class="signup-button button button-balanced  button-block button-positive">Sign-Up</a>
       <h4 class="alreadyMember">Already a member?</h4>
       <a ui-sref="login" class="signup-link">Sign In</a>
     </form>
