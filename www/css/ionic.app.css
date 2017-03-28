@@ -11461,22 +11461,55 @@ a.button .icon:before, a.button.icon:before, a.button.icon-left:before, a.button
 }
 
 .social-share {
-  padding:20px;
-  text-align:center;
+  padding-top:30px;
+  padding-bottom:30px;
+  display:flex;
+  justify-content: space-between;
 }
 
 .social-share img {
-  height:50px;
-  padding-left:1%;
-  padding-right:1%;
+  padding-left:1px;
+  padding-right:5px;
+  height:15px;
+  width:auto;
+  display:inline;
+}
+
+.facebook-sharing {
+  font-family:'Montserrat', sans-serif;
+  font-weight: bolder;
+  background: #3b5998;
+  color: #fff;
+  cursor: pointer;
+  display: inline-block;
+  padding: 1em 1em;
+  width:200px;
+  max-width: 49%;
+  margin: 0;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.twitter-sharing {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: bolder;
+  background: #57cff4;
+  color: #fff;
+  cursor: pointer;
+  display: inline-block;
+  padding: 1em 1em;
+  width:200px;
+  max-width: 49%;
+  margin: 0;
+  text-align: center;
+  text-transform: uppercase;
 }
 
 #dump-buster-heading {
   background-image:url('/img/dumpbuster.jpg');
 }
 
-/*end click to volunteer page */
-
+/* End Click to Volunteer Page */
 
   #vollist {
     font-family: Montserrat, sans-serif;
@@ -11555,11 +11588,48 @@ background-image: url(../img/soup-kitchen.jpeg)
     margin: 0px;
   }
 
+/* End of Volunteer Page*/
 
+/* Volunteer Confirm Page */
 
+.volunteer-confirm {
+  padding:30px;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: lighter;
+}
 
+.volunteer-confirm h1, h2, h3, h4, h5, p , a {
+  margin: 0;
+  padding: 0;
+}
 
-/*end of volunteer page*/
+.volunteer-confirm a {
+  text-decoration: none;
+}
+
+.volunteer-confirm-content {
+  margin-bottom:20px;
+}
+
+.volunteer-calendar-add {
+  text-align:center;
+  margin-bottom:30px;
+}
+
+.volunteer-confirm button {
+  height:50px;
+  background-color:#BF2997;
+  color:white;
+  text-transform: uppercase;
+  width:100%;
+  border:none;
+}
+
+.share {
+  text-align:center;
+}
+
+/* End Volunteer Confirm Page */
 
 /*Wallet*/
 
