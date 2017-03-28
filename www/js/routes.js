@@ -553,6 +553,7 @@ angular.module('app.routes', ['ionicUIRouter'])
       /page1/tab2/profile
       /page1/tab5/profile
   */
+
   .state('tabController.yourProfile', {
     url: '/profile',
     views: {
@@ -572,6 +573,26 @@ angular.module('app.routes', ['ionicUIRouter'])
     templateUrl: 'templates/login.html',
     controller: 'loginCtrl'
   })
+
+//VOUCHER ROUTE
+  .state('voucher', {
+    url: '/voucher',
+    templateUrl: 'templates/voucher.html',
+    controller: 'voucherCtrl'
+  })
+//
+
+.state('jamesvoucher', {
+  url: '/jamesvoucher',
+  templateUrl: 'templates/jamesvoucher.html',
+  controller: 'jamesVoucherCtrl'
+})
+
+.state('volunteerOps', {
+  url: '/volunteerops',
+  templateUrl: 'templates/volunteerOps.html',
+  controller: 'volunteerOpsCtrl'
+})
 
   .state('signUp', {
     url: '/signup',
