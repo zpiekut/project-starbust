@@ -296,6 +296,7 @@ function ($scope, $rootScope, $stateParams, $ionicAuth, $ionicUser, $state, Auth
     $scope.data = {
         'email': '',
         'password': '',
+        'confirmpassword': '',
         'firstname': '',
         'lastname': '',
         'neighborhood': ''
@@ -320,10 +321,14 @@ function ($scope, $rootScope, $stateParams, $ionicAuth, $ionicUser, $state, Auth
       window.alert("Field requirements not met");
     });
 
+    $rootScope.$on('event:auth-signup-failed-passwords-do-not-match', function(status) {
+      console.log("Status: " + status);
+      window.alert("Passwords do not match");
+    });
+
     $scope.$on('event:auth-login-confirmed', function() {
       $scope.username = null;
       $scope.password = null;
-      //$scope.loginModal.hide();
       $scope.message = '';
       //TODO: resolve state.go error
       $state.go('tabController.yourProfile_tab5', {}, {reload: true, inherit: false});

@@ -35,6 +35,8 @@ angular.module('app.services', [])
         .success(function (data, status, headers, config) {
           if(data.message == "Email already exists")
             $rootScope.$broadcast('event:auth-signup-failed-email-already-exists', status);
+          if(data.message == "Passwords do not match")
+            $rootScope.$broadcast('event:auth-signup-failed-passwords-do-not-match', status);
           else
             $rootScope.$broadcast('event:auth-signup-complete', status);
         })
