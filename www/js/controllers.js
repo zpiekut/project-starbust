@@ -303,6 +303,7 @@ function ($scope, $rootScope, $stateParams, $ionicAuth, $ionicUser, $state, Auth
     };
 
     $scope.error= '';
+    $scope.message='';
     $scope.signup = function(){
       AuthenticationService.signUp($scope.data);
     };
@@ -313,17 +314,17 @@ function ($scope, $rootScope, $stateParams, $ionicAuth, $ionicUser, $state, Auth
     });
     $rootScope.$on('event:auth-signup-failed-email-already-exists', function(status) {
       console.log("Status: " + status);
-      window.alert("This email address already exists");
+      $scope.message = "This email address already exists";
     });
 
     $rootScope.$on('event:auth-signup-failed-field-reqs-not-met', function(status) {
       console.log("Status: " + status);
-      window.alert("Field requirements not met");
+      $scope.message = "Field requirements not met";
     });
 
     $rootScope.$on('event:auth-signup-failed-passwords-do-not-match', function(status) {
       console.log("Status: " + status);
-      window.alert("Passwords do not match");
+      $scope.message = "Passwords do not match";
     });
 
     $scope.$on('event:auth-login-confirmed', function() {
