@@ -1,6 +1,17 @@
 COMPLETE -- 2) www/js/controllers.js: 243 resolve state.go error
 
-ON HOLD  -- 1) www/js/app.js: 15 FIND BETTER PRODUCTION SOLUTION
+COMPLETE -- 1) www/js/app.js: 15 FIND BETTER PRODUCTION SOLUTION
 http://stackoverflow.com/questions/33660712/angularjs-post-fails-response-for-preflight-has-invalid-http-status-code-404
 
 COMPLETE -- 3) www/templates/signUp.html: In line 9 div, fix order/labels of fields to match db
+
+
+COMPLETE -- 4) Add signup error handling
+
+COMPLETE -- 5) Rootscope
+
+COMPLETE -- 6) fix signup form
+
+COMPLETE -- 7) correct state.go after logout
+
+8) talk to UX about error handling and field reqs not met in signup, mention discrepancy with login error handling

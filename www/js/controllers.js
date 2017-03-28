@@ -218,7 +218,7 @@ function ($scope, $stateParams, $ionicUser, $ionicAuth, $state, AuthenticationSe
 
     $scope.logout = function(){
         AuthenticationService.logout();
-        $state.go('home');
+        $state.go('tabController.home_tab5');
     }
 
 
@@ -250,7 +250,6 @@ function ($scope, $stateParams, $ionicUser, $ionicAuth, $state, AuthenticationSe
     $scope.$on('event:auth-login-confirmed', function() {
       $scope.username = null;
       $scope.password = null;
-      //$scope.loginModal.hide();
       $scope.message = '';
       //TODO: resolve state.go error
       $state.go('tabController.yourProfile_tab2', {}, {reload: true, inherit: false});
@@ -268,6 +267,8 @@ function ($scope, $stateParams, $ionicUser, $ionicAuth, $state, AuthenticationSe
       console.log("logout complete");
       $state.go('app.login', {}, {reload: true, inherit: false});
     });
+
+
 }])
 
 
@@ -295,24 +296,53 @@ function ($scope, $stateParams, $ionicUser, $ionicAuth, $state, AuthenticationSe
   };
 })
 
-.controller('signUpCtrl', ['$scope', '$stateParams', '$ionicAuth', '$ionicUser', '$state', 'AuthenticationService',
+.controller('signUpCtrl', ['$scope', '$rootScope', '$stateParams', '$ionicAuth', '$ionicUser', '$state', 'AuthenticationService',
 // The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
 // You can include any angular dependencies as parameters for this function
 // TIP: Access Route Parameters for your page via $stateParams.parameterName
-function ($scope, $stateParams, $ionicAuth, $ionicUser, $state, AuthenticationService) {
+function ($scope, $rootScope, $stateParams, $ionicAuth, $ionicUser, $state, AuthenticationService) {
 
     $scope.data = {
         'email': '',
         'password': '',
+        'confirmpassword': '',
         'firstname': '',
         'lastname': '',
         'neighborhood': ''
     };
 
     $scope.error= '';
+    $scope.message='';
     $scope.signup = function(){
       AuthenticationService.signUp($scope.data);
-    }
+    };
+
+    $rootScope.$on('event:auth-signup-complete', function(status) {
+      console.log("Status: " + status);
+      AuthenticationService.login($scope.data);
+    });
+    $rootScope.$on('event:auth-signup-failed-email-already-exists', function(status) {
+      console.log("Status: " + status);
+      $scope.message = "This email address already exists";
+    });
+
+    $rootScope.$on('event:auth-signup-failed-field-reqs-not-met', function(status) {
+      console.log("Status: " + status);
+      $scope.message = "Field requirements not met";
+    });
+
+    $rootScope.$on('event:auth-signup-failed-passwords-do-not-match', function(status) {
+      console.log("Status: " + status);
+      $scope.message = "Passwords do not match";
+    });
+
+    $scope.$on('event:auth-login-confirmed', function() {
+      $scope.username = null;
+      $scope.password = null;
+      $scope.message = '';
+      //TODO: resolve state.go error
+      $state.go('tabController.yourProfile_tab5', {}, {reload: true, inherit: false});
+    });
 
 
 }])
