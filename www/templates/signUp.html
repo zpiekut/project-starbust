@@ -15,12 +15,20 @@
          <h2>REGISTER</h2>
 
         <div><span ng-model="message">{{message}}</span></div>
+      
+        <label>First Name</label>
 
-        <label> Email</label>
+          <input class="register-input" type="text" placeholder="" ng-model="data.firstname">
+
+        <label>Last Name</label>
+
+          <input class="register-input" type="text" placeholder="" ng-model="data.lastname">
+
+        <label>Email</label>
 
           <input class="register-input"  type="email" placeholder="" ng-model="data.email">
 
-        <label >Password </label>
+        <label>Password</label>
 
           <input class="register-input" type="password" placeholder="" ng-model="data.password">
 

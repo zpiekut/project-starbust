@@ -466,7 +466,7 @@
   content: "";
 }
 
-.ion-android-share:before {
+.ion-android-share:before
   content: "";
 }
 
@@ -4805,7 +4805,7 @@ a.subdued:last-child {
 }
 
 .nav-bar-tabs-top.hide ~ .view-container .tabs-top .tabs {
-  top: 0; 
+  top: 0;
   display:none;
 }
 
@@ -11377,9 +11377,9 @@ a.button .icon:before, a.button.icon:before, a.button.icon-left:before, a.button
   width:100px;
 }
 
-.where, 
-.date, 
-.when, 
+.where,
+.date,
+.when,
 .place,
 .problem,
 .solution {
@@ -11388,15 +11388,15 @@ a.button .icon:before, a.button.icon:before, a.button.icon-left:before, a.button
   margin:0;
 }
 
-.where, 
-.when, 
+.where,
+.when,
 .problem,
 .solution,
 .address {
   font-weight:700;
 }
 
-.event-title, 
+.event-title,
 .organization
 {
   background-color:transparent;
@@ -11425,9 +11425,10 @@ a.button .icon:before, a.button.icon:before, a.button.icon-left:before, a.button
   text-decoration:none;
 }
 
-.volunteer-address a, 
+.volunteer-address a,
 .calendar-add {
   text-decoration: none;
+
 }
 
 .friends-volunteering {
@@ -11460,21 +11461,252 @@ a.button .icon:before, a.button.icon:before, a.button.icon-left:before, a.button
 }
 
 .social-share {
-  padding:20px;
-  text-align:center;
+  padding-top:30px;
+  padding-bottom:30px;
+  display:flex;
+  justify-content: space-between;
 }
 
 .social-share img {
-  height:50px;
-  padding-left:1%;
-  padding-right:1%;
+  padding-left:1px;
+  padding-right:5px;
+  height:15px;
+  width:auto;
+  display:inline;
+}
+
+.facebook-sharing {
+  font-family:'Montserrat', sans-serif;
+  font-weight: bolder;
+  background: #3b5998;
+  color: #fff;
+  cursor: pointer;
+  display: inline-block;
+  padding: 1em 1em;
+  width:200px;
+  max-width: 49%;
+  margin: 0;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.twitter-sharing {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: bolder;
+  background: #57cff4;
+  color: #fff;
+  cursor: pointer;
+  display: inline-block;
+  padding: 1em 1em;
+  width:200px;
+  max-width: 49%;
+  margin: 0;
+  text-align: center;
+  text-transform: uppercase;
 }
 
 #dump-buster-heading {
   background-image:url('/img/dumpbuster.jpg');
 }
 
-/*end click to volunteer page */
+/* End Click to Volunteer Page */
+
+  #vollist {
+    font-family: Montserrat, sans-serif;
+  }
+
+  #vollist img {
+    display: block;
+    width: 100%;
+    height: auto;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  #vollist a {
+    display:block;
+    text-decoration: none;
+  }
+
+  #ecostewards {
+   background-image: url(../img/ecosteward.jpeg)
+ }
+
+ #dumpbusters {
+ background-image: url(../img/trash.jpeg)
+}
+
+#foodprep {
+background-image: url(../img/soup-kitchen.jpeg)
+}
+
+  .vol, .darkener {
+    height:300px;
+    width:100%;
+    overflow: hidden;
+  }
+
+  .vol {
+    background-size:cover;
+    background-repeat: no-repeat;
+  }
+
+  .darkener {
+    background-color: rgba(0, 0, 0, 0.5);
+  }
+
+
+
+
+  .green-container
+  {
+    background-color: rgba(153,204,51, 0.8);
+    width:300px;
+    padding: 10px 10px 10px 10px;
+    box-sizing:border-box;
+/*  border-top-left-radius: 5px;
+*/  border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    position:relative;
+    top:237px;
+    text-align:left;
+  }
+  .green-container .vol-title {
+    color:white;
+    text-transform: uppercase;
+    font-weight: lighter;
+    font-size:1.5em;
+    padding:0px;
+    margin:0px;
+  }
+  .green-container .vol-subtitle {
+    font-size: 1.1em;
+    text-transform: uppercase;
+    font-weight: lighter;
+    color: #596049;
+    padding:0px;
+    margin: 0px;
+  }
+
+/* End of Volunteer Page*/
+
+/* Volunteer Confirm Page */
+
+.volunteer-confirm {
+  padding:30px;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: lighter;
+}
+
+.volunteer-confirm h1, h2, h3, h4, h5, p , a {
+  margin: 0;
+  padding: 0;
+}
+
+.volunteer-confirm a {
+  text-decoration: none;
+}
+
+.volunteer-confirm-content {
+  margin-bottom:20px;
+}
+
+.volunteer-calendar-add {
+  text-align:center;
+  margin-bottom:30px;
+}
+
+.volunteer-confirm button {
+  height:50px;
+  background-color:#BF2997;
+  color:white;
+  text-transform: uppercase;
+  width:100%;
+  border:none;
+}
+
+.share {
+  text-align:center;
+}
+
+/* End Volunteer Confirm Page */
+
+/*Wallet*/
+
+#walletlist {
+  font-family: Montserrat, sans-serif;
+}
+
+#walletlist img {
+  display: block;
+  width: 100%;
+  height: auto;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+
+#walletlist a {
+  display:block;
+  text-decoration: none;
+}
+
+#bigdogvoucher {
+   background-image: url(../img/cute-coffee.jpg)
+}
+
+#concert {
+   background-image: url(../img/concert.jpg)
+}
+
+.wallet, .darkener {
+  height:300px;
+  width:100%;
+  overflow: hidden;
+}
+
+.wallet {
+  background-size:cover;
+  background-repeat: no-repeat;
+}
+
+.darkener {
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+
+
+.green-container
+{
+  background-color: rgba(153,204,51, 0.8);
+  width:300px;
+  padding: 10px 10px 10px 10px;
+  box-sizing:border-box;
+/*  border-top-left-radius: 5px;
+*/  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+  position:relative;
+  top:237px;
+  text-align:left;
+}
+.green-container .wallet-title {
+  color:white;
+  text-transform: uppercase;
+  font-weight: lighter;
+  font-size:1.5em;
+  padding:0px;
+  margin:0px;
+}
+.green-container .wallet-subtitle {
+  font-size: 1.1em;
+  text-transform: uppercase;
+  font-weight: lighter;
+  color: #596049;
+  padding:0px;
+  margin: 0px;
+}
+
+/*end of wallet*/
 
 /*Partner List Page */
 
@@ -11482,11 +11714,13 @@ a.button .icon:before, a.button.icon:before, a.button.icon-left:before, a.button
     font-family: Montserrat, sans-serif;
   }
 
+
+
   #partnerlist img {
-    display: block; 
-    width: 100%; 
-    height: auto; 
-    margin-left: auto; 
+    display: block;
+    width: 100%;
+    height: auto;
+    margin-left: auto;
     margin-right: auto;
   }
 
@@ -11570,7 +11804,115 @@ a.button .icon:before, a.button.icon:before, a.button.icon-left:before, a.button
     margin: 0px;
   }
 
-/*end partner list page  */
+/* End Partner List Page  */
+
+/* Individual Redeem Page */
+
+.redeem-container, .redeem-about {
+  padding: 30px;
+  font-family: 'Montserrat', sans-serif;
+  font-weight:100;
+  font-size:.95em;
+}
+
+.redeem-container a {
+  text-decoration: none;
+}
+
+.redeem-container h1, h2, h3, p, a {
+  color:black;
+  margin:0px 0px 0px 0px;
+  padding:0px 0px 0px 0px;
+}
+
+.redeem-content-container {
+  padding-bottom: 15px;
+}
+
+.redeem-about {
+  padding-bottom:10px;
+}
+
+.bold {
+  font-weight:700;
+}
+
+.redeem-title
+{
+  background-color: rgba(0, 0, 0, 0.5);
+  height:200px;
+  padding:30px;
+}
+.redeem-title h2, h3 {
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.redeem-address {
+  color:black;
+  padding:0;
+  margin:0;
+  text-decoration:none;
+}
+
+.small-orange-link {
+  color:orange;
+  font-size:.8em;
+  text-transform: uppercase;
+  padding:0px 0px 20px 0px;
+}
+
+.redeem-phone {
+  margin:0px;
+  padding:0px;
+}
+
+.redeem-tables-container { 
+  display:flex;
+  justify-content:space-between;
+  padding-bottom:20px;
+}
+
+.hours, .rewards {
+  color:black;
+  border:black;
+  display:inline;
+}
+
+.hours td, .rewards td {
+  padding-right:6px;
+}
+
+.hours th, .rewards th {
+  text-align: center;
+}
+
+.redeem-button-container {
+  text-align:center;
+}
+
+.redeem-button {
+  width:350px;
+  height:40px;
+  background-color: #BF2997;
+  color:white;
+  text-transform: uppercase;
+  margin:auto;
+  border:none;
+}
+
+.redeem-about {
+  background-color: #cecece;
+}
+
+#familyfarms-heading {
+  background-image:url('../img/familyfarms.png');
+  background-size:cover;
+  background-position: center;
+}
+
+/* End Individual Redeem Page */
 
 .logoutnavContainer {
   position: absolute;
@@ -11682,7 +12024,7 @@ a.button .icon:before, a.button.icon:before, a.button.icon-left:before, a.button
   right: 0px;
 }
 
-home-heading13 {
+.home-heading13 {
   border: 2px;
   border-color: #000000;
 }
@@ -11833,7 +12175,7 @@ img#logo {
   display: block;
   border: none;
   position: absolute;
-  bottom: 109px;
+  bottom: 131px;
   transform: translateX(50%);
   right: 50%;
   font-weight: bold;
@@ -11956,7 +12298,7 @@ form.list {
   background-repeat: no-repeat;
   background-position: 50%;
   height: 70%;
-  background-image: url("../img/rewards.png");
+  background-image: url("../img/gift.png");
   background-size: contain;
 }
 
@@ -12046,10 +12388,11 @@ form.list {
 
 }
 
-.project-box h5{
+.project-box h5 a {
    font-size: 1em;
    margin: none;
    color: #2c2c2c;
+   text-decoration: none;
 }
 
 .project-box p {
@@ -12078,4 +12421,86 @@ form.list {
 
 input.credit-input {
    font-size: 1em;
+}
+
+/*Voucher*/
+
+.voucher-container {
+   font-family:  'Droid Sans', sans-serif;
+}
+
+.prize-details {
+   font-family: 'Droid Sans', sans-serif;
+   height: 270px;
+   background-image: url('../img/cute-coffee.jpg');
+   background-size: cover;
+   color: white;
+}
+
+.james-prize-details {
+   font-family: 'Droid Sans', sans-serif;
+   height: 270px;
+   background-image: url('../img/concert.jpg');
+   background-size: cover;
+   color: white;
+}
+
+.prize-details a, .james-prize-details a {
+   color: #fd9614;
+   text-decoration: none;
+}
+
+.voucher-banner {
+   background: rgba(42, 36, 36, 0.75);
+
+}
+
+.voucher-banner h4 {
+   margin: 0;
+   padding: 20px;
+   color: white;
+   font-size: 1em;
+
+}
+
+.prize-details h2, .james-prize-details h2 {
+
+   color: white;
+
+}
+
+.image-text {
+   margin: 47px 20px 0px 20px;
+   padding-bottom: 20px;
+
+}
+
+.image-text p {
+   margin: 0;
+}
+
+.voucher-box {
+   background: #efefef;
+   color: #2c2c2c;
+}
+
+.voucher-box h1 {
+   text-align: center;
+   color: #bc2b97;
+   padding: 35px;
+   margin: 0;
+}
+
+.voucher-box p {
+   color: #2c2c2c;
+   padding-top: 30px;
+   margin: 0px 0px 0px 20px;
+   font-size: 1.1em;
+}
+
+.voucher-thanks {
+   margin-top: 96.8px;
+   font-size: 1.1em;
+   text-align: center;
+   color: #2c2c2c;
 }
