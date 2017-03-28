@@ -5,6 +5,13 @@ angular.module('app.controllers', [])
 // TIP: Access Route Parameters for your page via $stateParams.parameterName
 function ($scope, $stateParams, RedemptionsService) {
     $scope.redemptions = [];
+
+    RedemptionsService.getRedemptions().then(function(redemptions) {
+      $scope.redemptions = redemptions;
+      redemptions[0].link = "redeemFamilyFarms";
+      console.log(redemptions);
+    });
+
     $scope.getRedemptions =
       RedemptionsService.getRedemptions().then(function(redemptions) {
         $scope.redemptions = redemptions;
