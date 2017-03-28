@@ -8,4 +8,6 @@ COMPLETE -- 3) www/templates/signUp.html: In line 9 div, fix order/labels of fie
 
 4) Add signup error handling
 
-5) Rootscope
+COMPLETE -- 5) Rootscope
+
+6) fix signup form
