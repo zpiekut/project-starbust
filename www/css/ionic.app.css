@@ -466,7 +466,7 @@
   content: "";
 }
 
-.ion-android-share:before {
+.ion-android-share:before
   content: "";
 }
 
@@ -11461,22 +11461,55 @@ a.button .icon:before, a.button.icon:before, a.button.icon-left:before, a.button
 }
 
 .social-share {
-  padding:20px;
-  text-align:center;
+  padding-top:30px;
+  padding-bottom:30px;
+  display:flex;
+  justify-content: space-between;
 }
 
 .social-share img {
-  height:50px;
-  padding-left:1%;
-  padding-right:1%;
+  padding-left:1px;
+  padding-right:5px;
+  height:15px;
+  width:auto;
+  display:inline;
+}
+
+.facebook-sharing {
+  font-family:'Montserrat', sans-serif;
+  font-weight: bolder;
+  background: #3b5998;
+  color: #fff;
+  cursor: pointer;
+  display: inline-block;
+  padding: 1em 1em;
+  width:200px;
+  max-width: 49%;
+  margin: 0;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.twitter-sharing {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: bolder;
+  background: #57cff4;
+  color: #fff;
+  cursor: pointer;
+  display: inline-block;
+  padding: 1em 1em;
+  width:200px;
+  max-width: 49%;
+  margin: 0;
+  text-align: center;
+  text-transform: uppercase;
 }
 
 #dump-buster-heading {
   background-image:url('/img/dumpbuster.jpg');
 }
 
-/*end click to volunteer page */
-
+/* End Click to Volunteer Page */
 
   #vollist {
     font-family: Montserrat, sans-serif;
@@ -11555,11 +11588,48 @@ background-image: url(../img/soup-kitchen.jpeg)
     margin: 0px;
   }
 
+/* End of Volunteer Page*/
 
+/* Volunteer Confirm Page */
 
+.volunteer-confirm {
+  padding:30px;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: lighter;
+}
 
+.volunteer-confirm h1, h2, h3, h4, h5, p , a {
+  margin: 0;
+  padding: 0;
+}
 
-/*end of volunteer page*/
+.volunteer-confirm a {
+  text-decoration: none;
+}
+
+.volunteer-confirm-content {
+  margin-bottom:20px;
+}
+
+.volunteer-calendar-add {
+  text-align:center;
+  margin-bottom:30px;
+}
+
+.volunteer-confirm button {
+  height:50px;
+  background-color:#BF2997;
+  color:white;
+  text-transform: uppercase;
+  width:100%;
+  border:none;
+}
+
+.share {
+  text-align:center;
+}
+
+/* End Volunteer Confirm Page */
 
 /*Wallet*/
 
@@ -11734,13 +11804,115 @@ background-image: url(../img/soup-kitchen.jpeg)
     margin: 0px;
   }
 
+/* End Partner List Page  */
 
+/* Individual Redeem Page */
 
+.redeem-container, .redeem-about {
+  padding: 30px;
+  font-family: 'Montserrat', sans-serif;
+  font-weight:100;
+  font-size:.95em;
+}
 
+.redeem-container a {
+  text-decoration: none;
+}
 
+.redeem-container h1, h2, h3, p, a {
+  color:black;
+  margin:0px 0px 0px 0px;
+  padding:0px 0px 0px 0px;
+}
 
+.redeem-content-container {
+  padding-bottom: 15px;
+}
 
-/*end partner list page  */
+.redeem-about {
+  padding-bottom:10px;
+}
+
+.bold {
+  font-weight:700;
+}
+
+.redeem-title
+{
+  background-color: rgba(0, 0, 0, 0.5);
+  height:200px;
+  padding:30px;
+}
+.redeem-title h2, h3 {
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.redeem-address {
+  color:black;
+  padding:0;
+  margin:0;
+  text-decoration:none;
+}
+
+.small-orange-link {
+  color:orange;
+  font-size:.8em;
+  text-transform: uppercase;
+  padding:0px 0px 20px 0px;
+}
+
+.redeem-phone {
+  margin:0px;
+  padding:0px;
+}
+
+.redeem-tables-container { 
+  display:flex;
+  justify-content:space-between;
+  padding-bottom:20px;
+}
+
+.hours, .rewards {
+  color:black;
+  border:black;
+  display:inline;
+}
+
+.hours td, .rewards td {
+  padding-right:6px;
+}
+
+.hours th, .rewards th {
+  text-align: center;
+}
+
+.redeem-button-container {
+  text-align:center;
+}
+
+.redeem-button {
+  width:350px;
+  height:40px;
+  background-color: #BF2997;
+  color:white;
+  text-transform: uppercase;
+  margin:auto;
+  border:none;
+}
+
+.redeem-about {
+  background-color: #cecece;
+}
+
+#familyfarms-heading {
+  background-image:url('../img/familyfarms.png');
+  background-size:cover;
+  background-position: center;
+}
+
+/* End Individual Redeem Page */
 
 .logoutnavContainer {
   position: absolute;
@@ -11852,7 +12024,7 @@ background-image: url(../img/soup-kitchen.jpeg)
   right: 0px;
 }
 
-home-heading13 {
+.home-heading13 {
   border: 2px;
   border-color: #000000;
 }
