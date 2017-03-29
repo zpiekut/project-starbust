@@ -317,6 +317,7 @@ angular.module('app.routes', ['ionicUIRouter'])
       /page1/tab5/page33
       /page1/tab4/page33
   */
+  
   .state('tabController.redeemVenturePass', {
     url: '/page33',
     views: {
@@ -594,6 +595,12 @@ angular.module('app.routes', ['ionicUIRouter'])
   controller: 'jamesVoucherCtrl'
 })
 
+.state('farmsVoucher', {
+  url: '/farmsvoucher',
+  templateUrl: 'templates/familyFarmsVoucher.html',
+  controller: 'farmsVoucherCtrl'
+})
+
 .state('volunteerOps', {
   url: '/volunteerops',
   templateUrl: 'templates/volunteerOps.html',
@@ -606,8 +613,6 @@ angular.module('app.routes', ['ionicUIRouter'])
     controller: 'signUpCtrl'
   })
 
-$urlRouterProvider.otherwise('/page1/tab2/page20')
-
-
+$urlRouterProvider.otherwise('/page1/tab2/page11')
 
 });
