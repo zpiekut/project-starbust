@@ -308,7 +308,8 @@ function ($scope, $rootScope, $stateParams, $ionicAuth, $ionicUser, $state, Auth
         'confirmpassword': '',
         'firstname': '',
         'lastname': '',
-        'neighborhood': ''
+        'age': '',
+        'zipcode': ''
     };
 
     $scope.error= '';
