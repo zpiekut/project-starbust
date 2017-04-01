@@ -11555,9 +11555,6 @@ background-image: url(../img/soup-kitchen.jpeg)
     background-color: rgba(0, 0, 0, 0.5);
   }
 
-
-
-
   .green-container
   {
     background-color: rgba(153,204,51, 0.8);
@@ -12432,15 +12429,26 @@ input.credit-input {
 /*Voucher*/
 
 .voucher-container {
-   font-family:  'Droid Sans', sans-serif;
+   font-family:  'Montserrat', sans-serif;
 }
 
 .prize-details {
-   font-family: 'Droid Sans', sans-serif;
+   font-family: 'Montserrat', sans-serif;
    height: 270px;
    background-image: url('../img/cute-coffee.jpg');
    background-size: cover;
    color: white;
+}
+
+.farms-prize-details {
+   font-family: 'Droid Sans', sans-serif;
+   height: 270px;
+   background-size: cover;
+   color: white;
+}
+
+.prize-details p, .farms-prize-details p {
+  color:white;
 }
 
 .james-prize-details {
@@ -12451,7 +12459,12 @@ input.credit-input {
    color: white;
 }
 
-.prize-details a, .james-prize-details a {
+.farms-prize-details {
+  background-image: url('../img/icecream.jpeg');
+  background-size:cover;
+}
+
+.prize-details a, .james-prize-details a, .farms-prize-details a {
    color: #fd9614;
    text-decoration: none;
 }
@@ -12469,7 +12482,7 @@ input.credit-input {
 
 }
 
-.prize-details h2, .james-prize-details h2 {
+.prize-details h2, .james-prize-details h2, .farms-prize-details h2 {
 
    color: white;
 

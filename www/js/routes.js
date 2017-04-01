@@ -389,11 +389,17 @@ angular.module('app.routes', ['ionicUIRouter'])
     controller: 'jamesVoucherCtrl'
   })
 
-  .state('volunteerOps', {
-    url: '/volunteerops',
-    templateUrl: 'templates/volunteerOps.html',
-    controller: 'volunteerOpsCtrl'
-  })
+.state('farmsVoucher', {
+  url: '/farmsvoucher',
+  templateUrl: 'templates/familyFarmsVoucher.html',
+  controller: 'farmsVoucherCtrl'
+})
+
+.state('volunteerOps', {
+  url: '/volunteerops',
+  templateUrl: 'templates/volunteerOps.html',
+  controller: 'volunteerOpsCtrl'
+})
 
   .state('signUp', {
     url: '/signup',
@@ -402,6 +408,5 @@ angular.module('app.routes', ['ionicUIRouter'])
   })
 
   $urlRouterProvider.otherwise('/tab/volinteer-tab/volunteerList')
-
 
 });
