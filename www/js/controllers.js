@@ -7,17 +7,9 @@ function ($scope, $stateParams, RedemptionsService) {
     $scope.redemptions = [];
 
     RedemptionsService.getRedemptions().then(function(redemptions) {
-      $scope.redemptions = redemptions;
-      redemptions[0].link = "redeemFamilyFarms";
+      $scope.redemptions = redemptions.data;
       console.log(redemptions);
     });
-
-    $scope.getRedemptions =
-      RedemptionsService.getRedemptions().then(function(redemptions) {
-        $scope.redemptions = redemptions;
-        redemptions[0].link = "redeemJamesSt";
-        console.log(redemptions);
-      });
 }])
 
 .controller('homeCtrl', ['$scope', '$stateParams', '$ionicUser', '$ionicAuth', '$state', // The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
@@ -36,9 +28,6 @@ function ($scope, $stateParams, $ionicUser, $ionicAuth, $state) {
          $state.go('tabController.yourProfile')
      }
 
-
-
-     //
      $scope.login = function(){
         $scope.error = '';
         $ionicAuth.login('basic', $scope.data).then(function(){
@@ -64,7 +53,7 @@ function ($scope, $stateParams, RedemptionsService) {
 
 }])
 
-.controller('redeemFamilyFarmsCtrl', ['$scope', '$stateParams', // The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
+.controller('redeemJamesStCtrl', ['$scope', '$stateParams', // The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
 // You can include any angular dependencies as parameters for this function
 // TIP: Access Route Parameters for your page via $stateParams.parameterName
 function ($scope, $stateParams) {
@@ -252,7 +241,7 @@ function ($scope, $stateParams, $ionicUser, $ionicAuth, $state, AuthenticationSe
       $scope.password = null;
       $scope.message = '';
       //TODO: resolve state.go error
-      $state.go('tabController.yourProfile_tab2', {}, {reload: true, inherit: false});
+      $state.go('tabController.yourProfile_volinteer-tab', {}, {reload: true, inherit: false});
     });
 
     $scope.$on('event:auth-login-failed', function(e, status) {
