@@ -200,13 +200,13 @@ function ($scope, $stateParams) {
 
 }])
 
-.controller('yourProfileCtrl', ['$scope', '$stateParams', '$ionicUser', '$ionicAuth', '$state', 'AuthenticationService',
+.controller('yourProfileCtrl', ['$scope', '$stateParams', '$ionicUser', '$ionicAuth', '$state', 'AuthenticationService', 'MyLocalStorageService',
 // The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
 // You can include any angular dependencies as parameters for this function
 // TIP: Access Route Parameters for your page via $stateParams.parameterName
-function ($scope, $stateParams, $ionicUser, $ionicAuth, $state, AuthenticationService) {
+function ($scope, $stateParams, $ionicUser, $ionicAuth, $state, AuthenticationService, MyLocalStorageService) {
 
-    $scope.userData = $ionicUser.details;
+    $scope.userData = JSON.parse(MyLocalStorageService.loadUserInfo());
 
 
     $scope.logout = function(){

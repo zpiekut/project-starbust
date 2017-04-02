@@ -15,6 +15,7 @@ angular.module('app.services', [])
           if(data.jwt) {
             $rootScope.$broadcast('event:auth-login-confirmed', status);
             MyLocalStorageService.storeToken(data.jwt);
+            MyLocalStorageService.storeUserInfo(data.user);
           }else{
             $rootScope.$broadcast('event:auth-login-failed', status);
           }
@@ -27,6 +28,7 @@ angular.module('app.services', [])
       $http.post('https://localhost:8081/api/auth/logout', {}, { ignoreAuthModule: true })
         .finally(function() {
           MyLocalStorageService.destroyToken();
+          MyLocalStorageService.destroyUserInfo();
           $rootScope.$broadcast('event:auth-logout-complete');
         });
     },
@@ -50,6 +52,15 @@ angular.module('app.services', [])
   var isAuthenticated;
   return {
 
+    storeUserInfo: function (info) {
+      window.localStorage.setItem('userInfo', JSON.stringify(info));
+    },
+    loadUserInfo: function () {
+      return window.localStorage.getItem('userInfo');
+    },
+    destroyUserInfo: function () {
+      window.localStorage.removeItem('userInfo');
+    },
     storeToken: function (token) {
       window.localStorage.setItem('tokenKey', token);
       authToken = token;
@@ -106,7 +117,18 @@ angular.module('app.services', [])
 
         deferred.resolve();
         return deferred.promise;
-	    }
+	    },
+      getProjectsForUser: function(){
+        var user = MyLocalStorageService.loadUserInfo();
+        var userProjects = $http.get('http://localhost:8081/api/projects/user/' + user.id)
+          .success(function (data, status, headers, config) {
+            for(var i = 0; i < data.length; i++){projects[i] = data[i]}
+          })
+          .error(function (data, status, headers, config) {
+            console.log("error data: " + status);
+          });
+        return projects;
+      }
     }
 }])
 
@@ -120,7 +142,7 @@ angular.module('app.services', [])
           method: 'GET',
           url: 'http://localhost:8081/api/redemptions',
           headers: {
-            Authorization:  MyLocalStorageService.loadToken() //"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6MSwibmFtZSI6IkFudGhvbnkgVmFsaWQgVXNlciIsImlhdCI6MTQyNTQ3MzUzNX0.KA68l60mjiC8EXaC2odnjFwdIDxE__iDu5RwLdN1F2A"
+            Authorization:  MyLocalStorageService.loadToken()
           }
         };
 
@@ -152,4 +174,32 @@ angular.module('app.services', [])
         return deferred.promise;
 	    }
     }
-}]);
+}])
+.service('CreditsService', ['$http','$q', 'MyLocalStorageService', function($http, $q, MyLocalStorageService){
+  var credits = [];
+  var user = MyLocalStorageService.loadUserInfo();
+
+  return {
+    getCreditsForUser: function() {
+
+      return $http.get("http://localhost:8081/api/credits/user/" + user.id)
+        .success(function (data, status, headers, config) {
+          credits = data;
+        })
+        .error(function (data, status, headers, config) {
+          console.log("error data: " + status);
+        });
+    }
+  },
+  {
+    redeemCreditsForUser: function (code) {
+      return $http.put("http://localhost:8081/api/credits/" + user.id) // Route doesn't exist in server. Clarify
+        .success(function (data, status, headers, config) {
+          credits = data;
+        })
+        .error(function (data, status, headers, config) {
+          console.log("error data: " + status);
+        });
+    }
+  }
+}])
