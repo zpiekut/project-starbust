@@ -12483,6 +12483,7 @@ input.credit-input {
 
 .image-text p {
    margin: 0;
+   color:  white;
 }
 
 .voucher-box {
@@ -12520,4 +12521,12 @@ a.home-login-link.button.button-lightbutton-outline.logintext {
   margin:  0;
 }
 
+a.login-button.button.button-balanced.button-block.button-positive {
+    border-color: transparent;
+    background-color: #99CC33;
+    color: #fff;
+    width: 82%;
+    /* margin-top: 411px; */
+    margin: 420px auto 0px auto;
+}
 
