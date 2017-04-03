@@ -7415,11 +7415,7 @@ a.item-content {
  */
 
 .list {
-  position: relative;
-  padding-top: 1px;
-  padding-bottom: 1px;
-  padding-left: 0;
-  margin-bottom: 20px;
+ /*  */
 }
 
 .list:last-child {
@@ -12217,9 +12213,7 @@ img#logo {
   margin-top: -20px;
 }
 
-.list {
-  margin-top: 36px;
-}
+
 
 .list label {
   font-size: 17px;
@@ -12233,9 +12227,11 @@ img#logo {
 
 .signup-link {
   text-align: center;
-  display: inherit;
-  color: #595959;
-  font-size: 16px;
+    display: inherit;
+    color: #595959;
+    font-size: 19px;
+    text-decoration: none;
+    margin-top: 20px;
 }
 
 .register-input {
@@ -12250,7 +12246,7 @@ img#logo {
   padding: 5px;
   font-size: 20px;
   font-weight: normal;
-  height: 30px;
+  height: 36px;
 }
 
 .signup-list h2 {
@@ -12303,6 +12299,13 @@ form.list {
   background-size: contain;
 }
 
+.sign-up-cont {
+  margin-top:  54px;
+}
+
+form.list.center-form.login.ng-pristine.ng-valid.ng-valid-email {
+  margin-top:  30px;
+}
 
 /*User profile*/
 
@@ -12512,3 +12515,9 @@ a.home-login-link.button.button-lightbutton-outline.logintext {
   background: none;
   color: white;
 }
+
+.login-cont .list {
+  margin:  0;
+}
+
+
