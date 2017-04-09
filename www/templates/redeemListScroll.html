@@ -1,4 +1,4 @@
-<ion-view title="Redeem List Scroll" hide-nav-bar="true" id="page15">
+<ion-view title="Redeem" hide-nav-bar="false" id="page15">
   <ion-content padding="false" class=" manual-remove-top-padding">
     <div ng-repeat="redemption in redemptions">
       <div id="partnerlist" class="partnerlist">
@@ -17,15 +17,13 @@
       </div>
     </div>
   <!-- <div id="partnerlist" class="partnerlist">
-      <div class="partner" id="decoresources">
-        <a>
+      <div class="partner" id="decoresources"> 
+        <a ui-sref="tabController.redeemDeco">  
           <div class="darkener">
-            <div class="green-container">
-              <a href="#">
+              <div class="green-container">
                 <h2 class="partner-title">Free Water Test</h2>
                 <h2 class="partner-subtitle">Deco Resources</h2>
-              </a>
-            </div>
+              </div>
           </div>
         </a>
       </div>
@@ -33,14 +31,12 @@
 
   <div id="partnerlist" class="partnerlist">
       <div class="partner" id="familyfarms">
-        <a>
+        <a ui-sref="tabController.redeemFamilyFarmsStatic">
           <div class="darkener">
-            <a ui-sref="tabController.redeemFamilyFarms">
               <div class="green-container">
                 <h2 class="partner-title">Ice Cream Discounts</h2>
                 <h2 class="partner-subtitle">Family Farms Creamery</h2>
               </div>
-            </a>
           </div>
         </a>
       </div>
@@ -48,13 +44,11 @@
 
   <div id="partnerlist" class="partnerlist">
       <div class="partner" id="jamesstreet">
-        <a>
+        <a ui-sref="tabController.redeemJamesSt">
           <div class="darkener">
-            <a ui-sref="tabController.redeemJamesSt">
             <div class="green-container">
                 <h2 class="partner-title">Free Admission</h2>
                 <h2 class="partner-subtitle">James Street Gastropub</h2>
-              </a>
             </div>
           </div>
         </a>
