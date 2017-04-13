@@ -200,21 +200,21 @@ function ($scope, $stateParams) {
 
 }])
 
-.controller('yourProfileCtrl', ['$scope', '$stateParams', '$ionicUser', '$ionicAuth', '$state', 'AuthenticationService', 'MyLocalStorageService',
+.controller('yourProfileCtrl', ['$scope', '$stateParams', '$ionicUser', '$ionicAuth', '$state', 'AuthenticationService', 'MyLocalStorageService', 'CreditsService',
 // The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
 // You can include any angular dependencies as parameters for this function
 // TIP: Access Route Parameters for your page via $stateParams.parameterName
-function ($scope, $stateParams, $ionicUser, $ionicAuth, $state, AuthenticationService, MyLocalStorageService) {
+function ($scope, $stateParams, $ionicUser, $ionicAuth, $state, AuthenticationService, MyLocalStorageService, CreditsService) {
 
-    $scope.userData = JSON.parse(MyLocalStorageService.loadUserInfo());
+  $scope.userData = JSON.parse(MyLocalStorageService.loadUserInfo());
 
+  $scope.credits = CreditsService.getCreditsForUser();
 
-    $scope.logout = function(){
-        AuthenticationService.logout();
-        $state.go('tabController.home_tab5');
-    }
-
-
+  $scope.logout = function(){
+      AuthenticationService.logout();
+      $state.go('tabController.home_tab5');
+  }
+  
 }])
 
 .controller('loginCtrl', ['$scope', '$stateParams', '$ionicUser', '$ionicAuth', '$state', 'AuthenticationService',

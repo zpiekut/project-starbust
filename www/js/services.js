@@ -64,7 +64,6 @@ angular.module('app.services', [])
     storeToken: function (token) {
       window.localStorage.setItem('tokenKey', token);
       authToken = token;
-      //tried to add this to authenticationservice as a method but learned about a circular dependency error
       $http.defaults.headers.common.Authorization = authToken;
       isAuthenticated = true;
     },
@@ -175,31 +174,41 @@ angular.module('app.services', [])
 	    }
     }
 }])
-.service('CreditsService', ['$http','$q', 'MyLocalStorageService', function($http, $q, MyLocalStorageService){
+
+.service('CreditsService', ['$http','$q', 'MyLocalStorageService', function($http, $q, MyLocalStorageService) {
   var credits = [];
   var user = MyLocalStorageService.loadUserInfo();
 
   return {
-    getCreditsForUser: function() {
+    getCreditsForUser: function () {
 
       return $http.get("http://localhost:8081/api/credits/user/" + user.id)
         .success(function (data, status, headers, config) {
-          credits = data;
+          //credits = data;
         })
         .error(function (data, status, headers, config) {
           console.log("error data: " + status);
         });
-    }
-  },
-  {
-    redeemCreditsForUser: function (code) {
-      return $http.put("http://localhost:8081/api/credits/" + user.id) // Route doesn't exist in server. Clarify
+    },
+    transferCreditsToUser: function (code) {
+      return $http.put("http://localhost:8081/api/transactions/project-redeem/" + user.id,
+        {RedeemCode: data.code, ToId: MyLocalStorageService.loadUserInfo().id})
         .success(function (data, status, headers, config) {
-          credits = data;
+          console.log(data);
+        })
+        .error(function (data, status, headers, config) {
+          console.log("error data: " + status);
+        });
+    },
+    transferCreditsToBusiness: function (redemption, creditArray) {
+      return $http.put("http://localhost:8081/api/transactions/" + user.id,
+        {FromId: MyLocalStorageService.loadUserInfo().id, ToId: redemption.id, CreditIds: creditArray})
+        .success(function (data, status, headers, config) {
+          console.log(data);
         })
         .error(function (data, status, headers, config) {
           console.log("error data: " + status);
         });
     }
   }
-}])
+}]);
