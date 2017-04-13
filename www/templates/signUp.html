@@ -4,7 +4,7 @@
       <p style="color:#FFFFFF;">Whoops!!!
         <br>Something is wrong!</p>
     </div>
-    <form class="list center-form">
+    <form class="list sign-up-cont center-form">
 
       <ion-list class="signup-list">
          <div>
@@ -14,25 +14,35 @@
          </div>
          <h2>REGISTER</h2>
 
-        <label> Email</label>
+        <div><span ng-model="message">{{message}}</span></div>
+
+        <label>Email</label>
 
           <input class="register-input"  type="email" placeholder="" ng-model="data.email">
 
-        <label >Password </label>
+        <label>Password</label>
 
           <input class="register-input" type="password" placeholder="" ng-model="data.password">
 
+        <label >Confirm Password </label>
+
+          <input class="register-input" type="password" placeholder="" ng-model="data.confirmpassword">
+
         <label>First Name</label>
 
-          <input class="register-input" type="text" placeholder="" ng-model="data.firstname">
+          <input class="register-input"  type="text" placeholder="" ng-model="data.firstname">
 
         <label>Last Name</label>
 
-          <input class="register-input" type="text" placeholder="" ng-model="data.lastname">
+          <input class="register-input"  type="text" placeholder="" ng-model="data.lastname">
 
-        <label>Neighborhood</label>
+        <label>Age</label>
 
-          <input class="register-input" type="text" placeholder="" ng-model="data.neighborhood">
+          <input class="register-input" type="text" placeholder="" ng-model="data.age">
+
+        <label>Zip Code</label>
+
+          <input class="register-input" type="text" placeholder="" ng-model="data.zipcode">
 
       </ion-list>
       <a ng-click="signup()" class="signup-button button button-balanced  button-block button-positive">Sign-Up</a>

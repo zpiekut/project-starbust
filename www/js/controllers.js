@@ -5,6 +5,13 @@ angular.module('app.controllers', [])
 // TIP: Access Route Parameters for your page via $stateParams.parameterName
 function ($scope, $stateParams, RedemptionsService) {
     $scope.redemptions = [];
+
+    RedemptionsService.getRedemptions().then(function(redemptions) {
+      $scope.redemptions = redemptions;
+      redemptions[0].link = "redeemFamilyFarms";
+      console.log(redemptions);
+    });
+
     $scope.getRedemptions =
       RedemptionsService.getRedemptions().then(function(redemptions) {
         $scope.redemptions = redemptions;
@@ -44,7 +51,7 @@ function ($scope, $stateParams, $ionicUser, $ionicAuth, $state) {
 }
    ])
 
-.controller('redeemJamesStCtrl', ['$scope', '$stateParams', 'RedemptionsService', // The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
+.controller('redeemFamilyFarmsCtrl', ['$scope', '$stateParams', 'RedemptionsService', // The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
 // You can include any angular dependencies as parameters for this function
 // TIP: Access Route Parameters for your page via $stateParams.parameterName
 function ($scope, $stateParams, RedemptionsService) {
@@ -63,7 +70,7 @@ function ($scope, $stateParams, RedemptionsService) {
 function ($scope, $stateParams) {
 }])
 
-.controller('redeemJamesStPassCtrl', ['$scope', '$stateParams', // The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
+.controller('redeemFamilyFarmsPassCtrl', ['$scope', '$stateParams', // The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
 // You can include any angular dependencies as parameters for this function
 // TIP: Access Route Parameters for your page via $stateParams.parameterName
 function ($scope, $stateParams) {
@@ -217,6 +224,7 @@ function ($scope, $stateParams, $ionicUser, $ionicAuth, $state, AuthenticationSe
   
 }])
 
+
 .controller('loginCtrl', ['$scope', '$stateParams', '$ionicUser', '$ionicAuth', '$state', 'AuthenticationService',
   'ProjectsService',
 // The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
@@ -263,6 +271,7 @@ function ($scope, $stateParams, $ionicUser, $ionicAuth, $state, AuthenticationSe
 
 }])
 
+
 .controller('AppCtrl', function($scope, $state, $ionicPopup, AuthService, AUTH_EVENTS) {
   $scope.username = AuthService.username();
 
@@ -296,12 +305,15 @@ function ($scope, $rootScope, $stateParams, $ionicAuth, $ionicUser, $state, Auth
     $scope.data = {
         'email': '',
         'password': '',
+        'confirmpassword': '',
         'firstname': '',
         'lastname': '',
-        'neighborhood': ''
+        'age': '',
+        'zipcode': ''
     };
 
     $scope.error= '';
+    $scope.message='';
     $scope.signup = function(){
       AuthenticationService.signUp($scope.data);
     };
@@ -312,21 +324,58 @@ function ($scope, $rootScope, $stateParams, $ionicAuth, $ionicUser, $state, Auth
     });
     $rootScope.$on('event:auth-signup-failed-email-already-exists', function(status) {
       console.log("Status: " + status);
-      window.alert("This email address already exists");
+      $scope.message = "This email address already exists";
     });
 
     $rootScope.$on('event:auth-signup-failed-field-reqs-not-met', function(status) {
       console.log("Status: " + status);
-      window.alert("Field requirements not met");
+      $scope.message = "Field requirements not met";
+    });
+
+    $rootScope.$on('event:auth-signup-failed-passwords-do-not-match', function(status) {
+      console.log("Status: " + status);
+      $scope.message = "Passwords do not match";
     });
 
     $scope.$on('event:auth-login-confirmed', function() {
       $scope.username = null;
       $scope.password = null;
-      //$scope.loginModal.hide();
       $scope.message = '';
       //TODO: resolve state.go error
       $state.go('tabController.yourProfile_tab5', {}, {reload: true, inherit: false});
     });
 
-}]);
+
+}])
+
+.controller('farmsVoucherCtrl', ['$scope', '$stateParams', // The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
+// You can include any angular dependencies as parameters for this function
+// TIP: Access Route Parameters for your page via $stateParams.parameterName
+function ($scope, $stateParams) {
+
+
+}])
+
+.controller('voucherCtrl', ['$scope', '$stateParams', // The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
+// You can include any angular dependencies as parameters for this function
+// TIP: Access Route Parameters for your page via $stateParams.parameterName
+function ($scope, $stateParams) {
+
+
+}])
+
+.controller('jamesVoucherCtrl', ['$scope', '$stateParams', // The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
+// You can include any angular dependencies as parameters for this function
+// TIP: Access Route Parameters for your page via $stateParams.parameterName
+function ($scope, $stateParams) {
+
+
+}])
+
+.controller('volunteerOpsCtrl', ['$scope', '$stateParams', // The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
+// You can include any angular dependencies as parameters for this function
+// TIP: Access Route Parameters for your page via $stateParams.parameterName
+function ($scope, $stateParams) {
+
+
+}])
