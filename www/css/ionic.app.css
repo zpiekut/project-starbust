@@ -7415,11 +7415,7 @@ a.item-content {
  */
 
 .list {
-  position: relative;
-  padding-top: 1px;
-  padding-bottom: 1px;
-  padding-left: 0;
-  margin-bottom: 20px;
+ /*  */
 }
 
 .list:last-child {
@@ -12200,9 +12196,9 @@ img#logo {
 /*Login/Sign-up Page*/
 
 .login-icon {
-  width: 25%;
+  width: 14%;
   display: block;
-  margin: 0 auto 20px auto;
+  margin: 16px auto 5px auto;
 }
 
 .login-button {
@@ -12220,9 +12216,7 @@ img#logo {
   margin-top: -20px;
 }
 
-.list {
-  margin-top: 36px;
-}
+
 
 .list label {
   font-size: 17px;
@@ -12236,9 +12230,11 @@ img#logo {
 
 .signup-link {
   text-align: center;
-  display: inherit;
-  color: #595959;
-  font-size: 16px;
+    display: inherit;
+    color: #595959;
+    font-size: 19px;
+    text-decoration: none;
+    margin-top: 20px;
 }
 
 .register-input {
@@ -12253,6 +12249,7 @@ img#logo {
   padding: 5px;
   font-size: 20px;
   font-weight: normal;
+  height: 36px;
 }
 
 .signup-list h2 {
@@ -12305,6 +12302,13 @@ form.list {
   background-size: contain;
 }
 
+.sign-up-cont {
+  margin-top:  54px;
+}
+
+form.list.center-form.login.ng-pristine.ng-valid.ng-valid-email {
+  margin-top:  30px;
+}
 
 /*User profile*/
 
@@ -12357,10 +12361,12 @@ form.list {
    float: left;
    border-radius: 10px;
    padding: 5px;
+
 }
 
 .block-item p {
    margin: 0;
+    color:  white;
    font-size: 0.8em;
 }
 
@@ -12496,6 +12502,7 @@ input.credit-input {
 
 .image-text p {
    margin: 0;
+   color:  white;
 }
 
 .voucher-box {
@@ -12523,3 +12530,22 @@ input.credit-input {
    text-align: center;
    color: #2c2c2c;
 }
+
+a.home-login-link.button.button-lightbutton-outline.logintext {
+  background: none;
+  color: white;
+}
+
+.login-cont .list {
+  margin:  0;
+}
+
+a.login-button.button.button-balanced.button-block.button-positive {
+    border-color: transparent;
+    background-color: #99CC33;
+    color: #fff;
+    width: 82%;
+    /* margin-top: 411px; */
+    margin: 420px auto 0px auto;
+}
+
