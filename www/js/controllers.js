@@ -208,13 +208,14 @@ function ($scope, $stateParams, $ionicUser, $ionicAuth, $state, AuthenticationSe
 
   $scope.userData = JSON.parse(MyLocalStorageService.loadUserInfo());
 
-  $scope.credits = CreditsService.getCreditsForUser();
+  $scope.credits = CreditsService.getCreditsForUser().length;
+  if(!$scope.credits) {$scope.credits = 0;}
 
   $scope.logout = function(){
       AuthenticationService.logout();
       $state.go('tabController.home_tab5');
   }
-  
+
 }])
 
 .controller('loginCtrl', ['$scope', '$stateParams', '$ionicUser', '$ionicAuth', '$state', 'AuthenticationService',

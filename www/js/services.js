@@ -183,12 +183,11 @@ angular.module('app.services', [])
     getCreditsForUser: function () {
 
       return $http.get("http://localhost:8081/api/credits/user/" + user.id)
-        .success(function (data, status, headers, config) {
-          //credits = data;
+        .then(function(response) {
+          credits = response.data;
+          return credits;
         })
-        .error(function (data, status, headers, config) {
-          console.log("error data: " + status);
-        });
+
     },
     transferCreditsToUser: function (code) {
       return $http.put("http://localhost:8081/api/transactions/project-redeem/" + user.id,
