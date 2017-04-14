@@ -9,12 +9,12 @@
         <img class="user-image" src="img/stock-profile-avie.png" gravatar-src="userData.email" gravatar-size="200">
       </div>
       <div class="center">
-        <h4 class="bold">Jane Smith {{userData.name}}</h4>
-        <h5>Pitsburgh, PA</h5>
+        <h4 class="bold">{{userData.firstname}}</h4>
+        <h5>{{userData.zipcode}}</h5>
       </div>
       <div class="bold italic profile-blocks">
         <div class="block-item">
-          <p>33</p>
+          <p>{{credits}}</p>
           <p>CREDITS</p>
         </div>
         <div class="block-item">
@@ -38,7 +38,7 @@
 
       <div class="redeem-box">
         <form>
-          <label>Enter time credits to redeem code:</label>
+          <label>Enter code to redeem time credits:</label>
           <div class="item item-input">
             <input class="credit-input" type="text" placeholder="e.g. 7">
           </div>

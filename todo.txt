@@ -15,3 +15,5 @@ COMPLETE -- 6) fix signup form
 COMPLETE -- 7) correct state.go after logout
 
 8) talk to UX about error handling and field reqs not met in signup, mention discrepancy with login error handling
+
+9) issue pr after deciding on error handling
