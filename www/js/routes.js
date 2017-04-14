@@ -73,9 +73,9 @@ angular.module('app.routes', ['ionicUIRouter'])
     The IonicUIRouter.js UI-Router Modification is being used for this route.
     To navigate to this route, do NOT use a URL. Instead use one of the following:
       1) Using the ui-sref HTML attribute:
-        ui-sref='tabController.redeemJamesSt'
+        ui-sref='tabController.redeemFamilyFarms'
       2) Using $state.go programatically:
-        $state.go('tabController.redeemJamesSt');
+        $state.go('tabController.redeemFamilyFarms');
     This allows your app to figure out which Tab to open this page in on the fly.
     If you're setting a Tabs default page or modifying the .otherwise for your app and
     must use a URL, use one of the following:
@@ -83,20 +83,20 @@ angular.module('app.routes', ['ionicUIRouter'])
       /page1/tab5/page12
       /page1/tab4/page12
   */
-  .state('tabController.redeemJamesSt', {
+  .state('tabController.redeemFamilyFarms', {
     url: '/page12:id',
     views: {
       'tab2': {
-        templateUrl: 'templates/redeemJamesSt.html',
-        controller: 'redeemJamesStCtrl'
+        templateUrl: 'templates/redeemFamilyFarms.html',
+        controller: 'redeemFamilyFarmsCtrl'
       },
       'tab5': {
-        templateUrl: 'templates/redeemJamesSt.html',
-        controller: 'redeemJamesStCtrl'
+        templateUrl: 'templates/redeemFamilyFarms.html',
+        controller: 'redeemFamilyFarmsCtrl'
       },
       'tab4': {
-        templateUrl: 'templates/redeemJamesSt.html',
-        controller: 'redeemJamesStCtrl'
+        templateUrl: 'templates/redeemFamilyFarms.html',
+        controller: 'redeemFamilyFarmsCtrl'
       }
     }
   })
@@ -105,9 +105,9 @@ angular.module('app.routes', ['ionicUIRouter'])
     The IonicUIRouter.js UI-Router Modification is being used for this route.
     To navigate to this route, do NOT use a URL. Instead use one of the following:
       1) Using the ui-sref HTML attribute:
-        ui-sref='tabController.redeemJamesStPass'
+        ui-sref='tabController.redeemFamilyFarmsPass'
       2) Using $state.go programatically:
-        $state.go('tabController.redeemJamesStPass');
+        $state.go('tabController.redeemFamilyFarmsPass');
     This allows your app to figure out which Tab to open this page in on the fly.
     If you're setting a Tabs default page or modifying the .otherwise for your app and
     must use a URL, use one of the following:
@@ -115,20 +115,20 @@ angular.module('app.routes', ['ionicUIRouter'])
       /page1/tab5/page32
       /page1/tab4/page32
   */
-  .state('tabController.redeemJamesStPass', {
+  .state('tabController.redeemFamilyFarmsPass', {
     url: '/page32',
     views: {
       'tab2': {
-        templateUrl: 'templates/redeemJamesStPass.html',
-        controller: 'redeemJamesStPassCtrl'
+        templateUrl: 'templates/redeemFamilyFarmsPass.html',
+        controller: 'redeemFamilyFarmsPassCtrl'
       },
       'tab5': {
-        templateUrl: 'templates/redeemJamesStPass.html',
-        controller: 'redeemJamesStPassCtrl'
+        templateUrl: 'templates/redeemFamilyFarmsPass.html',
+        controller: 'redeemFamilyFarmsPassCtrl'
       },
       'tab4': {
-        templateUrl: 'templates/redeemJamesStPass.html',
-        controller: 'redeemJamesStPassCtrl'
+        templateUrl: 'templates/redeemFamilyFarmsPass.html',
+        controller: 'redeemFamilyFarmsPassCtrl'
       }
     }
   })
@@ -317,6 +317,7 @@ angular.module('app.routes', ['ionicUIRouter'])
       /page1/tab5/page33
       /page1/tab4/page33
   */
+
   .state('tabController.redeemVenturePass', {
     url: '/page33',
     views: {
@@ -540,6 +541,12 @@ angular.module('app.routes', ['ionicUIRouter'])
     controller: 'volunteerDumpBusterThanksCtrl'
   })
 
+  .state('redeemFamilyFarms', {
+    url: '/redeemFamilyFarms',
+    templateUrl: 'templates/redeemFamilyFarms.html',
+    controller: 'redeemFamilyFarmsCtrl'
+  })
+
   /*
     The IonicUIRouter.js UI-Router Modification is being used for this route.
     To navigate to this route, do NOT use a URL. Instead use one of the following:
@@ -553,6 +560,7 @@ angular.module('app.routes', ['ionicUIRouter'])
       /page1/tab2/profile
       /page1/tab5/profile
   */
+
   .state('tabController.yourProfile', {
     url: '/profile',
     views: {
@@ -573,6 +581,32 @@ angular.module('app.routes', ['ionicUIRouter'])
     controller: 'loginCtrl'
   })
 
+//VOUCHER ROUTE
+  .state('voucher', {
+    url: '/voucher',
+    templateUrl: 'templates/voucher.html',
+    controller: 'voucherCtrl'
+  })
+//
+
+.state('jamesvoucher', {
+  url: '/jamesvoucher',
+  templateUrl: 'templates/jamesvoucher.html',
+  controller: 'jamesVoucherCtrl'
+})
+
+.state('farmsVoucher', {
+  url: '/farmsvoucher',
+  templateUrl: 'templates/familyFarmsVoucher.html',
+  controller: 'farmsVoucherCtrl'
+})
+
+.state('volunteerOps', {
+  url: '/volunteerops',
+  templateUrl: 'templates/volunteerOps.html',
+  controller: 'volunteerOpsCtrl'
+})
+
   .state('signUp', {
     url: '/signup',
     templateUrl: 'templates/signUp.html',
@@ -580,7 +614,5 @@ angular.module('app.routes', ['ionicUIRouter'])
   })
 
 $urlRouterProvider.otherwise('/page1/tab2/page20')
-
-
 
 });

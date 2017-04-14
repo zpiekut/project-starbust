@@ -1,59 +1,22 @@
-<ion-view title="Your Profile" hide-nav-bar="false" id="page70">
+<ion-view title="Individual Voucher" hide-nav-bar="true" id="voucher">
   <ion-content padding="false" class=" manual-remove-top-padding">
-    <div class="profile-container">
-      <div class="logout-nav">
-        <a ui-sref="tabController.volunteerLOLThanks" ng-click="logout()" class="">Logout</a>
-
-      </div>
-      <div class="user-image-container">
-        <img class="user-image" src="img/stock-profile-avie.png" gravatar-src="userData.email" gravatar-size="200">
-      </div>
-      <div class="center">
-        <h4 class="bold">Marissa Torre {{userData.name}}</h4>
-        <h5>Pitsburgh, PA</h5>
-      </div>
-      <div class="bold italic profile-blocks">
-        <div class="block-item">
-          <p>33</p>
-          <p>CREDITS</p>
-        </div>
-        <div class="block-item">
-          <p>86</p>
-          <p>HOURS</p>
-        </div>
-        <div class="block-item">
-          <p>5</p>
-          <p>PAST PROJECTS</p>
-        </div>
-      </div>
-      <div class="current-projects">
-        <h4 class="bold">Your Current Projects:</h4>
-        <div class="project-box bold">
-          <h5 class="bold">Community Garden Sage</h5>
-          <p class="upcase bold">Grow Pittsburgh</p>
-          <h5 class="bold">Bike Light Giveaway</h5>
-          <p class="upcase bold">Bike PGH</p>
-        </div>
-      </div>
-
-      <div class="redeem-box">
-        <form>
-          <label>Enter code to redeem time credits:</label>
-          <div class="item item-input">
-            <input class="credit-input" type="text" placeholder="e.g. 7">
+     <main class="voucher-container">
+        <div class="prize-details">
+          <div class="voucher-banner upcase">
+            <h4>Rock on! You just got yourself...</h4>
           </div>
-          <button ng-model="data.addCredit" class="bold button button-balanced  button-block addCreditButton">Add Time Credit to Total</button>
-        </form>
-      </div>
-
-      <!-- <h5 class="creditsHeading">Current Time Credits: </h5>
-      <h5 class="creditsHeading">Credits Redeemed: </h5>
-      <h5 class="creditsHeading"> Time Credits Earned: </h5> -->
-
-      <!-- <div class="buttonContainer">
-        <a ui-sref="tabController.volunteerListScroll" id="yourProfile-button15" class="button button-balanced  buttonstyle shortProfileLeft">Volunteer</a>
-        <a ui-sref="tabController.redeemListScroll" id="yourProfile-button14" class="button button-balanced  buttonstyle shortProfileRight">Redeem</a>
-      </div> -->
-    </div>
+          <div class="image-text">
+             <h2>Free cold brew (M)</h2>
+            <p class="bold">Big Dog Coffee</p>
+            <p>2717 Sarah St., Pittsburgh, PA 15203</p>
+            <a class="bold upcase" href="#">View map</a>
+          </div>
+        </div>
+        <div class="voucher-box">
+          <p>When you're checking out, give this code to the cashier to claim your reward:</p>
+          <h1>80291</h1>
+        </div>
+        <p class="voucher-thanks">Thanks for your participation with InvolveMINT!</p>
+     </main>
   </ion-content>
 </ion-view>
