@@ -200,7 +200,7 @@ angular.module('app.services', [])
     },
     transferCreditsToUser: function (code) {
       return $http.put("http://localhost:8081/api/transactions/project-redeem/" + user.id,
-        {RedeemCode: data.code, ToId: MyLocalStorageService.loadUserInfo().id})
+        {RedeemCode: code, ToId: MyLocalStorageService.loadUserInfo().id})
         .success(function (data, status, headers, config) {
           console.log(data);
         })

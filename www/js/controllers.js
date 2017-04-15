@@ -220,8 +220,16 @@ function ($scope, $stateParams, $ionicUser, $ionicAuth, $state, AuthenticationSe
 
   $scope.userData = JSON.parse(MyLocalStorageService.loadUserInfo());
 
+  $scope.data = {
+    'code' : ''
+  };
+
   $scope.credits = CreditsService.getCreditsForUser().length;
   if(!$scope.credits) {$scope.credits = 0;}
+
+  $scope.transferCreditsToUser = function () {
+    CreditsService.transferCreditsToUser($scope.data.code);
+  };
 
   $scope.logout = function(){
       AuthenticationService.logout();

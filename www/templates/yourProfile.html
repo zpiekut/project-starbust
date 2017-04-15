@@ -40,9 +40,9 @@
         <form>
           <label>Enter code to redeem time credits:</label>
           <div class="item item-input">
-            <input class="credit-input" type="text" placeholder="e.g. 7">
+            <input class="credit-input" type="text" placeholder="e.g. 7" ng-model="data.code">
           </div>
-          <button ng-model="data.addCredit" class="bold button button-balanced  button-block addCreditButton">Add Time Credit to Total</button>
+          <button ng-click="transferCreditsToUser()" class="bold button button-balanced  button-block addCreditButton">Add Time Credit(s) to Total</button>
         </form>
       </div>
 
