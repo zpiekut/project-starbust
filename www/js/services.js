@@ -130,6 +130,12 @@ angular.module('app.services', [])
             console.log("error data: " + status);
           });
         return projects;
+      },
+      addUserToProject: function(data) {
+        return $http.post(
+          "http://localhost:8081/api/projects/user",
+          data
+        )
       }
     }
 }])

@@ -8,9 +8,7 @@ angular.module('app.routes', ['ionicUIRouter'])
   // Each state's controller can be found in controllers.js
   $stateProvider
 
-
-
-      /*
+  /*
     The IonicUIRouter.js UI-Router Modification is being used for this route.
     To navigate to this route, do NOT use a URL. Instead use one of the following:
       1) Using the ui-sref HTML attribute:
@@ -20,14 +18,14 @@ angular.module('app.routes', ['ionicUIRouter'])
     This allows your app to figure out which Tab to open this page in on the fly.
     If you're setting a Tabs default page or modifying the .otherwise for your app and
     must use a URL, use one of the following:
-      /page1/tab2/redeemListScroll
+      /page1/volinteer-tab/redeemListScroll
       /page1/tab5/redeemListScroll
       /page1/tab4/redeemListScroll
   */
   .state('tabController.redeemListScroll', {
     url: '/redeemListScroll',
     views: {
-      'tab2': {
+      'volinteer-tab': {
         templateUrl: 'templates/redeemListScroll.html',
         controller: 'redeemListScrollCtrl'
       },
@@ -42,23 +40,10 @@ angular.module('app.routes', ['ionicUIRouter'])
     }
   })
 
-  /*
-    The IonicUIRouter.js UI-Router Modification is being used for this route.
-    To navigate to this route, do NOT use a URL. Instead use one of the following:
-      1) Using the ui-sref HTML attribute:
-        ui-sref='tabController.home'
-      2) Using $state.go programatically:
-        $state.go('tabController.home');
-    This allows your app to figure out which Tab to open this page in on the fly.
-    If you're setting a Tabs default page or modifying the .otherwise for your app and
-    must use a URL, use one of the following:
-      /page1/tab2/page20
-      /page1/tab5/page20
-  */
   .state('tabController.home', {
     url: '/page20',
     views: {
-      'tab2': {
+      'volinteer-tab': {
         templateUrl: 'templates/home.html',
         controller: 'homeCtrl'
       },
@@ -69,24 +54,10 @@ angular.module('app.routes', ['ionicUIRouter'])
     }
   })
 
-  /*
-    The IonicUIRouter.js UI-Router Modification is being used for this route.
-    To navigate to this route, do NOT use a URL. Instead use one of the following:
-      1) Using the ui-sref HTML attribute:
-        ui-sref='tabController.redeemFamilyFarms'
-      2) Using $state.go programatically:
-        $state.go('tabController.redeemFamilyFarms');
-    This allows your app to figure out which Tab to open this page in on the fly.
-    If you're setting a Tabs default page or modifying the .otherwise for your app and
-    must use a URL, use one of the following:
-      /page1/tab2/page12
-      /page1/tab5/page12
-      /page1/tab4/page12
-  */
   .state('tabController.redeemFamilyFarms', {
     url: '/page12:id',
     views: {
-      'tab2': {
+      'volinteer-tab': {
         templateUrl: 'templates/redeemFamilyFarms.html',
         controller: 'redeemFamilyFarmsCtrl'
       },
@@ -101,24 +72,28 @@ angular.module('app.routes', ['ionicUIRouter'])
     }
   })
 
-  /*
-    The IonicUIRouter.js UI-Router Modification is being used for this route.
-    To navigate to this route, do NOT use a URL. Instead use one of the following:
-      1) Using the ui-sref HTML attribute:
-        ui-sref='tabController.redeemFamilyFarmsPass'
-      2) Using $state.go programatically:
-        $state.go('tabController.redeemFamilyFarmsPass');
-    This allows your app to figure out which Tab to open this page in on the fly.
-    If you're setting a Tabs default page or modifying the .otherwise for your app and
-    must use a URL, use one of the following:
-      /page1/tab2/page32
-      /page1/tab5/page32
-      /page1/tab4/page32
-  */
+  .state('tabController.redeemJamesSt', {
+    url: '/page29:id',
+    views: {
+      'volinteer-tab': {
+        templateUrl: 'templates/redeemJamesSt.html',
+        controller: 'redeemJamesStCtrl'
+      },
+      'tab5': {
+        templateUrl: 'templates/redeemJamesSt.html',
+        controller: 'redeemJamesStCtrl'
+      },
+      'tab4': {
+        templateUrl: 'templates/redeemJamesSt.html',
+        controller: 'redeemJamesStCtrl'
+      }
+    }
+  })
+
   .state('tabController.redeemFamilyFarmsPass', {
     url: '/page32',
     views: {
-      'tab2': {
+      'volinteer-tab': {
         templateUrl: 'templates/redeemFamilyFarmsPass.html',
         controller: 'redeemFamilyFarmsPassCtrl'
       },
@@ -134,33 +109,21 @@ angular.module('app.routes', ['ionicUIRouter'])
   })
 
   .state('tabController.wallet', {
-    url: '/page22',
+    // url: '/page22',
+    url: '/wallet',
     views: {
-      'tab3': {
+      // 'tab3': {
+      'wallet-tab': {
         templateUrl: 'templates/wallet.html',
         controller: 'walletCtrl'
       }
     }
   })
 
-  /*
-    The IonicUIRouter.js UI-Router Modification is being used for this route.
-    To navigate to this route, do NOT use a URL. Instead use one of the following:
-      1) Using the ui-sref HTML attribute:
-        ui-sref='tabController.redeemPhoto'
-      2) Using $state.go programatically:
-        $state.go('tabController.redeemPhoto');
-    This allows your app to figure out which Tab to open this page in on the fly.
-    If you're setting a Tabs default page or modifying the .otherwise for your app and
-    must use a URL, use one of the following:
-      /page1/tab2/page28
-      /page1/tab5/page28
-      /page1/tab4/page28
-  */
   .state('tabController.redeemPhoto', {
     url: '/page28',
     views: {
-      'tab2': {
+      'volinteer-tab': {
         templateUrl: 'templates/redeemPhoto.html',
         controller: 'redeemPhotoCtrl'
       },
@@ -175,24 +138,10 @@ angular.module('app.routes', ['ionicUIRouter'])
     }
   })
 
-  /*
-    The IonicUIRouter.js UI-Router Modification is being used for this route.
-    To navigate to this route, do NOT use a URL. Instead use one of the following:
-      1) Using the ui-sref HTML attribute:
-        ui-sref='tabController.redeemPhotoPass'
-      2) Using $state.go programatically:
-        $state.go('tabController.redeemPhotoPass');
-    This allows your app to figure out which Tab to open this page in on the fly.
-    If you're setting a Tabs default page or modifying the .otherwise for your app and
-    must use a URL, use one of the following:
-      /page1/tab2/page31
-      /page1/tab5/page31
-      /page1/tab4/page31
-  */
   .state('tabController.redeemPhotoPass', {
     url: '/page31',
     views: {
-      'tab2': {
+      'volinteer-tab': {
         templateUrl: 'templates/redeemPhotoPass.html',
         controller: 'redeemPhotoPassCtrl'
       },
@@ -207,24 +156,10 @@ angular.module('app.routes', ['ionicUIRouter'])
     }
   })
 
-  /*
-    The IonicUIRouter.js UI-Router Modification is being used for this route.
-    To navigate to this route, do NOT use a URL. Instead use one of the following:
-      1) Using the ui-sref HTML attribute:
-        ui-sref='tabController.redeemDeco'
-      2) Using $state.go programatically:
-        $state.go('tabController.redeemDeco');
-    This allows your app to figure out which Tab to open this page in on the fly.
-    If you're setting a Tabs default page or modifying the .otherwise for your app and
-    must use a URL, use one of the following:
-      /page1/tab2/page27
-      /page1/tab5/page27
-      /page1/tab4/page27
-  */
   .state('tabController.redeemDeco', {
     url: '/page27',
     views: {
-      'tab2': {
+      'volinteer-tab': {
         templateUrl: 'templates/redeemDeco.html',
         controller: 'redeemDecoCtrl'
       },
@@ -239,24 +174,10 @@ angular.module('app.routes', ['ionicUIRouter'])
     }
   })
 
-  /*
-    The IonicUIRouter.js UI-Router Modification is being used for this route.
-    To navigate to this route, do NOT use a URL. Instead use one of the following:
-      1) Using the ui-sref HTML attribute:
-        ui-sref='tabController.redeemDecoPass'
-      2) Using $state.go programatically:
-        $state.go('tabController.redeemDecoPass');
-    This allows your app to figure out which Tab to open this page in on the fly.
-    If you're setting a Tabs default page or modifying the .otherwise for your app and
-    must use a URL, use one of the following:
-      /page1/tab2/page34
-      /page1/tab5/page34
-      /page1/tab4/page34
-  */
   .state('tabController.redeemDecoPass', {
     url: '/page34',
     views: {
-      'tab2': {
+      'volinteer-tab': {
         templateUrl: 'templates/redeemDecoPass.html',
         controller: 'redeemDecoPassCtrl'
       },
@@ -271,24 +192,10 @@ angular.module('app.routes', ['ionicUIRouter'])
     }
   })
 
-  /*
-    The IonicUIRouter.js UI-Router Modification is being used for this route.
-    To navigate to this route, do NOT use a URL. Instead use one of the following:
-      1) Using the ui-sref HTML attribute:
-        ui-sref='tabController.redeemVenture'
-      2) Using $state.go programatically:
-        $state.go('tabController.redeemVenture');
-    This allows your app to figure out which Tab to open this page in on the fly.
-    If you're setting a Tabs default page or modifying the .otherwise for your app and
-    must use a URL, use one of the following:
-      /page1/tab2/page26
-      /page1/tab5/page26
-      /page1/tab4/page26
-  */
   .state('tabController.redeemVenture', {
     url: '/page26',
     views: {
-      'tab2': {
+      'volinteer-tab': {
         templateUrl: 'templates/redeemVenture.html',
         controller: 'redeemVentureCtrl'
       },
@@ -302,26 +209,11 @@ angular.module('app.routes', ['ionicUIRouter'])
       }
     }
   })
-
-  /*
-    The IonicUIRouter.js UI-Router Modification is being used for this route.
-    To navigate to this route, do NOT use a URL. Instead use one of the following:
-      1) Using the ui-sref HTML attribute:
-        ui-sref='tabController.redeemVenturePass'
-      2) Using $state.go programatically:
-        $state.go('tabController.redeemVenturePass');
-    This allows your app to figure out which Tab to open this page in on the fly.
-    If you're setting a Tabs default page or modifying the .otherwise for your app and
-    must use a URL, use one of the following:
-      /page1/tab2/page33
-      /page1/tab5/page33
-      /page1/tab4/page33
-  */
 
   .state('tabController.redeemVenturePass', {
     url: '/page33',
     views: {
-      'tab2': {
+      'volinteer-tab': {
         templateUrl: 'templates/redeemVenturePass.html',
         controller: 'redeemVenturePassCtrl'
       },
@@ -337,31 +229,21 @@ angular.module('app.routes', ['ionicUIRouter'])
   })
 
   .state('tabController', {
-    url: '/page1',
+    // url: '/page1',
+    url: '/tab',
     templateUrl: 'templates/tabController.html',
     abstract:true
   })
 
-  /*
-    The IonicUIRouter.js UI-Router Modification is being used for this route.
-    To navigate to this route, do NOT use a URL. Instead use one of the following:
-      1) Using the ui-sref HTML attribute:
-        ui-sref='tabController.volunteerListScroll'
-      2) Using $state.go programatically:
-        $state.go('tabController.volunteerListScroll');
-    This allows your app to figure out which Tab to open this page in on the fly.
-    If you're setting a Tabs default page or modifying the .otherwise for your app and
-    must use a URL, use one of the following:
-      /page1/tab2/page11
-      /page1/tab5/page11
-  */
   .state('tabController.volunteerListScroll', {
-    url: '/page11',
+    // url: '/page11',
+    url: '/volunteerList',
     views: {
-      'tab2': {
+      'volinteer-tab': {
         templateUrl: 'templates/volunteerListScroll.html',
         controller: 'volunteerListScrollCtrl'
-      },
+      }
+      ,
       'tab5': {
         templateUrl: 'templates/volunteerListScroll.html',
         controller: 'volunteerListScrollCtrl'
@@ -369,23 +251,10 @@ angular.module('app.routes', ['ionicUIRouter'])
     }
   })
 
-  /*
-    The IonicUIRouter.js UI-Router Modification is being used for this route.
-    To navigate to this route, do NOT use a URL. Instead use one of the following:
-      1) Using the ui-sref HTML attribute:
-        ui-sref='tabController.volunteerLOL'
-      2) Using $state.go programatically:
-        $state.go('tabController.volunteerLOL');
-    This allows your app to figure out which Tab to open this page in on the fly.
-    If you're setting a Tabs default page or modifying the .otherwise for your app and
-    must use a URL, use one of the following:
-      /page1/tab2/page23
-      /page1/tab5/page23
-  */
   .state('tabController.volunteerLOL', {
     url: '/page23:id',
     views: {
-      'tab2': {
+      'volinteer-tab': {
         templateUrl: 'templates/volunteerLOL.html',
         controller: 'volunteerLOLCtrl'
       },
@@ -400,23 +269,10 @@ angular.module('app.routes', ['ionicUIRouter'])
     }
   })
 
-  /*
-    The IonicUIRouter.js UI-Router Modification is being used for this route.
-    To navigate to this route, do NOT use a URL. Instead use one of the following:
-      1) Using the ui-sref HTML attribute:
-        ui-sref='tabController.volunteerEcostewardThanks'
-      2) Using $state.go programatically:
-        $state.go('tabController.volunteerEcostewardThanks');
-    This allows your app to figure out which Tab to open this page in on the fly.
-    If you're setting a Tabs default page or modifying the .otherwise for your app and
-    must use a URL, use one of the following:
-      /page1/tab2/page25
-      /page1/tab5/page25
-  */
   .state('tabController.volunteerEcostewardThanks', {
     url: '/page25',
     views: {
-      'tab2': {
+      'volinteer-tab': {
         templateUrl: 'templates/volunteerEcostewardThanks.html',
         controller: 'volunteerEcostewardThanksCtrl'
       },
@@ -427,23 +283,10 @@ angular.module('app.routes', ['ionicUIRouter'])
     }
   })
 
-  /*
-    The IonicUIRouter.js UI-Router Modification is being used for this route.
-    To navigate to this route, do NOT use a URL. Instead use one of the following:
-      1) Using the ui-sref HTML attribute:
-        ui-sref='tabController.volunteerEcosteward'
-      2) Using $state.go programatically:
-        $state.go('tabController.volunteerEcosteward');
-    This allows your app to figure out which Tab to open this page in on the fly.
-    If you're setting a Tabs default page or modifying the .otherwise for your app and
-    must use a URL, use one of the following:
-      /page1/tab2/page14
-      /page1/tab5/page14
-  */
   .state('tabController.volunteerEcosteward', {
     url: '/page14',
     views: {
-      'tab2': {
+      'volinteer-tab': {
         templateUrl: 'templates/volunteerEcosteward.html',
         controller: 'volunteerEcostewardCtrl'
       },
@@ -454,23 +297,10 @@ angular.module('app.routes', ['ionicUIRouter'])
     }
   })
 
-  /*
-    The IonicUIRouter.js UI-Router Modification is being used for this route.
-    To navigate to this route, do NOT use a URL. Instead use one of the following:
-      1) Using the ui-sref HTML attribute:
-        ui-sref='tabController.volunteerDumpBuster'
-      2) Using $state.go programatically:
-        $state.go('tabController.volunteerDumpBuster');
-    This allows your app to figure out which Tab to open this page in on the fly.
-    If you're setting a Tabs default page or modifying the .otherwise for your app and
-    must use a URL, use one of the following:
-      /page1/tab2/page24
-      /page1/tab5/page24
-  */
   .state('tabController.volunteerDumpBuster', {
     url: '/page24',
     views: {
-      'tab2': {
+      'volinteer-tab': {
         templateUrl: 'templates/volunteerDumpBuster.html',
         controller: 'volunteerDumpBusterCtrl'
       },
@@ -481,23 +311,10 @@ angular.module('app.routes', ['ionicUIRouter'])
     }
   })
 
-  /*
-    The IonicUIRouter.js UI-Router Modification is being used for this route.
-    To navigate to this route, do NOT use a URL. Instead use one of the following:
-      1) Using the ui-sref HTML attribute:
-        ui-sref='tabController.volunteerDumpBusterThank'
-      2) Using $state.go programatically:
-        $state.go('tabController.volunteerDumpBusterThank');
-    This allows your app to figure out which Tab to open this page in on the fly.
-    If you're setting a Tabs default page or modifying the .otherwise for your app and
-    must use a URL, use one of the following:
-      /page1/tab2/page13
-      /page1/tab5/page13
-  */
   .state('tabController.volunteerDumpBusterThank', {
     url: '/page13',
     views: {
-      'tab2': {
+      'volinteer-tab': {
         templateUrl: 'templates/volunteerDumpBusterThank.html',
         controller: 'volunteerDumpBusterThankCtrl'
       },
@@ -508,23 +325,10 @@ angular.module('app.routes', ['ionicUIRouter'])
     }
   })
 
-  /*
-    The IonicUIRouter.js UI-Router Modification is being used for this route.
-    To navigate to this route, do NOT use a URL. Instead use one of the following:
-      1) Using the ui-sref HTML attribute:
-        ui-sref='tabController.volunteerLOLThanks'
-      2) Using $state.go programatically:
-        $state.go('tabController.volunteerLOLThanks');
-    This allows your app to figure out which Tab to open this page in on the fly.
-    If you're setting a Tabs default page or modifying the .otherwise for your app and
-    must use a URL, use one of the following:
-      /page1/tab2/page17
-      /page1/tab5/page17
-  */
   .state('tabController.volunteerLOLThanks', {
     url: '/page17',
     views: {
-      'tab2': {
+      'volinteer-tab': {
         templateUrl: 'templates/volunteerLOLThanks.html',
         controller: 'volunteerLOLThanksCtrl'
       },
@@ -542,29 +346,21 @@ angular.module('app.routes', ['ionicUIRouter'])
   })
 
   .state('redeemFamilyFarms', {
-    url: '/redeemFamilyFarms',
+    url: '/redeemFamilyFarms:id',
     templateUrl: 'templates/redeemFamilyFarms.html',
     controller: 'redeemFamilyFarmsCtrl'
   })
 
-  /*
-    The IonicUIRouter.js UI-Router Modification is being used for this route.
-    To navigate to this route, do NOT use a URL. Instead use one of the following:
-      1) Using the ui-sref HTML attribute:
-        ui-sref='tabController.yourProfile'
-      2) Using $state.go programatically:
-        $state.go('tabController.yourProfile');
-    This allows your app to figure out which Tab to open this page in on the fly.
-    If you're setting a Tabs default page or modifying the .otherwise for your app and
-    must use a URL, use one of the following:
-      /page1/tab2/profile
-      /page1/tab5/profile
-  */
+  .state('redeemJamesSt', {
+    url: '/redeemJamesSt',
+    templateUrl: 'templates/redeemJamesSt.html',
+    controller: 'redeemJamesStCtrl'
+  })
 
   .state('tabController.yourProfile', {
     url: '/profile',
     views: {
-      'tab2': {
+      'volinteer-tab': {
         templateUrl: 'templates/yourProfile.html',
         controller: 'yourProfileCtrl'
       },
@@ -581,19 +377,17 @@ angular.module('app.routes', ['ionicUIRouter'])
     controller: 'loginCtrl'
   })
 
-//VOUCHER ROUTE
   .state('voucher', {
     url: '/voucher',
     templateUrl: 'templates/voucher.html',
     controller: 'voucherCtrl'
   })
-//
 
-.state('jamesvoucher', {
-  url: '/jamesvoucher',
-  templateUrl: 'templates/jamesvoucher.html',
-  controller: 'jamesVoucherCtrl'
-})
+  .state('jamesvoucher', {
+    url: '/jamesvoucher',
+    templateUrl: 'templates/jamesvoucher.html',
+    controller: 'jamesVoucherCtrl'
+  })
 
 .state('farmsVoucher', {
   url: '/farmsvoucher',
@@ -613,6 +407,6 @@ angular.module('app.routes', ['ionicUIRouter'])
     controller: 'signUpCtrl'
   })
 
-$urlRouterProvider.otherwise('/page1/tab2/page20')
+$urlRouterProvider.otherwise('/tab/tab5/page20')
 
 });

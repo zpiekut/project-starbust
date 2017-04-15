@@ -1,27 +1,44 @@
-<ion-view title="{{project.title}}" hide-nav-bar="true" id="page24" style="background-color:#000000;">
-  <ion-content padding="false" class=" manual-remove-top-padding" scroll="false">
-    <div id="volunteerDumpBuster-container16" class="volunteerHeading">
-      <div>
-        <img src="{{project.image}}" style="display: block; width: 100%; height: auto; margin-left: auto; margin-right: auto;">
-      </div>
-      <h5 id="volunteerDumpBuster-heading18" style="color:#FFFFFF;text-align:center;">End Illegal Dumping</h5>
-      <h2 id="volunteerDumpBuster-heading21" style="color:#FFFFFF;text-align:center;">{{project.description}}</h2>
-      <div id="volunteerDumpBuster-markdown15" style="text-align:center;" class="show-list-numbers-and-dots">
-        <p style="color:#FFFFFF;font-size:16px;">{{project.location}}</p>
+<ion-view title="{{project.orgName}}" id="page24">
+  <ion-content>
 
-        <!-- <p style="color:#FFFFFF;font-size:16px;">Pittsburgh, PA 15214</p>
-
-        <p style="color:#FFFFFF;font-size:16px;">412-381-1301 http://www.alleghenycleanways.org/dumpbusters -->
-        </p>
-      </div>
-      <a ui-sref="tabController.volunteerDumpBusterThank" id="volunteerDumpBuster-button21" style="font-weight:500;font-size:18px;border-radius:9px 9px 9px 9px;" class="button button-balanced  button-block">VOLUNTEER - Cleanup</a>
-      <div id="volunteerDumpBuster-container11">
-        <div>
-          <a style="display:block;" ui-sref="tabController.home">
-            <img src="img/ycHCchZ5Sra0GCXbM1G4_involveMINT_Logo_175x70.png" style="display: block; width: 55%; height: auto; margin-left: auto; margin-right: auto;">
-          </a>
+      <div id="dump-buster-heading">
+        <div class="volunteer-title">
+          <h2 class="event-title">{{project.title}}</h2>
+          <h3 class="organization">{{project.orgName}}</h3>
         </div>
       </div>
+
+    <div class="volunteer-container">
+
+      <div class="volunteer-info">
+
+        <p class="when">When:</p><p class="date">{{project.time}}</p><br>
+        <p class="where">Where:</p><p class="place">{{project.location}}</p><br>
+        <a class="small-orange-link" href="https://www.google.com/calendar/render?action=TEMPLATE&text=Your+Event+Name&dates=20140127T224000Z/20140320T221500Z&details=For+details,+link+here:+http://www.example.com&location=Waldorf+Astoria,+301+Park+Ave+,+New+York,+NY+10022&sf=true&output=xml">Add to Calendar</a><br><br>
+
+        <p class="problem-description">{{project.description}}</p>
+
+      </div><br>
+
+      <div class="volunteer-address">
+        <!-- <p class="address">Organization:</p>
+        <p class="organization">Allegheny Cleanways</p>
+        <p class="street">2801 North Charles Street</p>
+        <p class="city">Pittsburgh, PA 15214</p>
+        <p class="phone">412-381-1301</p> -->
+        <a class="website" href="{{project.website}}">website</a>
+      </div><br>
+
+      <a ng-click="addUserToProject()" class="button button-balanced">Volunteer</a>
+
+    <div class="social-share">
+
+    <div class="twitter-sharing" data-tnb="twitter-share"><img src="img/twitter.png" />Tweet</div>
+    <div class="facebook-sharing" data-tnb="facebook-share"><img src="img/facebook.png">Share</div>
+
     </div>
+
+  </div>
+
   </ion-content>
 </ion-view>

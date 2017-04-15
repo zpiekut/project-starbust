@@ -11861,7 +11861,7 @@ background-image: url(../img/soup-kitchen.jpeg)
   padding:0px;
 }
 
-.redeem-tables-container { 
+.redeem-tables-container {
   display:flex;
   justify-content:space-between;
   padding-bottom:20px;
@@ -11897,6 +11897,12 @@ background-image: url(../img/soup-kitchen.jpeg)
 
 .redeem-about {
   background-color: #cecece;
+}
+
+#jamesstreet-heading {
+  background-image:url('../img/jamesstreet.png');
+  background-size:cover;
+  background-position: center;
 }
 
 #familyfarms-heading {

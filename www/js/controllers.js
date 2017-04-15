@@ -7,17 +7,9 @@ function ($scope, $stateParams, RedemptionsService) {
     $scope.redemptions = [];
 
     RedemptionsService.getRedemptions().then(function(redemptions) {
-      $scope.redemptions = redemptions;
-      redemptions[0].link = "redeemFamilyFarms";
+      $scope.redemptions = redemptions.data;
       console.log(redemptions);
     });
-
-    $scope.getRedemptions =
-      RedemptionsService.getRedemptions().then(function(redemptions) {
-        $scope.redemptions = redemptions;
-        redemptions[0].link = "redeemJamesSt";
-        console.log(redemptions);
-      });
 }])
 
 .controller('homeCtrl', ['$scope', '$stateParams', '$ionicUser', '$ionicAuth', '$state', // The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
@@ -25,31 +17,26 @@ function ($scope, $stateParams, RedemptionsService) {
 // TIP: Access Route Parameters for your page via $stateParams.parameterName
 function ($scope, $stateParams, $ionicUser, $ionicAuth, $state) {
 
-     $scope.data = {
+    $scope.data = {
         'email': '',
         'password': ''
     };
 
-     $scope.error = '';
+    $scope.error = '';
 
-     if ($ionicAuth.isAuthenticated()){
-         $state.go('tabController.yourProfile')
-     }
-
-
-
-     //
-     $scope.login = function(){
-        $scope.error = '';
-        $ionicAuth.login('basic', $scope.data).then(function(){
-            $state.go('tabController.home');
-        }, function(){
-            $scope.error = 'Error logging in.';
-        })
+    if ($ionicAuth.isAuthenticated()){
+       $state.go('tabController.yourProfile')
     }
 
-}
-   ])
+    $scope.login = function(){
+      $scope.error = '';
+      $ionicAuth.login('basic', $scope.data).then(function(){
+          $state.go('tabController.home');
+      }, function(){
+          $scope.error = 'Error logging in.';
+      })
+    } 
+}])
 
 .controller('redeemFamilyFarmsCtrl', ['$scope', '$stateParams', 'RedemptionsService', // The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
 // You can include any angular dependencies as parameters for this function
@@ -64,7 +51,7 @@ function ($scope, $stateParams, RedemptionsService) {
 
 }])
 
-.controller('redeemFamilyFarmsCtrl', ['$scope', '$stateParams', // The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
+.controller('redeemJamesStCtrl', ['$scope', '$stateParams', // The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
 // You can include any angular dependencies as parameters for this function
 // TIP: Access Route Parameters for your page via $stateParams.parameterName
 function ($scope, $stateParams) {
@@ -146,10 +133,12 @@ function ($scope, $stateParams, ProjectsService) {
     });
 }])
 
-.controller('volunteerLOLCtrl', ['$scope', '$stateParams', 'ProjectsService', // The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
+.controller('volunteerLOLCtrl', ['$scope', '$stateParams', '$state', 'ProjectsService', 'MyLocalStorageService', // The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
 // You can include any angular dependencies as parameters for this function
 // TIP: Access Route Parameters for your page via $stateParams.parameterName
-function ($scope, $stateParams, ProjectsService) {
+function ($scope, $stateParams, $state, ProjectsService, MyLocalStorageService) {
+  
+  $scope.userData = JSON.parse(MyLocalStorageService.loadUserInfo());
   $scope.project = {};
 
   ProjectsService.getProject($stateParams.id).then(function(project) {
@@ -157,6 +146,22 @@ function ($scope, $stateParams, ProjectsService) {
     console.log(project);
   });
 
+  $scope.addUserToProject = function() {
+    console.log("addUserToProject");
+    var reqBody = {
+      projectId: $scope.project.id,
+      userId: $scope.userData.id
+    };
+    ProjectsService.addUserToProject(reqBody)
+    .then(function(response) {
+      if(response.status === 200) {
+        $state.go('tabController.volunteerDumpBusterThank')
+      }
+      else {
+        alert("error");
+      }
+    });
+  }
 }])
 
 .controller('volunteerEcostewardThanksCtrl', ['$scope', '$stateParams', // The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
@@ -230,7 +235,6 @@ function ($scope, $stateParams, $ionicUser, $ionicAuth, $state, AuthenticationSe
       AuthenticationService.logout();
       $state.go('tabController.home_tab5');
   }
-
 }])
 
 
@@ -261,7 +265,7 @@ function ($scope, $stateParams, $ionicUser, $ionicAuth, $state, AuthenticationSe
       $scope.password = null;
       $scope.message = '';
       //TODO: resolve state.go error
-      $state.go('tabController.yourProfile_tab2', {}, {reload: true, inherit: false});
+      $state.go('tabController.yourProfile_tab5', {}, {reload: true, inherit: false});
     });
 
     $scope.$on('event:auth-login-failed', function(e, status) {
@@ -276,8 +280,6 @@ function ($scope, $stateParams, $ionicUser, $ionicAuth, $state, AuthenticationSe
       console.log("logout complete");
       $state.go('app.login', {}, {reload: true, inherit: false});
     });
-
-
 }])
 
 
