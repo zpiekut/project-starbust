@@ -180,7 +180,16 @@ angular.module('app.services', [])
 
         deferred.resolve();
         return deferred.promise;
-	    }
+	    },
+      redeemForVoucher: function(RedemptionId, UserId){
+        return $http.post(
+          "http://localhost:8081/api/redemptions/user",
+          {
+            redemptionId: RedemptionId,
+            userId: UserId
+          }
+        )
+      }
     }
 }])
 
