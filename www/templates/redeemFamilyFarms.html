@@ -2,7 +2,6 @@
   <ion-content padding="false" class=" manual-remove-top-padding">
 
       <div id="familyfarms-heading" style='background-image: url("{{redemption.image}}")'>
-        <!-- background-image:url('../img/familyfarms.png'); -->
         <div class="redeem-title">
           <h2 class="event-title">{{redemption.orgName}}</h2>
           <h3 class="organization">Pittsburgh, PA</p>
@@ -59,7 +58,7 @@
 </div>
 
 <div class="redeem-button-container">
-  <button class="redeem-button" a ui-sref="tabController.redeemDecoPass">Redeem Your Credits</button>
+  <button ng-click="redeemForVoucher()" class="redeem-button">Redeem Your Credits</button>
 </div>
 
 </div>

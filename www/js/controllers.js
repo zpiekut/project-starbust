@@ -38,16 +38,29 @@ function ($scope, $stateParams, $ionicUser, $ionicAuth, $state) {
     } 
 }])
 
-.controller('redeemFamilyFarmsCtrl', ['$scope', '$stateParams', 'RedemptionsService', // The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
+.controller('redeemFamilyFarmsCtrl', ['$scope', '$stateParams', '$state', 'RedemptionsService', 'MyLocalStorageService', // The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
 // You can include any angular dependencies as parameters for this function
 // TIP: Access Route Parameters for your page via $stateParams.parameterName
-function ($scope, $stateParams, RedemptionsService) {
+function ($scope, $stateParams, $state, RedemptionsService, MyLocalStorageService) {
   $scope.redemption = {};
+  $scope.userData = JSON.parse(MyLocalStorageService.loadUserInfo());
 
   RedemptionsService.getRedemption($stateParams.id).then(function(redemption) {
     $scope.redemption = redemption;
     console.log(redemption);
   });
+
+  $scope.redeemForVoucher = function() {
+    RedemptionsService.redeemForVoucher($scope.redemption.id, $scope.userData.id)
+    .then(function(response) {
+      if(response.status === 200) {
+        $state.go('tabController.redeemDecoPass')
+      }
+      else {
+        alert("error");
+      }
+    });
+  }
 
 }])
 
