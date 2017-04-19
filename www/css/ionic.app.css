@@ -11414,6 +11414,11 @@ a.button .icon:before, a.button.icon:before, a.button.icon-left:before, a.button
   width:100px;
 }
 
+.organization h3 {
+  position: relative;
+  bottom:20px;
+}
+
 .volunteer-address p {
   color:black;
   padding:0;
@@ -11457,18 +11462,19 @@ a.button .icon:before, a.button.icon:before, a.button.icon-left:before, a.button
 }
 
 .social-share {
-  padding-top:30px;
-  padding-bottom:30px;
+  padding-top:20px;
+  padding-bottom:20px;
   display:flex;
   justify-content: space-between;
+  border-radius: 2px;
 }
 
 .social-share img {
-  padding-left:1px;
-  padding-right:5px;
   height:15px;
-  width:auto;
+  padding-right: 5px;
   display:inline;
+  position: relative;
+  top: 1px;
 }
 
 .facebook-sharing {
@@ -11499,6 +11505,11 @@ a.button .icon:before, a.button.icon:before, a.button.icon-left:before, a.button
   margin: 0;
   text-align: center;
   text-transform: uppercase;
+}
+
+a.twitter-sharing, 
+a.facebook-sharing {
+  text-decoration: none;
 }
 
 #dump-buster-heading {
@@ -11561,7 +11572,7 @@ background-image: url(../img/soup-kitchen.jpeg)
 */  border-top-right-radius: 5px;
     border-bottom-right-radius: 5px;
     position:relative;
-    top:237px;
+    bottom:0;    
     text-align:left;
   }
   .green-container .vol-title {
