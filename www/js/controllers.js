@@ -38,10 +38,8 @@ function ($scope, $stateParams, $ionicUser, $ionicAuth, $state) {
     } 
 }])
 
-.controller('redeemFamilyFarmsCtrl', ['$scope', '$stateParams', '$state', 'RedemptionsService', 'MyLocalStorageService', // The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
-// You can include any angular dependencies as parameters for this function
-// TIP: Access Route Parameters for your page via $stateParams.parameterName
-function ($scope, $stateParams, $state, RedemptionsService, MyLocalStorageService) {
+.controller('redeemFamilyFarmsCtrl', ['$scope', '$rootScope','$stateParams', '$state', 'RedemptionsService', 'MyLocalStorageService',
+function ($scope, $rootScope, $stateParams, $state, RedemptionsService, MyLocalStorageService) {
   $scope.redemption = {};
   $scope.userData = JSON.parse(MyLocalStorageService.loadUserInfo());
 
@@ -54,7 +52,8 @@ function ($scope, $stateParams, $state, RedemptionsService, MyLocalStorageServic
     RedemptionsService.redeemForVoucher($scope.redemption.id, $scope.userData.id)
     .then(function(response) {
       if(response.status === 200) {
-        $state.go('tabController.redeemDecoPass')
+        $rootScope.$broadcast('event:redeemedForVoucher');
+        $state.go('tabController.voucher',{id: response.data.id})
       }
       else {
         alert("error");
@@ -76,11 +75,23 @@ function ($scope, $stateParams) {
 function ($scope, $stateParams) {
 }])
 
-.controller('walletCtrl', ['$scope', '$stateParams', // The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
-// You can include any angular dependencies as parameters for this function
-// TIP: Access Route Parameters for your page via $stateParams.parameterName
-function ($scope, $stateParams) {
+.controller('walletCtrl', ['$scope', '$rootScope', '$stateParams', 'VoucherService', 'MyLocalStorageService',
+function ($scope, $rootScope, $stateParams, VoucherService, MyLocalStorageService) {
+    $scope.vouchers = [];
+    $scope.userData = JSON.parse(MyLocalStorageService.loadUserInfo());
 
+    VoucherService.getUserVouchers($scope.userData.id).then(function(redemptions) {
+      $scope.vouchers = redemptions.data;
+      console.log(redemptions);
+    });
+
+    $rootScope.$on('event:redeemedForVoucher', function() {
+      console.log("broadcast redeemed for voucher");
+      VoucherService.getUserVouchers($scope.userData.id).then(function(redemptions) {
+        $scope.vouchers = redemptions.data;
+        console.log(redemptions);
+      });
+    });
 
 }])
 
@@ -168,7 +179,7 @@ function ($scope, $stateParams, $state, ProjectsService, MyLocalStorageService) 
     ProjectsService.addUserToProject(reqBody)
     .then(function(response) {
       if(response.status === 200) {
-        $state.go('tabController.volunteerDumpBusterThank')
+        $state.go('tabController.volunteerDumpBusterThank', {id: $scope.project.id})
       }
       else {
         alert("error");
@@ -201,11 +212,16 @@ function ($scope, $stateParams) {
 
 }])
 
-.controller('volunteerDumpBusterThankCtrl', ['$scope', '$stateParams', // The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
+.controller('volunteerDumpBusterThankCtrl', ['$scope', '$stateParams', 'ProjectsService', // The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
 // You can include any angular dependencies as parameters for this function
 // TIP: Access Route Parameters for your page via $stateParams.parameterName
-function ($scope, $stateParams) {
+function ($scope, $stateParams, ProjectsService) {
+  $scope.project = {};
 
+  ProjectsService.getProject($stateParams.id).then(function(project) {
+    $scope.project = project;
+    console.log(project);
+  });
 
 }])
 
@@ -225,29 +241,65 @@ function ($scope, $stateParams) {
 
 }])
 
-.controller('yourProfileCtrl', ['$scope', '$stateParams', '$ionicUser', '$ionicAuth', '$state', 'AuthenticationService', 'MyLocalStorageService', 'CreditsService',
-// The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
-// You can include any angular dependencies as parameters for this function
-// TIP: Access Route Parameters for your page via $stateParams.parameterName
-function ($scope, $stateParams, $ionicUser, $ionicAuth, $state, AuthenticationService, MyLocalStorageService, CreditsService) {
+.controller('yourProfileCtrl', ['$scope', '$stateParams', '$ionicUser', '$ionicAuth', '$state', 'AuthenticationService', 'MyLocalStorageService', 'CreditsService', 'ProjectsService',
+function ($scope, $stateParams, $ionicUser, $ionicAuth, $state, AuthenticationService, MyLocalStorageService, CreditsService, ProjectsService) {
 
   $scope.userData = JSON.parse(MyLocalStorageService.loadUserInfo());
+  $scope.credits = '-';
+  $scope.hours = '-';
+  $scope.projects = [];
 
   $scope.data = {
     'code' : ''
   };
 
-  $scope.credits = CreditsService.getCreditsForUser().length;
-  if(!$scope.credits) {$scope.credits = 0;}
+  activate();
 
   $scope.transferCreditsToUser = function () {
-    CreditsService.transferCreditsToUser($scope.data.code);
+    CreditsService.transferCreditsToUser($scope.data.code, $scope.userData.id);
   };
 
   $scope.logout = function(){
       AuthenticationService.logout();
       $state.go('tabController.home_tab5');
   }
+
+
+  function activate() {
+    
+    ProjectsService.getProjects();
+
+    CreditsService.getCreditsForUser($scope.userData.id)
+    .then(function(response) {
+      if(response.credits) {
+          $scope.credits = response.credits.length;
+      }
+      else {
+        console.log("error getting credits");
+      }
+    });
+
+    CreditsService.getTotalUserHours($scope.userData.id)
+    .then(function(response) {
+      if(response) {
+        $scope.hours = response.length;
+      }
+      else {
+        console.log("error getting user hours");
+      }
+    });
+
+    ProjectsService.getProjectsForUser($scope.userData.id)
+    .then(function(response) {
+      if(response) {
+        $scope.projects = response.data;
+      }
+      else {
+        console.log("error getting user projects");
+      }
+    });
+  }
+
 }])
 
 
@@ -380,11 +432,17 @@ function ($scope, $stateParams) {
 
 }])
 
-.controller('voucherCtrl', ['$scope', '$stateParams', // The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
-// You can include any angular dependencies as parameters for this function
-// TIP: Access Route Parameters for your page via $stateParams.parameterName
-function ($scope, $stateParams) {
+.controller('voucherCtrl', ['$scope', '$stateParams', 'VoucherService', 'MyLocalStorageService',
+function ($scope, $stateParams, VoucherService, MyLocalStorageService) {
+  $scope.voucher = {};
+  $scope.userData = JSON.parse(MyLocalStorageService.loadUserInfo());
 
+  VoucherService.getUserVouchers($scope.userData.id).then(function(redemptions) {
+    VoucherService.getVoucher($stateParams.id).then(function(voucher) {
+      $scope.voucher = voucher;
+      console.log(voucher);
+    });
+  });
 
 }])
 

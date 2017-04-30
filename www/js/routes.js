@@ -112,8 +112,8 @@ angular.module('app.routes', ['ionicUIRouter'])
     // url: '/page22',
     url: '/wallet',
     views: {
-      // 'tab3': {
-      'wallet-tab': {
+      // 'wallet-tab': {
+      'tab3': {
         templateUrl: 'templates/wallet.html',
         controller: 'walletCtrl'
       }
@@ -312,7 +312,7 @@ angular.module('app.routes', ['ionicUIRouter'])
   })
 
   .state('tabController.volunteerDumpBusterThank', {
-    url: '/page13',
+    url: '/page13:id',
     views: {
       'volinteer-tab': {
         templateUrl: 'templates/volunteerDumpBusterThank.html',
@@ -377,10 +377,18 @@ angular.module('app.routes', ['ionicUIRouter'])
     controller: 'loginCtrl'
   })
 
-  .state('voucher', {
-    url: '/voucher',
-    templateUrl: 'templates/voucher.html',
-    controller: 'voucherCtrl'
+  .state('tabController.voucher', {
+    url: '/voucher:id',
+    views: {
+      'tab3': {
+        templateUrl: 'templates/voucher.html',
+        controller: 'voucherCtrl'
+      },
+      'tab4': {
+        templateUrl: 'templates/voucher.html',
+        controller: 'voucherCtrl'
+      }
+    }
   })
 
   .state('jamesvoucher', {

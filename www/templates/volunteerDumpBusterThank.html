@@ -1,4 +1,4 @@
-<ion-view title="Volunteer  DumpBuster Thank" hide-nav-bar="true" id="page13">
+<ion-view title="Volunteer  DumpBuster Thank" hide-nav-bar="false" id="page13">
   <ion-content padding="false" scroll="false">
 
   <div class="volunteer-confirm">
@@ -8,13 +8,12 @@
   </div>
 
   <div class="volunteer-confirm-content">
-    <h2>Allegheny Cleanways</h2>
+    <h2>{{project.orgName}}</h2>
   </div>
 
   <div class="volunteer-confirm-content"> 
-    <h5>Millvale Community Library in Millvale, PA</h5>
-    <p>9AM - 3PM</p>
-    <p>213 Grant Ave, Millvale, PA 15209</p>
+    <h5>{{project.location}}</h5>
+    <p>{{project.time}}</p>
     <a class="small-orange-link" href="maps.google.com">View Map</a><br>
   </div>
 

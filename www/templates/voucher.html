@@ -1,4 +1,4 @@
-<ion-view title="Individual Voucher" hide-nav-bar="true" id="voucher">
+<ion-view title="Individual Voucher" hide-nav-bar="false" id="voucher">
   <ion-content padding="false" class=" manual-remove-top-padding">
      <main class="voucher-container">
         <div class="prize-details">
@@ -6,15 +6,15 @@
             <h4>Rock on! You just got yourself...</h4>
           </div>
           <div class="image-text">
-             <h2>Free cold brew (M)</h2>
-            <p class="bold">Big Dog Coffee</p>
-            <p>2717 Sarah St., Pittsburgh, PA 15203</p>
+             <h2>{{voucher.Redemption.offer}}</h2>
+            <p class="bold">{{voucher.Redemption.orgName}}</p>
+            <p>{{voucher.Redemption.location}}</p>
             <a class="bold upcase" href="#">View map</a>
           </div>
         </div>
         <div class="voucher-box">
           <p>When you're checking out, give this code to the cashier to claim your reward:</p>
-          <h1>80291</h1>
+          <h1>{{voucher.code}}</h1>
         </div>
         <p class="voucher-thanks">Thanks for your participation with InvolveMINT!</p>
      </main>

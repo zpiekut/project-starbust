@@ -1,35 +1,16 @@
 <ion-view title="Wallet" hide-nav-bar="false" id="page35" style="background-color:#000000;">
   <ion-content padding="false" class=" manual-remove-top-padding">
-
-
-     <div id="walletlist" class="walletlist">
-         <div class="wallet" id="bigdogvoucher">
-           <a>
-               <div class="green-container">
-                 <a href="#voucher">
-                   <h2 class="wallet-title">Free Cold Brew (M)</h2>
-                   <h2 class="wallet-subtitle">Big Dog Coffee</h2>
-                 </a>
-               </div>
-           </a>
-         </div>
-     </div>
-
-     <div id="walletlist" class="walletlist">
-         <div class="wallet" id="concert">
-           <a>
-             <div class="darkener">
-               <div class="green-container">
-                 <a href="#jamesvoucher">
-                   <h2 class="wallet-title">Free Concert</h2>
-                   <h2 class="wallet-subtitle">James Street Gastropub</h2>
-                 </a>
-               </div>
-             </div>
-           </a>
-         </div>
-     </div>
-
-
+    <div ng-repeat="voucher in vouchers">
+      <div id="walletlist" class="walletlist">
+        <a ui-sref="tabController.voucher({id:voucher.id})">
+          <div class="wallet" style='background-image: url("{{voucher.Redemption.image}}")'>   
+            <div class="green-container">
+              <h2 class="wallet-title">{{voucher.Redemption.title}}</h2>
+              <h2 class="wallet-subtitle">{{voucher.Redemption.orgName}}</h2>
+            </div>
+          </div>
+        </a>  
+     </div>      
+    </div>
   </ion-content>
 </ion-view>

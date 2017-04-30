@@ -120,16 +120,14 @@ angular.module('app.services', [])
         deferred.resolve();
         return deferred.promise;
 	    },
-      getProjectsForUser: function(){
-        var user = MyLocalStorageService.loadUserInfo();
-        var userProjects = $http.get('http://localhost:8081/api/projects/user/' + user.id)
+      getProjectsForUser: function(userId){
+        return $http.get('http://localhost:8081/api/projects/user/' + userId)
           .success(function (data, status, headers, config) {
-            for(var i = 0; i < data.length; i++){projects[i] = data[i]}
+            return data;
           })
           .error(function (data, status, headers, config) {
             console.log("error data: " + status);
           });
-        return projects;
       },
       addUserToProject: function(data) {
         return $http.post(
@@ -142,6 +140,7 @@ angular.module('app.services', [])
 
 .service('RedemptionsService', ['$http','$q', 'MyLocalStorageService', function($http, $q, MyLocalStorageService){
     var redemptions = [];
+    var userRedemptions = [];
 
     return {
       getRedemptions: function() {
@@ -189,6 +188,26 @@ angular.module('app.services', [])
             userId: UserId
           }
         )
+      },
+      getUserRedemptions: function(userId) {
+        console.log(MyLocalStorageService.loadToken());
+        var req = {
+          method: 'GET',
+          url: 'http://localhost:8081/api/redemptions/user/' + userId,
+          headers: {
+            Authorization:  MyLocalStorageService.loadToken()
+          }
+        };
+
+        return $http(req)
+        .success(function(data, status, headers, config) {
+          userRedemptions = data;
+          console.log(data);
+          return userRedemptions;
+        })
+        .error(function (r) {
+          console.log("error data: " + r);
+        });
       }
     }
 }])
@@ -198,18 +217,27 @@ angular.module('app.services', [])
   var user = MyLocalStorageService.loadUserInfo();
 
   return {
-    getCreditsForUser: function () {
-
-      return $http.get("http://localhost:8081/api/credits/user/" + user.id)
-        .then(function(response) {
-          credits = response.data;
-          return credits;
-        })
-
+    getCreditsForUser: function (userId) {
+      return $http.get("http://localhost:8081/api/credits/user/" + userId)
+      .then(function(response) {
+        credits = response.data;
+        return credits;
+      })
     },
-    transferCreditsToUser: function (code) {
-      return $http.put("http://localhost:8081/api/transactions/project-redeem/" + user.id,
-        {RedeemCode: code, ToId: MyLocalStorageService.loadUserInfo().id})
+    getTotalUserHours: function (userId) {
+      return $http.get("http://localhost:8081/api/transactions/to/" + userId)
+      .then(function(response) {
+        return response.data;
+      })
+    },
+    transferCreditsToUser: function (code, userId) {
+      console.log(userId);
+      return $http.post("http://localhost:8081/api/transactions/project-redeem",
+          {
+            RedeemCode: code, 
+            ToId: userId
+          }
+        )
         .success(function (data, status, headers, config) {
           console.log(data);
         })
@@ -228,4 +256,47 @@ angular.module('app.services', [])
         });
     }
   }
-}]);
+}])
+
+.service('VoucherService', ['$http','$q', 'MyLocalStorageService', function($http, $q, MyLocalStorageService){
+    var userVouchers = [];
+
+    return {
+      getUserVouchers: function(userId) {
+        var req = {
+          method: 'GET',
+          url: 'http://localhost:8081/api/voucher-code/user/' + userId,
+          headers: {
+            Authorization:  MyLocalStorageService.loadToken()
+          }
+        };
+
+        return $http(req)
+        .success(function(data, status, headers, config) {
+          userVouchers = data;
+          console.log(data);
+          return userVouchers;
+        })
+        .error(function (r) {
+          console.log("error data: " + r);
+        });
+      },
+      getVoucher: function(id){
+
+        console.log('id  ' + id);
+        var deferred = $q.defer();
+
+        userVouchers.forEach(function(voucher) {
+          console.log(voucher.id);
+          if(voucher.id == id) {
+            console.log("found " + voucher);
+            deferred.resolve(voucher);
+            return deferred.promise;
+          }
+        });
+
+        deferred.resolve();
+        return deferred.promise;
+      },
+    }
+}])

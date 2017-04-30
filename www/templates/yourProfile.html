@@ -18,21 +18,21 @@
           <p>CREDITS</p>
         </div>
         <div class="block-item">
-          <p>86</p>
+          <p>{{hours}}</p>
           <p>HOURS</p>
         </div>
         <div class="block-item">
-          <p>5</p>
+          <p>{{projects.length}}</p>
           <p>PAST PROJECTS</p>
         </div>
       </div>
       <div class="current-projects">
         <h4 class="bold">Your Current Projects:</h4>
-        <div class="project-box bold">
-          <h5 class="bold">  <a href="#">Community Garden Sage</a></h5>
-          <p class="upcase bold">Grow Pittsburgh</p>
-          <h5 class="bold"><a href="#">Bike Light Giveaway</a> </h5>
-          <p class="upcase bold">Bike PGH</p>
+        <div class="project-box bold" ng-repeat="project in projects">
+          <a ui-sref="tabController.volunteerLOL({id:project.id})">
+            <h5 class="bold">  {{project.title}}</h5>
+            <p class="upcase bold">{{project.orgName}}</p>
+          </a>
         </div>
       </div>
 
