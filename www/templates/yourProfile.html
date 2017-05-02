@@ -28,11 +28,16 @@
       </div>
       <div class="current-projects">
         <h4 class="bold">Your Current Projects:</h4>
-        <div class="project-box bold" ng-repeat="project in projects">
-          <a ui-sref="tabController.volunteerLOL({id:project.id})">
-            <h5 class="bold">  {{project.title}}</h5>
-            <p class="upcase bold">{{project.orgName}}</p>
-          </a>
+        <div class="case" ng-if="projects.length > 0">
+          <div class="project-box bold" ng-repeat="project in projects">
+            <a ui-sref="tabController.volunteerLOL({id:project.id})">
+              <h5 class="bold">  {{project.title}}</h5>
+              <p class="upcase bold">{{project.orgName}}</p>
+            </a>
+          </div>
+        </div>
+        <div class="case" ng-else>
+          <h4 class="text-center" style="color:black;">You have no current projects.</h4> 
         </div>
       </div>
 
