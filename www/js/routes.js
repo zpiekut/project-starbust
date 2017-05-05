@@ -415,6 +415,6 @@ angular.module('app.routes', ['ionicUIRouter'])
     controller: 'signUpCtrl'
   })
 
-$urlRouterProvider.otherwise('/tab/tab5/page20')
+$urlRouterProvider.otherwise('/profile/tab5')
 
 });
