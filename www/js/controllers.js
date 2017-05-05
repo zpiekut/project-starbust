@@ -157,10 +157,8 @@ function ($scope, $stateParams, ProjectsService) {
     });
 }])
 
-.controller('volunteerLOLCtrl', ['$scope', '$stateParams', '$state', 'ProjectsService', 'MyLocalStorageService', // The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
-// You can include any angular dependencies as parameters for this function
-// TIP: Access Route Parameters for your page via $stateParams.parameterName
-function ($scope, $stateParams, $state, ProjectsService, MyLocalStorageService) {
+.controller('volunteerLOLCtrl', ['$scope', '$stateParams', '$state', '$rootScope', 'ProjectsService', 'MyLocalStorageService',
+function ($scope, $stateParams, $state, $rootScope, ProjectsService, MyLocalStorageService) {
   
   $scope.userData = JSON.parse(MyLocalStorageService.loadUserInfo());
   $scope.project = {};
@@ -179,6 +177,7 @@ function ($scope, $stateParams, $state, ProjectsService, MyLocalStorageService) 
     ProjectsService.addUserToProject(reqBody)
     .then(function(response) {
       if(response.status === 200) {
+        $rootScope.$broadcast('event:signedUpForProject');
         $state.go('tabController.volunteerDumpBusterThank', {id: $scope.project.id})
       }
       else {
@@ -276,26 +275,7 @@ function ($scope, $stateParams, $ionicUser, $ionicAuth, $state, $rootScope, Auth
     });
   }
 
-  $rootScope.$on('event:redeemedForVoucher', function() {
-    getUserCredits();
-  });
-
-  function activate() {
-    
-    ProjectsService.getProjects();
-
-    getUserCredits();
-
-    CreditsService.getTotalUserHours($scope.userData.id)
-    .then(function(response) {
-      if(response) {
-        $scope.hours = response.length;
-      }
-      else {
-        console.log("error getting user hours");
-      }
-    });
-
+  function getUserProjects() {
     ProjectsService.getProjectsForUser($scope.userData.id)
     .then(function(response) {
       if(response) {
@@ -305,6 +285,37 @@ function ($scope, $stateParams, $ionicUser, $ionicAuth, $state, $rootScope, Auth
         console.log("error getting user projects");
       }
     });
+  }
+
+  function getTotalUserHours() {
+    CreditsService.getTotalUserHours($scope.userData.id)
+    .then(function(response) {
+      if(response) {
+        $scope.hours = response.length;
+      }
+      else {
+        console.log("error getting user hours");
+      }
+    });
+  }
+
+  $rootScope.$on('event:redeemedForVoucher', function() {
+    getUserCredits();
+  });
+
+  $rootScope.$on('event:signedUpForProject', function() {
+    getUserProjects();
+  });
+
+  function activate() {
+    
+    ProjectsService.getProjects();
+
+    getUserCredits();
+
+    getTotalUserHours();
+
+    getUserProjects();
   }
 
 }])
