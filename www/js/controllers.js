@@ -241,8 +241,8 @@ function ($scope, $stateParams) {
 
 }])
 
-.controller('yourProfileCtrl', ['$scope', '$stateParams', '$ionicUser', '$ionicAuth', '$state', 'AuthenticationService', 'MyLocalStorageService', 'CreditsService', 'ProjectsService',
-function ($scope, $stateParams, $ionicUser, $ionicAuth, $state, AuthenticationService, MyLocalStorageService, CreditsService, ProjectsService) {
+.controller('yourProfileCtrl', ['$scope', '$stateParams', '$ionicUser', '$ionicAuth', '$state', '$rootScope', 'AuthenticationService', 'MyLocalStorageService', 'CreditsService', 'ProjectsService',
+function ($scope, $stateParams, $ionicUser, $ionicAuth, $state, $rootScope, AuthenticationService, MyLocalStorageService, CreditsService, ProjectsService) {
 
   $scope.userData = JSON.parse(MyLocalStorageService.loadUserInfo());
   $scope.credits = '-';
@@ -264,11 +264,7 @@ function ($scope, $stateParams, $ionicUser, $ionicAuth, $state, AuthenticationSe
       $state.go('tabController.home_tab5');
   }
 
-
-  function activate() {
-    
-    ProjectsService.getProjects();
-
+  function getUserCredits() {
     CreditsService.getCreditsForUser($scope.userData.id)
     .then(function(response) {
       if(response.credits) {
@@ -278,6 +274,17 @@ function ($scope, $stateParams, $ionicUser, $ionicAuth, $state, AuthenticationSe
         console.log("error getting credits");
       }
     });
+  }
+
+  $rootScope.$on('event:redeemedForVoucher', function() {
+    getUserCredits();
+  });
+
+  function activate() {
+    
+    ProjectsService.getProjects();
+
+    getUserCredits();
 
     CreditsService.getTotalUserHours($scope.userData.id)
     .then(function(response) {
