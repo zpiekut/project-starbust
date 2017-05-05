@@ -42,16 +42,8 @@ angular.module('app.routes', ['ionicUIRouter'])
 
   .state('tabController.home', {
     url: '/page20',
-    views: {
-      'volinteer-tab': {
-        templateUrl: 'templates/home.html',
-        controller: 'homeCtrl'
-      },
-      'tab5': {
-        templateUrl: 'templates/home.html',
-        controller: 'homeCtrl'
-      }
-    }
+    templateUrl: 'templates/home.html',
+    controller: 'homeCtrl'
   })
 
   .state('tabController.redeemFamilyFarms', {
@@ -415,6 +407,12 @@ angular.module('app.routes', ['ionicUIRouter'])
     controller: 'signUpCtrl'
   })
 
-$urlRouterProvider.otherwise('/tab/tab5/page20')
+.state('home', {
+  url: '/homePage',
+  templateUrl: 'templates/home.html',
+  controller: 'homeCtrl'
+})
+
+$urlRouterProvider.otherwise('/homePage')
 
 });
