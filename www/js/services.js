@@ -46,6 +46,14 @@ angular.module('app.services', [])
         }) .error(function (data, status, headers, config) { 
         $rootScope.$broadcast('event:auth-signup-failed-field-reqs-not-met', status); 
       });
+    },
+    verifyLogin: function () {
+      return $http.get("http://localhost:8081/api/auth/verify")
+        .then(function(response) {
+          var verified = response.data;
+          console.log(response);
+          return verified.text;
+        })
     }
   }
 }])
@@ -234,7 +242,7 @@ angular.module('app.services', [])
       console.log(userId);
       return $http.post("http://localhost:8081/api/transactions/project-redeem",
           {
-            RedeemCode: code, 
+            RedeemCode: code,
             ToId: userId
           }
         )
