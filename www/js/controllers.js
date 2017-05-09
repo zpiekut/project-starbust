@@ -12,10 +12,10 @@ function ($scope, $stateParams, RedemptionsService) {
     });
 }])
 
-.controller('homeCtrl', ['$scope', '$stateParams', '$ionicUser', '$ionicAuth', '$state', // The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
+.controller('homeCtrl', ['$scope', '$stateParams', '$ionicUser', '$ionicAuth', '$state', 'MyLocalStorageService', // The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
 // You can include any angular dependencies as parameters for this function
 // TIP: Access Route Parameters for your page via $stateParams.parameterName
-function ($scope, $stateParams, $ionicUser, $ionicAuth, $state) {
+function ($scope, $stateParams, $ionicUser, $ionicAuth, $state, MyLocalStorageService) {
 
     $scope.data = {
         'email': '',
@@ -24,8 +24,8 @@ function ($scope, $stateParams, $ionicUser, $ionicAuth, $state) {
 
     $scope.error = '';
 
-    if ($ionicAuth.isAuthenticated()){
-       $state.go('tabController.yourProfile')
+    if(MyLocalStorageService.loadToken() != null){
+      $state.go('tabController.yourProfile_tab5');
     }
 
     $scope.login = function(){
