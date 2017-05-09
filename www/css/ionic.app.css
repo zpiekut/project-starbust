@@ -11862,8 +11862,6 @@ background-image: url(../img/soup-kitchen.jpeg)
 }
 
 .redeem-tables-container {
-  display:flex;
-  justify-content:space-between;
   padding-bottom:20px;
 }
 
@@ -11875,10 +11873,11 @@ background-image: url(../img/soup-kitchen.jpeg)
 
 .hours td, .rewards td {
   padding-right:6px;
+  padding-bottom:10px;
 }
 
 .hours th, .rewards th {
-  text-align: center;
+  text-align: left;
 }
 
 .redeem-button-container {

@@ -12,10 +12,10 @@ function ($scope, $stateParams, RedemptionsService) {
     });
 }])
 
-.controller('homeCtrl', ['$scope', '$stateParams', '$ionicUser', '$ionicAuth', '$state', 'MyLocalStorageService', // The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
+.controller('homeCtrl', ['$scope', '$stateParams', '$ionicUser', '$ionicAuth', '$state', 'MyLocalStorageService', 'AuthenticationService',// The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
 // You can include any angular dependencies as parameters for this function
 // TIP: Access Route Parameters for your page via $stateParams.parameterName
-function ($scope, $stateParams, $ionicUser, $ionicAuth, $state, MyLocalStorageService) {
+function ($scope, $stateParams, $ionicUser, $ionicAuth, $state, MyLocalStorageService, AuthenticationService) {
 
     $scope.data = {
         'email': '',
@@ -24,7 +24,11 @@ function ($scope, $stateParams, $ionicUser, $ionicAuth, $state, MyLocalStorageSe
 
     $scope.error = '';
 
-    if(MyLocalStorageService.loadToken() != null){
+    // if(MyLocalStorageService.loadToken() != null){
+    //   $state.go('tabController.yourProfile_tab5');
+    // }
+
+    if(AuthenticationService.verifyLogin() == "verified"){
       $state.go('tabController.yourProfile_tab5');
     }
 
@@ -35,7 +39,7 @@ function ($scope, $stateParams, $ionicUser, $ionicAuth, $state, MyLocalStorageSe
       }, function(){
           $scope.error = 'Error logging in.';
       })
-    } 
+    }
 }])
 
 .controller('redeemFamilyFarmsCtrl', ['$scope', '$rootScope','$stateParams', '$state', 'RedemptionsService', 'MyLocalStorageService',
@@ -159,7 +163,7 @@ function ($scope, $stateParams, ProjectsService) {
 
 .controller('volunteerLOLCtrl', ['$scope', '$stateParams', '$state', '$rootScope', 'ProjectsService', 'MyLocalStorageService',
 function ($scope, $stateParams, $state, $rootScope, ProjectsService, MyLocalStorageService) {
-  
+
   $scope.userData = JSON.parse(MyLocalStorageService.loadUserInfo());
   $scope.project = {};
 
@@ -308,7 +312,7 @@ function ($scope, $stateParams, $ionicUser, $ionicAuth, $state, $rootScope, Auth
   });
 
   function activate() {
-    
+
     ProjectsService.getProjects();
 
     getUserCredits();
