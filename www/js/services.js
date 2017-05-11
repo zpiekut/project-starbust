@@ -1,3 +1,5 @@
+var _baseUrl = "http://localhost:8081/";
+
 angular.module('app.services', [])
 
 .factory('BlankFactory', [function(){
@@ -10,7 +12,7 @@ angular.module('app.services', [])
   return {
     login: function (user) {
 
-      $http.post('http://localhost:8081/api/auth/login', { user: user }, { ignoreAuthModule: true })
+      $http.post(_baseUrl + 'api/auth/login', { user: user }, { ignoreAuthModule: true })
         .success(function (data, status, headers, config) {
           if(data.jwt) {
             $rootScope.$broadcast('event:auth-login-confirmed', status);
@@ -25,7 +27,7 @@ angular.module('app.services', [])
         });
     },
     logout: function () {
-      $http.post('https://localhost:8081/api/auth/logout', {}, { ignoreAuthModule: true })
+      $http.post(_baseUrl + 'api/auth/logout', {}, { ignoreAuthModule: true })
         .finally(function() {
           MyLocalStorageService.destroyToken();
           MyLocalStorageService.destroyUserInfo();
@@ -33,7 +35,7 @@ angular.module('app.services', [])
         });
     },
     signUp: function(user) {
-      $http.post('http://localhost:8081/api/users', user, { ignoreAuthModule: true }) 
+      $http.post(_baseUrl + 'api/users', user, { ignoreAuthModule: true }) 
         .success(function (data, status, headers, config) { 
           if(data.message == "Email already exists"){ 
             $rootScope.$broadcast('event:auth-signup-failed-email-already-exists', status); 
@@ -96,7 +98,7 @@ angular.module('app.services', [])
 
     return {
       getProjects: function() {
-        return $http.get("http://localhost:8081/api/projects")
+        return $http.get(_baseUrl + "api/projects")
         .then(function(response) {
           projects = response.data;
           console.log(response);
@@ -121,7 +123,7 @@ angular.module('app.services', [])
         return deferred.promise;
 	    },
       getProjectsForUser: function(userId){
-        return $http.get('http://localhost:8081/api/projects/user/' + userId)
+        return $http.get(_baseUrl + 'api/projects/user/' + userId)
           .success(function (data, status, headers, config) {
             return data;
           })
@@ -131,7 +133,7 @@ angular.module('app.services', [])
       },
       addUserToProject: function(data) {
         return $http.post(
-          "http://localhost:8081/api/projects/user",
+          _baseUrl + "api/projects/user",
           data
         )
       }
@@ -147,7 +149,7 @@ angular.module('app.services', [])
         console.log(MyLocalStorageService.loadToken());
         var req = {
           method: 'GET',
-          url: 'http://localhost:8081/api/redemptions',
+          url: _baseUrl + 'api/redemptions',
           headers: {
             Authorization:  MyLocalStorageService.loadToken()
           }
@@ -182,7 +184,7 @@ angular.module('app.services', [])
 	    },
       redeemForVoucher: function(RedemptionId, UserId){
         return $http.post(
-          "http://localhost:8081/api/redemptions/user",
+          _baseUrl + "api/redemptions/user",
           {
             redemptionId: RedemptionId,
             userId: UserId
@@ -193,7 +195,7 @@ angular.module('app.services', [])
         console.log(MyLocalStorageService.loadToken());
         var req = {
           method: 'GET',
-          url: 'http://localhost:8081/api/redemptions/user/' + userId,
+          url: _baseUrl + 'api/redemptions/user/' + userId,
           headers: {
             Authorization:  MyLocalStorageService.loadToken()
           }
@@ -218,21 +220,21 @@ angular.module('app.services', [])
 
   return {
     getCreditsForUser: function (userId) {
-      return $http.get("http://localhost:8081/api/credits/user/" + userId)
+      return $http.get(_baseUrl + 'api/credits/user/' + userId)
       .then(function(response) {
         credits = response.data;
         return credits;
       })
     },
     getTotalUserHours: function (userId) {
-      return $http.get("http://localhost:8081/api/transactions/to/" + userId)
+      return $http.get(_baseUrl + 'api/transactions/to/' + userId)
       .then(function(response) {
         return response.data;
       })
     },
     transferCreditsToUser: function (code, userId) {
       console.log(userId);
-      return $http.post("http://localhost:8081/api/transactions/project-redeem",
+      return $http.post(_baseUrl + 'api/transactions/project-redeem',
           {
             RedeemCode: code, 
             ToId: userId
@@ -246,7 +248,7 @@ angular.module('app.services', [])
         });
     },
     transferCreditsToBusiness: function (redemption, creditArray) {
-      return $http.put("http://localhost:8081/api/transactions/" + user.id,
+      return $http.put(_baseUrl + 'api/transactions/' + user.id,
         {FromId: MyLocalStorageService.loadUserInfo().id, ToId: redemption.id, CreditIds: creditArray})
         .success(function (data, status, headers, config) {
           console.log(data);
@@ -265,7 +267,7 @@ angular.module('app.services', [])
       getUserVouchers: function(userId) {
         var req = {
           method: 'GET',
-          url: 'http://localhost:8081/api/voucher-code/user/' + userId,
+          url: _baseUrl + 'api/voucher-code/user/' + userId,
           headers: {
             Authorization:  MyLocalStorageService.loadToken()
           }
