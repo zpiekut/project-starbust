@@ -308,5 +308,14 @@ angular.module('app.services', [])
         deferred.resolve();
         return deferred.promise;
       },
+      useVoucher: function (voucherId) {
+      return $http.put(_baseUrl + 'api/voucher-code/' + voucherId)
+        .success(function (data, status, headers, config) {
+          console.log(data);
+        })
+        .error(function (data, status, headers, config) {
+          console.log("error data: " + status);
+        });
+    }
     }
 }])

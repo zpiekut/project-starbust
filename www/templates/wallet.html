@@ -2,7 +2,7 @@
   <ion-content padding="false" class=" manual-remove-top-padding">
     <div ng-repeat="voucher in vouchers">
       <div id="walletlist" class="walletlist">
-        <a ui-sref="tabController.voucher({id:voucher.id})">
+        <a ui-sref="tabController.useVoucher({id:voucher.id})">
           <div class="wallet" style='background-image: url("{{voucher.Redemption.image}}")'>   
             <div class="green-container">
               <h2 class="wallet-title">{{voucher.Redemption.title}}</h2>

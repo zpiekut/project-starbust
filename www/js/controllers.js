@@ -97,6 +97,13 @@ function ($scope, $rootScope, $stateParams, VoucherService, MyLocalStorageServic
       });
     });
 
+    $rootScope.$on('event:voucherUsed', function() {
+      VoucherService.getUserVouchers($scope.userData.id).then(function(redemptions) {
+        $scope.vouchers = redemptions.data;
+        console.log(redemptions);
+      });
+    });
+
 }])
 
 .controller('redeemPhotoCtrl', ['$scope', '$stateParams', // The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
@@ -465,6 +472,33 @@ function ($scope, $stateParams, VoucherService, MyLocalStorageService) {
       console.log(voucher);
     });
   });
+
+}])
+
+.controller('useVoucherCtrl', ['$scope', '$rootScope', '$stateParams', '$state', 'VoucherService', 'MyLocalStorageService',
+function ($scope, $rootScope, $stateParams, $state, VoucherService, MyLocalStorageService) {
+  $scope.voucher = {};
+  $scope.userData = JSON.parse(MyLocalStorageService.loadUserInfo());
+
+  VoucherService.getUserVouchers($scope.userData.id).then(function(redemptions) {
+    VoucherService.getVoucher($stateParams.id).then(function(voucher) {
+      $scope.voucher = voucher;
+      console.log(voucher);
+    });
+  });
+
+  $scope.useVoucher = function() {
+    VoucherService.useVoucher($scope.voucher.id)
+    .then(function(response) {
+      if(response.status === 200) {
+        $rootScope.$broadcast('event:voucherUsed');
+        $state.go('tabController.wallet');
+      }
+      else {
+        alert("error");
+      }
+    });
+  }
 
 }])
 

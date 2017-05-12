@@ -383,6 +383,16 @@ angular.module('app.routes', ['ionicUIRouter'])
     }
   })
 
+  .state('tabController.useVoucher', {
+    url: '/useVoucher:id',
+    views: {
+      'tab3': {
+        templateUrl: 'templates/useVoucher.html',
+        controller: 'useVoucherCtrl'
+      }
+    }
+  })
+
   .state('jamesvoucher', {
     url: '/jamesvoucher',
     templateUrl: 'templates/jamesvoucher.html',

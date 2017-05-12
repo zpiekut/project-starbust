@@ -12524,7 +12524,7 @@ input.credit-input {
 }
 
 .voucher-thanks {
-   margin-top: 96.8px;
+   margin-top: 5em;
    font-size: 1.1em;
    text-align: center;
    color: #2c2c2c;
@@ -12546,5 +12546,10 @@ a.login-button.button.button-balanced.button-block.button-positive {
     width: 82%;
     /* margin-top: 411px; */
     margin: 420px auto 0px auto;
+}
+
+.voucher-button {
+  /*padding-left: 10em;*/
+  padding-top: 3em;
 }
 

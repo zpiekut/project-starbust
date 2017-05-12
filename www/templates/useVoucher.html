@@ -1,0 +1,25 @@
+<ion-view title="Individual Voucher" hide-nav-bar="false" id="voucher">
+  <ion-content padding="false" class=" manual-remove-top-padding">
+     <main class="voucher-container">
+        <div class="prize-details">
+          <div class="voucher-banner upcase">
+            <h4>Rock on! You just got yourself...</h4>
+          </div>
+          <div class="image-text">
+             <h2>{{voucher.Redemption.offer}}</h2>
+            <p class="bold">{{voucher.Redemption.orgName}}</p>
+            <p>{{voucher.Redemption.location}}</p>
+            <a class="bold upcase" href="#">View map</a>
+          </div>
+        </div>
+        <div class="voucher-box">
+          <p>When you're checking out, give this code to the cashier to claim your reward:</p>
+          <h1>{{voucher.code}}</h1>
+        </div>
+        <div class="voucher-button text-center">
+          <a ng-click="useVoucher()" class="button button-balanced">Volunteer</a>
+        </div>
+        <div class="voucher-thanks">Thanks for your participation with InvolveMINT!</div>
+     </main>
+  </ion-content>
+</ion-view>
