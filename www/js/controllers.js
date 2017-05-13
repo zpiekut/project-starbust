@@ -24,13 +24,13 @@ function ($scope, $stateParams, $ionicUser, $ionicAuth, $state, MyLocalStorageSe
 
     $scope.error = '';
 
-    // if(MyLocalStorageService.loadToken() != null){
-    //   $state.go('tabController.yourProfile_tab5');
-    // }
-
-    if(AuthenticationService.verifyLogin() == "verified"){
+    if(MyLocalStorageService.loadToken() != null){
       $state.go('tabController.yourProfile_tab5');
     }
+
+    // if(AuthenticationService.verifyLogin() == "verified"){
+    //   $state.go('tabController.yourProfile_tab5');
+    // }
 
     $scope.login = function(){
       $scope.error = '';
