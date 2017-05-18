@@ -1,5 +1,9 @@
 {
   "name": "involveMINT-client",
   "app_id": "",
-  "gulpStartupTasks": ["sass", "watch"]
+  "gulpStartupTasks": [
+    "sass",
+    "watch"
+  ],
+  "type": "ionic1"
 }
